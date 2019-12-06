@@ -19,7 +19,7 @@ public class HeartController {
 		String countryInput = "BWA";
 		int yearInput = 2003;
 		String testUrl = "http://apps.who.int/gho/athena/api/COUNTRY?format=json";
-//		PeopleResults response = rt.getForObject("http://apps.who.int/gho/athena/api/GHO/WHOSIS_000001.json?profile=simple&Year="+yearInput+"&COUNTRY="+countryInput, PeopleResults.class);
+		PeopleResults response = rt.getForObject("http://apps.who.int/gho/athena/api/GHO/WHOSIS_000001?profile=simple&filter=Year:"+yearInput+";&COUNTRY:"+countryInput+";&format=json", PeopleResults.class);
 		int year = response.getPeopleArray().get(0).getpDetails().getYear();
 		System.out.println(year);
 		String output = "";
