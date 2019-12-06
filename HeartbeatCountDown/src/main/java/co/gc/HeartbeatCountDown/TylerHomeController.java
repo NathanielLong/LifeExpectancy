@@ -10,7 +10,7 @@ public class TylerHomeController {
 
 	RestTemplate rt = new RestTemplate();
 
-	@RequestMapping("/")
+//	@RequestMapping("/")
 	public ModelAndView home() {
 
 		String response = rt.getForObject("http://apps.who.int/gho/athena/api/GHO/WHOSIS_000001?filter=COUNTRY:BWA;Year:2003", String.class);
