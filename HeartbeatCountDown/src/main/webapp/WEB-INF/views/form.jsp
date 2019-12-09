@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>formpage</title>
 <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/united/bootstrap.min.css" rel="stylesheet" integrity="sha384-WTtvlZJeRyCiKUtbQ88X1x9uHmKi0eHCbQ8irbzqSLkE0DpAZuixT5yFvgX0CjIu" crossorigin="anonymous">
 </head>
 <body>
@@ -19,6 +19,18 @@ Do you smoke? y/n:<input type ="text" name = "smoke"></input>
 Enter your gender :<input type ="text" name = "gender"></input>
 <br>
 Enter the country you live in:<input type ="text" name = "country"></input>
+<br>
+Alcohol consumption:<input type ="text" name = "country"></input>
+<br>
+Education:<input type ="text" name = "country"></input>
+<br>
+Ethnicity:<input type ="text" name = "country"></input>
+<br>
+Income:<input type ="text" name = "country"></input>
+<br>
+Family Medical History:<input type ="text" name = "country"></input>
+<br>
+Diseases/Mental illness:<input type ="text" name = "country"></input>
 <br>
 <input type="submit" Value="Calculate." class = "btn btn-primary"></input>
 </form>
