@@ -21,18 +21,18 @@ public class CountryController {
 	
 	RestTemplate rt = new RestTemplate();
 	
-	@RequestMapping("/")
-	public ModelAndView createTables()
-	{
-		String testUrl = "http://apps.who.int/gho/athena/api/COUNTRY?format=json";
-		ArrayList<Country> countryList =rt.getForObject(testUrl, CountryResults.class).getDimension().get(0).getCode();		
-		for(Country c: countryList)
-		{
-			cRepo.save(c);
-			
-		}
-		
-		return new ModelAndView("index");
-	}
+//	@RequestMapping("/")
+//	public ModelAndView createTables()
+//	{
+//		String testUrl = "http://apps.who.int/gho/athena/api/COUNTRY?format=json";
+//		ArrayList<Country> countryList =rt.getForObject(testUrl, CountryResults.class).getDimension().get(0).getCode();		
+//		for(Country c: countryList)
+//		{
+//			cRepo.save(c);
+//			
+//		}
+//		
+//		return new ModelAndView("index");
+//	}
 	
 }

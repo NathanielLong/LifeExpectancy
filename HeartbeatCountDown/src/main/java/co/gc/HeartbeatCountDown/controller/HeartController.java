@@ -31,14 +31,14 @@ public class HeartController {
 		}
 		return new ModelAndView("index", "toString", output);
 		
-	}
-	@RequestMapping("start-form")
-	public ModelAndView creatForm(String name)
-	{
-		
-		return new ModelAndView("form","name", name);
-	}
-	
+}
+//	@RequestMapping("start-form")
+//	public ModelAndView creatForm(String name)
+//	{
+//		
+//		return new ModelAndView("form","name", name);
+//	}
+//	
 	@RequestMapping("results-page")
 	public ModelAndView heartCountdown(int dob, String smoke, String gender, String country)
 	{

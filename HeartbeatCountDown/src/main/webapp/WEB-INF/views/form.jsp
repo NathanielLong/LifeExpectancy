@@ -1,17 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>formpage</title>
-<link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/united/bootstrap.min.css" rel="stylesheet" integrity="sha384-WTtvlZJeRyCiKUtbQ88X1x9uHmKi0eHCbQ8irbzqSLkE0DpAZuixT5yFvgX0CjIu" crossorigin="anonymous">
+<link
+	href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/simplex/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-cRAmF0wErT4D9dEBc36qB6pVu+KmLh516IoGWD/Gfm6FicBbyDuHgS4jmkQB8u1a"
+	crossorigin="anonymous">
 </head>
 <body>
-${name }
-
-form<form action="results-page">
+	${ formtype }
+	<!-- form<form action="results-page">
 Enter your date of birth:<input type ="number" name = "dob"></input>
 <br>
 Do you smoke? y/n:<input type ="text" name = "smoke"></input>
@@ -33,6 +36,6 @@ Family Medical History:<input type ="text" name = "country"></input>
 Diseases/Mental illness:<input type ="text" name = "country"></input>
 <br>
 <input type="submit" Value="Calculate." class = "btn btn-primary"></input>
-</form>
+</form> -->
 </body>
 </html>
