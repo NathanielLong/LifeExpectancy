@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -14,14 +14,15 @@
 </head>
 <body>
 
-  <div class="form-group">
-    <select class="custom-select">
-<c:forEach var="c" items="${ countries }"> 
-      <option value="${c.getLabel()}" name="pickles">${c.getDisplay()}</option>
-</c:forEach>
-
-    </select>
-  </div>
+	<form action="/bmi">
+		<div class="form-group">
+			<select class="custom-select">
+				<c:forEach var="c" items="${ countries }">
+					<option value="${c.getLabel()}" name="pickles">${c.getDisplay()}</option>
+				</c:forEach>
+			</select> <input type="submit" Value="Enter." class="btnbtn-primary"></input>
+		</div>
+	</form>
 
 
 

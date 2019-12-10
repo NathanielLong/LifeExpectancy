@@ -45,46 +45,45 @@ public class FormController {
 		return new ModelAndView("country", "countries", boogaloo);
 	}
 
-	@RequestMapping("start-form/alcohol")
+	@RequestMapping("/alcohol")
 	public ModelAndView alcohol(String country) {
-
-		String alcoholString = "<form action=\"education\"> Name: <input type = \"text\" name = \"name\"></input> <input type=\"submit\" Value=\"Begin.\" class = \"btn btn-primary\"></input> </form>";
-		return new ModelAndView("form", "formtype", alcoholString);
+		return new ModelAndView("alcohol");
 	}
 
-	@RequestMapping("start-form/education")
-	public ModelAndView education(String alc) {
+//	@RequestMapping("/education")
+//	public ModelAndView education(String alc) {
+//
+//		String educationString = "<form action=\"/ethnicity\"> Name: <input type = \"text\" name = \"name\"></input> <input type=\"submit\" Value=\"Begin.\" class = \"btn btn-primary\"></input> </form>";
+//		return new ModelAndView("form", "formtype", educationString);
+//	}
 
-		String educationString = "<form action=\"/ethnicity\"> Name: <input type = \"text\" name = \"name\"></input> <input type=\"submit\" Value=\"Begin.\" class = \"btn btn-primary\"></input> </form>";
-		return new ModelAndView("form", "formtype", educationString);
-	}
-
-	@RequestMapping("start-form/ethnicity")
+	@RequestMapping("/ethnicity")
 	public ModelAndView ethnicity(String edu) {
-
-		String ethnicityString = "<form action=\"/income\"> Name: <input type = \"text\" name = \"name\"></input> <input type=\"submit\" Value=\"Begin.\" class = \"btn btn-primary\"></input> </form>";
-		return new ModelAndView("form", "formtype", ethnicityString);
+		return new ModelAndView("ethnicity");
 	}
 
-	@RequestMapping("start-form/income")
+	@RequestMapping("/income")
 	public ModelAndView income(String eth) {
-
-		String incomeString = "<form action=\"/fmh\"> Name: <input type = \"text\" name = \"name\"></input> <input type=\"submit\" Value=\"Begin.\" class = \"btn btn-primary\"></input> </form>";
-		return new ModelAndView("form", "formtype", incomeString);
+		return new ModelAndView("income");
 	}
 
-	@RequestMapping("start-form/fmh")
-	public ModelAndView familyMedicalHistory(String inc) {
-
-		String fmhString = "<form action=\"/illness\"> Name: <input type = \"text\" name = \"name\"></input> <input type=\"submit\" Value=\"Begin.\" class = \"btn btn-primary\"></input> </form>";
-		return new ModelAndView("form", "formtype", fmhString);
-	}
-
-	@RequestMapping("start-form/illness")
-	public ModelAndView currentIllness(String fmh) {
-
-		String currentillnessString = "<form action=\"/results\"> Name: <input type = \"text\" name = \"name\"></input> <input type=\"submit\" Value=\"Begin.\" class = \"btn btn-primary\"></input> </form>";
-		return new ModelAndView("form", "formtype", currentillnessString);
+//	@RequestMapping("start-form/fmh")
+//	public ModelAndView familyMedicalHistory(String inc) {
+//
+//		String fmhString = "<form action=\"/illness\"> Name: <input type = \"text\" name = \"name\"></input> <input type=\"submit\" Value=\"Begin.\" class = \"btn btn-primary\"></input> </form>";
+//		return new ModelAndView("form", "formtype", fmhString);
+//	}
+//
+//	@RequestMapping("start-form/illness")
+//	public ModelAndView currentIllness(String fmh) {
+//
+//		String currentillnessString = "<form action=\"/results\"> Name: <input type = \"text\" name = \"name\"></input> <input type=\"submit\" Value=\"Begin.\" class = \"btn btn-primary\"></input> </form>";
+//		return new ModelAndView("form", "formtype", currentillnessString);
+//	}
+//	
+	@RequestMapping("/bmi")
+	public ModelAndView bmi(String bmi) {
+		return new ModelAndView("bmi");
 	}
 	// gotta ad ill to database
 }
