@@ -37,5 +37,6 @@ Diseases/Mental illness:<input type ="text" name = "country"></input>
 <br>
 <input type="submit" Value="Calculate." class = "btn btn-primary"></input>
 </form> -->
+<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
