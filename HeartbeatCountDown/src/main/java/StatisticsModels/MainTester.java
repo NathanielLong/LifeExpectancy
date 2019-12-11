@@ -11,7 +11,7 @@ public class MainTester {
 		//int totalBeats = StatisticsModels.bmiBeatsReduced(69, 190, 'm');
 				
 		//System.out.println(totalBeats);
-		
+
 	}
 
 }
