@@ -13,10 +13,14 @@ import org.springframework.web.servlet.ModelAndView;
 import co.gc.HeartbeatCountDown.CountryRepo.CountryRepo;
 import co.gc.HeartbeatCountDown.countriesmodel.Country;
 import co.gc.HeartbeatCountDown.model.User;
+import co.gc.HeartbeatCountDown.repo.UserRepo;
 
 @Controller
 public class FormController {
 
+	@Autowired
+	UserRepo uRepo;
+	
 	@Autowired
 	HttpSession session;
 	
@@ -25,7 +29,7 @@ public class FormController {
 	
 	User user = new User();
 	
-	@RequestMapping("/")
+//	@RequestMapping("/")
 	public ModelAndView userName() {
 		return new ModelAndView("index");
 	}
@@ -108,7 +112,12 @@ public class FormController {
 		User user = (User)(session.getAttribute("user"));
 		user.setEthnicity(ethnicity);
 		session.setAttribute("user", user);
+<<<<<<< HEAD
 		System.out.println(user.getAlcohol() + " " + user.getCountry() + " " + user.getDob() + " " + user.getStillSmokin() + user.getSmoke() + user.getNumber() + user.getYears() + " " + user.getEthnicity() + " " + user.getGender() + " " + user.getSmoke() + " " + user.getUserName() + " ");
+=======
+		System.out.println(user.getAlcohol() + " " + user.getCountry() + " " + user.getDob() + " " + user.getEducation() + " " + user.getEthnicity() + " " + user.getGender() + " " + user.getSmoke() + " " + user.getUserName() + " ");
+		uRepo.save(user);
+>>>>>>> 136d1ad8ae6b64fdb9c42213cf2bff25b900410a
 		return new ModelAndView("results");
 	}
 
