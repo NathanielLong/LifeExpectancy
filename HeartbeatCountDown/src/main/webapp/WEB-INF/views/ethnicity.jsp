@@ -23,6 +23,7 @@
 				<option value="Native-American">Native-American</option>
 				<option value="African-American">African-American</option>
 			</select>
+			<input type="submit" Value="Enter." class="btnbtn-primary"></input>
 		</div>
 	</form>
 
