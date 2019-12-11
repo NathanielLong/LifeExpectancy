@@ -14,10 +14,10 @@
 </head>
 <body>
 
-	<form action="/smoke">
-		Date: <input type="text" name="dateOfBirth"></input> <input
-			type="submit" Value="Enter." class="btnbtn-primary"></input>
-	</form>
+<form action="/smoke">
+  Date of birth: <input type="date" name="borned">
+  <input type="submit">
+</form>
 
 </body>
 </html>

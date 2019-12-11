@@ -30,8 +30,11 @@
 				</select>
 			</div>
 			<br> For how many years have you smoked: <input type='number'
-				id='years' name='years' value="1">
+				id='years' name='years' value="1"><br>
+		<input type="checkbox" name="stillsmokin" value="continue">I am still a smoker
 		</div>
+		
+		
 	</form>
 
 
