@@ -68,14 +68,38 @@ public class FormController {
 	}
 
 	@RequestMapping("/alcohol")
-	public ModelAndView alcohol(String pickles) {
-		User user = (User)(session.getAttribute("user"));
-		user.setCountry(pickles);
+	public ModelAndView alcohol(String country) {
+		user = (User)(session.getAttribute("user"));
+		user.setCountry(country);
 		session.setAttribute("user", user);
 		
 		return new ModelAndView("alcohol");
 	}
 
+	@RequestMapping("/bmi")
+	public ModelAndView bmi(String alcohol) {
+		return new ModelAndView("bmi");
+	}
+	@RequestMapping("/income")
+	public ModelAndView income(int height, int weight) {
+		return new ModelAndView("income");
+	}
+	
+	
+	@RequestMapping("/ethnicity")
+	public ModelAndView ethnicity(int income) {
+		User user = (User)(session.getAttribute("user"));
+//		user.setIncome(income);
+		session.setAttribute("user", user);
+		System.out.println(user.getAlcohol() + " " + user.getCountry() + " " + user.getEducation() + " " + user.getEthnicity() + " " + user.getGender() + " " + user.getSmoke() + " " + user.getUserName() + " ");
+		return new ModelAndView("results");
+		
+	}
+	
+	
+	
+	
+	
 //	@RequestMapping("/education")
 //	public ModelAndView education(String alc) {
 //
@@ -83,21 +107,7 @@ public class FormController {
 //		return new ModelAndView("form", "formtype", educationString);
 //	}
 
-//	@RequestMapping("/ethnicity")
-	@RequestMapping("/bmi")
-	public ModelAndView ethnicity(String yesno) {
-		User user = (User)(session.getAttribute("user"));
-		user.setAlcohol(yesno);
-		session.setAttribute("user", user);
-		System.out.println(user.getAlcohol() + " " + user.getCountry() + " " + user.getEducation() + " " + user.getEthnicity() + " " + user.getGender() + " " + user.getSmoke() + " " + user.getUserName() + " ");
-		return new ModelAndView("ethnicity");
 
-	}
-
-	@RequestMapping("/income")
-	public ModelAndView income(String eth) {
-		return new ModelAndView("income");
-	}
 
 //	@RequestMapping("/ethnicity")
 //	public ModelAndView ethnicity(String edu) {
@@ -125,10 +135,6 @@ public class FormController {
 //		return new ModelAndView("form", "formtype", currentillnessString);
 //	}
 //	
-//	@RequestMapping("/bmi")
-	public ModelAndView bmi(String bmi) {
-		return new ModelAndView("bmi");
-	}
 
 	// gotta ad ill to database
 }
