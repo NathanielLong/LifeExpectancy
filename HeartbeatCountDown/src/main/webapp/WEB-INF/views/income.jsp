@@ -17,11 +17,11 @@
 	<form action="/ethnicity">
 		<div class="form-group">
 			What is your current income? <select class="custom-select">
-				<option value="1">25,000 or lower</option>
-				<option value="2">25,001 - 47,500</option>
-				<option value="3">47,501 - 77, 500</option>
-				<option value="4">77,501 - 127,000</option>
-				<option value="5">127,001 or higher</option>
+				<option value="25,000">25,000 or lower</option>
+				<option value="47,500">25,001 - 47,500</option>
+				<option value="77,500">47,501 - 77, 500</option>
+				<option value="127,000">77,501 - 127,000</option>
+				<option value="10000000">127,001 or higher</option>
 			</select> <input type="submit" Value="Enter." class="btnbtn-primary"></input>
 		</div>
 	</form>

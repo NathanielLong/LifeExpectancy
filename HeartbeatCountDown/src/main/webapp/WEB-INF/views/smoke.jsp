@@ -23,9 +23,9 @@
 			<div class="form-group">
 				How often do you smoke? <select class="custom-select">
 					<option value="1">A cig a day</option>
-					<option value="2">1/4 a pack</option>
-					<option value="3">1/2 a pack</option>
-					<option value="4">Pack a day and above</option>
+					<option value="5">1/4 a pack</option>
+					<option value="10">1/2 a pack</option>
+					<option value="20">Pack a day and above</option>
 				</select>
 			</div>
 			<br> For how many years have you smoked: <input type='number'

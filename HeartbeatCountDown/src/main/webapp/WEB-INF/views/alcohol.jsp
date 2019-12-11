@@ -23,10 +23,9 @@
 		<div id="ifYes" style="visibility: hidden">
 			<div class="form-group">
 				? <select class="custom-select">
-					<option value="1">A drink before bed</option>
-					<option value="2">Every now and again</option>
-					<option value="3">Bars are my second home</option>
-					<option value="4">*gurgle gurgle*</option>
+					<option value="low">A drink before bed</option>
+					<option value="medium">Every now and again</option>
+					<option value="high">Bars are my second home</option>
 				</select>
 			</div>
 		</div>
