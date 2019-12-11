@@ -14,7 +14,7 @@
 </head>
 <body>
 
-	<form action="">
+	<form action="/bmi">
 		Do you drink alcohol? Yes <input type="radio"
 			onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck">
 		No <input type="radio" onclick="javascript:yesnoCheck();" name="yesno"
@@ -30,6 +30,7 @@
 				</select>
 			</div>
 		</div>
+		</form>
 
 
 		<script type="text/javascript">

@@ -15,7 +15,7 @@ public class FormController {
 
 	@Autowired
 	CountryRepo cRepo;
-	
+
 	@RequestMapping("/")
 	public ModelAndView userName() {
 		return new ModelAndView("index");
@@ -50,22 +50,27 @@ public class FormController {
 		return new ModelAndView("alcohol");
 	}
 
-//	@RequestMapping("/education")
-//	public ModelAndView education(String alc) {
-//
-//		String educationString = "<form action=\"/ethnicity\"> Name: <input type = \"text\" name = \"name\"></input> <input type=\"submit\" Value=\"Begin.\" class = \"btn btn-primary\"></input> </form>";
-//		return new ModelAndView("form", "formtype", educationString);
-//	}
-
-	@RequestMapping("/ethnicity")
-	public ModelAndView ethnicity(String edu) {
-		return new ModelAndView("ethnicity");
+	@RequestMapping("/bmi")
+	public ModelAndView bmi(String bmi) {
+		return new ModelAndView("bmi");
 	}
 
 	@RequestMapping("/income")
 	public ModelAndView income(String eth) {
 		return new ModelAndView("income");
 	}
+
+	@RequestMapping("/ethnicity")
+	public ModelAndView ethnicity(String edu) {
+		return new ModelAndView("ethnicity");
+	}
+
+//	@RequestMapping("/education")
+//	public ModelAndView education(String alc) {
+//
+//		String educationString = "<form action=\"/ethnicity\"> Name: <input type = \"text\" name = \"name\"></input> <input type=\"submit\" Value=\"Begin.\" class = \"btn btn-primary\"></input> </form>";
+//		return new ModelAndView("form", "formtype", educationString);
+//	}
 
 //	@RequestMapping("start-form/fmh")
 //	public ModelAndView familyMedicalHistory(String inc) {
@@ -81,9 +86,5 @@ public class FormController {
 //		return new ModelAndView("form", "formtype", currentillnessString);
 //	}
 //	
-	@RequestMapping("/bmi")
-	public ModelAndView bmi(String bmi) {
-		return new ModelAndView("bmi");
-	}
 	// gotta ad ill to database
 }
