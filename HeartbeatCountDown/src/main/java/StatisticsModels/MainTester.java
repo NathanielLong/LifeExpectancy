@@ -8,10 +8,8 @@ public class MainTester {
 		
 		//This is to test if the beats reduced by smoking method from StatisticsModels class works
 		
-		int totalBeats = StatisticsModels.smokingBeatsReduced(10, 6.0) + StatisticsModels.alcoholBeatsReduced("medium") + 
-				StatisticsModels.bmiBeatsReduced(56, 200, 'm') + StatisticsModels.educationBeatsReduced("Bachelors", 'm') +
-				StatisticsModels.ethnicityBeatsLost("White") + StatisticsModels.incomeBeatsLost(30000, 'm');
-		
+		int totalBeats = StatisticsModels.bmiBeatsReduced(69, 190, 'm');
+				
 		System.out.println(totalBeats);
 		
 	}
