@@ -1,5 +1,6 @@
 package co.gc.HeartbeatCountDown.controller;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpSession;
@@ -39,18 +40,19 @@ public class FormController {
 	}
 
 	@RequestMapping("/smoke")
-	public ModelAndView smoke(String dateOfBirth) {
+	public ModelAndView smoke(String borned) {
+		LocalDate date = LocalDate.parse(borned);
 		User user = (User)(session.getAttribute("user"));
-		System.out.println(user.getUserName());
-		user.setDob(null);
+		user.setDob(date);
 		session.setAttribute("user", user);
 		return new ModelAndView("smoke");
 	}
 
 	@RequestMapping("/gender")
-	public ModelAndView gender(String yesno) {
+	public ModelAndView gender(int amount, int years) {
 		user = (User)(session.getAttribute("user"));
-		user.setSmoke(yesno);
+//		StatisticsModels.StatisticsModels.smokingBeatsReduced(amount, years);
+		
 		session.setAttribute("user", user);
 		
 		return new ModelAndView("gender");
@@ -84,6 +86,7 @@ public class FormController {
 	}
 	@RequestMapping("/income")
 	public ModelAndView income(int height, int weight) {
+		
 		return new ModelAndView("income");
 	}
 	
@@ -93,7 +96,6 @@ public class FormController {
 		User user = (User)(session.getAttribute("user"));
 		user.setIncome(income);
 		session.setAttribute("user", user);
-		System.out.println(user.getAlcohol() + " " + user.getCountry() + " " + user.getEducation() + " " + user.getEthnicity() + " " + user.getGender() + " " + user.getSmoke() + " " + user.getUserName() + " ");
 		return new ModelAndView("ethnicity");
 		
 	}
@@ -106,7 +108,7 @@ public class FormController {
 		User user = (User)(session.getAttribute("user"));
 		user.setEthnicity(ethnicity);
 		session.setAttribute("user", user);
-		System.out.println(user.getAlcohol() + " " + user.getCountry() + " " + user.getEducation() + " " + user.getEthnicity() + " " + user.getGender() + " " + user.getSmoke() + " " + user.getUserName() + " ");
+		System.out.println(user.getAlcohol() + " " + user.getCountry() + " " + user.getDob() + " " + user.getEducation() + " " + user.getEthnicity() + " " + user.getGender() + " " + user.getSmoke() + " " + user.getUserName() + " ");
 		return new ModelAndView("results");
 	}
 
