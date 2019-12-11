@@ -15,8 +15,8 @@
 <body>
 	<form action="/gender">
 		Do you smoke? Yes <input type="radio"
-			onclick="javascript:yesnoCheck();" name="smokeyes" id="yesCheck">
-		No <input type="radio" onclick="javascript:yesnoCheck();" name="smokeno"
+			onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck">
+		No <input type="radio" onclick="javascript:yesnoCheck();" name="yesno"
 			id="noCheck"> <input type="submit" Value="Enter."
 			class="btnbtn-primary"></input> <br>
 		<div id="ifYes" style="visibility: hidden">

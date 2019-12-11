@@ -52,9 +52,11 @@ public class FormController {
 		user = (User)(session.getAttribute("user"));
 		user.setSmoke(yesno);
 		session.setAttribute("user", user);
+		
 		return new ModelAndView("gender");
 	}
 
+	
 	@RequestMapping("/country")
 	public ModelAndView country(String gender) {
 		
@@ -77,7 +79,7 @@ public class FormController {
 	}
 
 	@RequestMapping("/bmi")
-	public ModelAndView bmi(String alcohol) {
+	public ModelAndView bmi(String yesno) {
 		return new ModelAndView("bmi");
 	}
 	@RequestMapping("/income")
@@ -89,7 +91,7 @@ public class FormController {
 	@RequestMapping("/ethnicity")
 	public ModelAndView ethnicity(int income) {
 		User user = (User)(session.getAttribute("user"));
-//		user.setIncome(income);
+		user.setIncome(income);
 		session.setAttribute("user", user);
 		System.out.println(user.getAlcohol() + " " + user.getCountry() + " " + user.getEducation() + " " + user.getEthnicity() + " " + user.getGender() + " " + user.getSmoke() + " " + user.getUserName() + " ");
 		return new ModelAndView("results");
