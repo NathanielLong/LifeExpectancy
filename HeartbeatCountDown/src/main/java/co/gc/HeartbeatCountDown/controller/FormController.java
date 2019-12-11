@@ -94,16 +94,27 @@ public class FormController {
 		user.setIncome(income);
 		session.setAttribute("user", user);
 		System.out.println(user.getAlcohol() + " " + user.getCountry() + " " + user.getEducation() + " " + user.getEthnicity() + " " + user.getGender() + " " + user.getSmoke() + " " + user.getUserName() + " ");
-		return new ModelAndView("results");
+		return new ModelAndView("ethnicity");
 		
 	}
+	
+
+	
+
+	@RequestMapping("/results")
+	public ModelAndView goToResults(String ethnicity) {
+		User user = (User)(session.getAttribute("user"));
+		user.setEthnicity(ethnicity);
+		session.setAttribute("user", user);
+		System.out.println(user.getAlcohol() + " " + user.getCountry() + " " + user.getEducation() + " " + user.getEthnicity() + " " + user.getGender() + " " + user.getSmoke() + " " + user.getUserName() + " ");
+		return new ModelAndView("results");
+	}
+
 	
 	@RequestMapping("/scrooge")
 	public ModelAndView scrooge() {
 		return new ModelAndView("scrooge");
 	}
-	
-	
 	
 	
 	
