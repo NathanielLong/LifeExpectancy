@@ -1,10 +1,9 @@
 package StatisticsModels;
 
 public class StatisticsModels {
-	
+
 	public static int heartbeatsPerYear = 39420000;
-	
-	
+
 	public static int smokingBeatsReduced(int cigarettesPerDay, double yearsSmoked) {
 		// This calculates how many beats are reduced based on cigarettes smoked per day
 		// and how long in years user has
@@ -54,7 +53,7 @@ public class StatisticsModels {
 
 	}
 
-	public static int educationBeatsReduced(String educationLevelCategory, String gender) { //this needs to be finished
+	public static int educationBeatsReduced(String educationLevelCategory, String gender) { // this needs to be finished
 
 		int beatsReduced = 0;
 
@@ -76,19 +75,27 @@ public class StatisticsModels {
 				beatsReduced = (int) (heartbeatsPerYear * 7.4);
 				break;
 			}
+		} else if (educationLevelCategory == "highSchool") {
+			switch (gender) {
+			case "FMLE":
+				beatsReduced = (int) (heartbeatsPerYear * 2.8);
+				break;
+			case "MLE":
+				beatsReduced = (int) (heartbeatsPerYear * -4.5);
+				break;
+			}
 		}
-
 		return beatsReduced;
-
 	}
+
+
+	
 
 	public static int bmiBeatsReduced(int heightInInches, int weightInPounds, String gender) {
 
 		int beatsReduced = 0;
-		
 
 		double bmi = 703 * (weightInPounds / (heightInInches * heightInInches));
-		
 
 		if (bmi < 18.5) {
 			switch (gender) {
@@ -121,11 +128,11 @@ public class StatisticsModels {
 		return beatsReduced;
 
 	}
-	
-	public static int incomeBeatsLost (int income, String gender) {
-		
+
+	public static int incomeBeatsLost(int income, String gender) {
+
 		int beatsReduced = 0;
-		
+
 		if (income <= 25000) {
 			switch (gender) {
 			case "FMLE":
@@ -170,16 +177,15 @@ public class StatisticsModels {
 				break;
 			}
 		}
-				
+
 		return beatsReduced;
-		
+
 	}
-	
-	public static int ethnicityBeatsLost (String ethnicity) {
-		
+
+	public static int ethnicityBeatsLost(String ethnicity) {
+
 		int beatsReduced = 0;
-		
-		
+
 		switch (ethnicity) {
 		case "Asian-American":
 			beatsReduced = (int) (heartbeatsPerYear * -8.4);
@@ -197,9 +203,9 @@ public class StatisticsModels {
 			beatsReduced = (int) (heartbeatsPerYear * 3.3);
 			break;
 		}
-		
+
 		return beatsReduced;
-		
+
 	}
 
 }
