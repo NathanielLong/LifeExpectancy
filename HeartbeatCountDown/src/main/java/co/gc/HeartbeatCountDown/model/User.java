@@ -22,9 +22,53 @@ public class User {
 	private LocalDate dob;
 	private String education;
 	private String smoke;
+	private int income;
 	private String ethnicity;
 	
 	
+	public User(String userName, String country, Double deathYear, String gender, String alcohol, LocalDate dob,
+			String education, String smoke, int income, String ethnicity) {
+		super();
+		this.userName = userName;
+		this.country = country;
+		this.deathYear = deathYear;
+		this.gender = gender;
+		this.alcohol = alcohol;
+		this.dob = dob;
+		this.education = education;
+		this.smoke = smoke;
+		this.income = income;
+		this.ethnicity = ethnicity;
+	}
+
+
+	public User(int id, String userName, String country, Double deathYear, String gender, String alcohol, LocalDate dob,
+			String education, String smoke, int income, String ethnicity) {
+		super();
+		this.id = id;
+		this.userName = userName;
+		this.country = country;
+		this.deathYear = deathYear;
+		this.gender = gender;
+		this.alcohol = alcohol;
+		this.dob = dob;
+		this.education = education;
+		this.smoke = smoke;
+		this.income = income;
+		this.ethnicity = ethnicity;
+	}
+
+
+	public int getIncome() {
+		return income;
+	}
+
+
+	public void setIncome(int income) {
+		this.income = income;
+	}
+
+
 	public User(String userName) {
 		super();
 		this.userName = userName;
