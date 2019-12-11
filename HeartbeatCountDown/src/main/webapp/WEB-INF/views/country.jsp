@@ -16,9 +16,9 @@
 
 	<form action="/alcohol">
 		<div class="form-group">
-			<select class="custom-select">
+			<select class="custom-select" name="country">
 				<c:forEach var="c" items="${ countries }">
-					<option value="${c.getLabel()}" name="country">${c.getDisplay()}</option>
+					<option value="${c.getLabel()}">${c.getDisplay()}</option>
 				</c:forEach>
 			</select> <input type="submit" Value="Enter." class="btnbtn-primary"></input>
 		</div>
