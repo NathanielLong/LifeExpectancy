@@ -9,10 +9,9 @@ import javax.persistence.Table;
 
 @Table
 public class User {
-	
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String userName;
 	private String country;
@@ -24,8 +23,43 @@ public class User {
 	private String smoke;
 	private int income;
 	private String ethnicity;
-	
-	
+	private Integer amount;
+	private Integer number;
+	private Integer years;
+	private String stillSmokin;
+
+	public Integer getAmount() {
+		return amount;
+	}
+
+	public void setAmount(Integer amount) {
+		this.amount = amount;
+	}
+
+	public Integer getNumber() {
+		return number;
+	}
+
+	public void setNumber(Integer number) {
+		this.number = number;
+	}
+
+	public Integer getYears() {
+		return years;
+	}
+
+	public void setYears(Integer years) {
+		this.years = years;
+	}
+
+	public String getStillSmokin() {
+		return stillSmokin;
+	}
+
+	public void setStillSmokin(String stillSmokin) {
+		this.stillSmokin = stillSmokin;
+	}
+
 	public User(String userName, String country, Double deathYear, String gender, String alcohol, LocalDate dob,
 			String education, String smoke, int income, String ethnicity) {
 		super();
@@ -41,7 +75,6 @@ public class User {
 		this.ethnicity = ethnicity;
 	}
 
-
 	public User(int id, String userName, String country, Double deathYear, String gender, String alcohol, LocalDate dob,
 			String education, String smoke, int income, String ethnicity) {
 		super();
@@ -56,46 +89,38 @@ public class User {
 		this.smoke = smoke;
 		this.income = income;
 		this.ethnicity = ethnicity;
-	}
 
+	}
 
 	public int getIncome() {
 		return income;
 	}
 
-
 	public void setIncome(int income) {
 		this.income = income;
 	}
-
 
 	public User(String userName) {
 		super();
 		this.userName = userName;
 	}
 
-
 	public int getId() {
 		return id;
 	}
-
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
-
 	public String getUserName() {
 		return userName;
 	}
-
 
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 
-	
-	
 	public User(int id, String userName, String country, Double deathYear, String gender, String alcohol, LocalDate dob,
 			String education, String smoke, String ethnicity) {
 		super();
@@ -111,7 +136,6 @@ public class User {
 		this.ethnicity = ethnicity;
 	}
 
-
 	public User(String userName, String country, Double deathYear, String gender, String alcohol, LocalDate dob,
 			String education, String smoke, String ethnicity) {
 		super();
@@ -126,70 +150,72 @@ public class User {
 		this.ethnicity = ethnicity;
 	}
 
-	
 	public String getCountry() {
 		return country;
 	}
-
 
 	public void setCountry(String country) {
 		this.country = country;
 	}
 
-
 	public Double getDeathYear() {
 		return deathYear;
 	}
-
 
 	public void setDeathYear(Double deathYear) {
 		this.deathYear = deathYear;
 	}
 
-
 	public String getGender() {
 		return gender;
 	}
-
 
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
 
-
 	public String getAlcohol() {
 		return alcohol;
 	}
+
 	public void setAlcohol(String alcohol) {
 		this.alcohol = alcohol;
 	}
+
 	public LocalDate getDob() {
 		return dob;
 	}
+
 	public void setDob(LocalDate dob) {
 		this.dob = dob;
 	}
+
 	public String getEducation() {
 		return education;
 	}
+
 	public void setEducation(String education) {
 		this.education = education;
 	}
+
 	public String getSmoke() {
 		return smoke;
 	}
+
 	public void setSmoke(String smoke) {
 		this.smoke = smoke;
 	}
+
 	public String getEthnicity() {
 		return ethnicity;
 	}
+
 	public void setEthnicity(String ethnicity) {
 		this.ethnicity = ethnicity;
 	}
+
 	public User() {
 		super();
 	}
-	
-	
+
 }

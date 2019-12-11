@@ -49,12 +49,12 @@ public class FormController {
 	}
 
 	@RequestMapping("/gender")
-	public ModelAndView gender(int amount, int years) {
+	public ModelAndView gender(String smoke, Integer amount, Integer years, Integer number, String stillsmokin) {
 		user = (User)(session.getAttribute("user"));
 //		StatisticsModels.StatisticsModels.smokingBeatsReduced(amount, years);
 		
 		session.setAttribute("user", user);
-		
+		System.out.println(smoke + amount + " " + years + stillsmokin);
 		return new ModelAndView("gender");
 	}
 
@@ -108,7 +108,7 @@ public class FormController {
 		User user = (User)(session.getAttribute("user"));
 		user.setEthnicity(ethnicity);
 		session.setAttribute("user", user);
-		System.out.println(user.getAlcohol() + " " + user.getCountry() + " " + user.getDob() + " " + user.getEducation() + " " + user.getEthnicity() + " " + user.getGender() + " " + user.getSmoke() + " " + user.getUserName() + " ");
+		System.out.println(user.getAlcohol() + " " + user.getCountry() + " " + user.getDob() + " " + user.getStillSmokin() + user.getSmoke() + user.getNumber() + user.getYears() + " " + user.getEthnicity() + " " + user.getGender() + " " + user.getSmoke() + " " + user.getUserName() + " ");
 		return new ModelAndView("results");
 	}
 
