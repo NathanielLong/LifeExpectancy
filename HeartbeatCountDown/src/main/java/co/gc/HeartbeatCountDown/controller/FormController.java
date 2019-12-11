@@ -96,6 +96,11 @@ public class FormController {
 		
 	}
 	
+	@RequestMapping("/scrooge")
+	public ModelAndView scrooge() {
+		return new ModelAndView("scrooge");
+	}
+	
 	
 	
 	
