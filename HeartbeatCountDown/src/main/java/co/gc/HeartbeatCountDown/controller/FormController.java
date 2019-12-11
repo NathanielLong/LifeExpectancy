@@ -13,10 +13,14 @@ import org.springframework.web.servlet.ModelAndView;
 import co.gc.HeartbeatCountDown.CountryRepo.CountryRepo;
 import co.gc.HeartbeatCountDown.countriesmodel.Country;
 import co.gc.HeartbeatCountDown.model.User;
+import co.gc.HeartbeatCountDown.repo.UserRepo;
 
 @Controller
 public class FormController {
 
+	@Autowired
+	UserRepo uRepo;
+	
 	@Autowired
 	HttpSession session;
 	
@@ -25,7 +29,7 @@ public class FormController {
 	
 	User user = new User();
 	
-	@RequestMapping("/")
+//	@RequestMapping("/")
 	public ModelAndView userName() {
 		return new ModelAndView("index");
 	}
@@ -109,6 +113,7 @@ public class FormController {
 		user.setEthnicity(ethnicity);
 		session.setAttribute("user", user);
 		System.out.println(user.getAlcohol() + " " + user.getCountry() + " " + user.getDob() + " " + user.getEducation() + " " + user.getEthnicity() + " " + user.getGender() + " " + user.getSmoke() + " " + user.getUserName() + " ");
+		uRepo.save(user);
 		return new ModelAndView("results");
 	}
 
