@@ -21,7 +21,8 @@
 			type="submit" Value="Enter." class="btnbtn-primary"></input> <br>
 		<div id="ifYes" style="visibility: hidden">
 			<div class="form-group">
-				? <select class="custom-select">
+				 <select class="custom-select" name="amoutDrunk">
+				 	<option value="none" hidden=" ">
 					<option value="low">A drink before bed (1-2 drinks per day)</option>
 					<option value="medium">Every now and again (2-3.5 drinks per day)</option>
 					<option value="high">Bars are my second home (3.5+ drinks per day)</option>
