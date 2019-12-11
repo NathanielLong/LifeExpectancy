@@ -172,5 +172,32 @@ public class StatisticsModels {
 		return beatsReduced;
 		
 	}
+	
+	public static int ethnicityBeatsLost (String ethnicity) {
+		
+		int beatsReduced = 0;
+		
+		
+		switch (ethnicity) {
+		case "Asian-American":
+			beatsReduced = (int) (heartbeatsPerYear * -8.4);
+			break;
+		case "Hispanic":
+			beatsReduced = (int) (heartbeatsPerYear * -4.6);
+			break;
+		case "White":
+			beatsReduced = (int) (heartbeatsPerYear * -0.2);
+			break;
+		case "Native American":
+			beatsReduced = (int) (heartbeatsPerYear * 1.8);
+			break;
+		case "African-American":
+			beatsReduced = (int) (heartbeatsPerYear * 3.3);
+			break;
+		}
+		
+		return beatsReduced;
+		
+	}
 
 }
