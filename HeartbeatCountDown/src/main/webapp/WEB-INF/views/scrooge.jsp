@@ -18,8 +18,7 @@
 		Do you smoke? Yes <input type="radio"
 			onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck">
 		No <input type="radio" onclick="javascript:yesnoCheck();" name="smoke"
-			id="noCheck"> <input type="submit" Value="Enter."
-			class="btnbtn-primary"></input> <br>
+			id="noCheck"> <br>
 		<div id="ifYes" style="visibility: hidden">
 			<div class="form-group">
 				How often do you smoke? <select class="custom-select">
@@ -31,8 +30,12 @@
 			</div>
 			<br> For how many years have you smoked: <input type='number'
 				id='years' name='years'>
+				<input type="submit" Value="Enter."
+			class="btnbtn-primary"></input> 
 		</div>
 	</form>
+	
+	Would you like more info on tobacco use and its effects on your life expectancy?
 
 
 	<script type="text/javascript">

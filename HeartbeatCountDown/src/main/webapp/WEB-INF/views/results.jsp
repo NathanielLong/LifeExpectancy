@@ -11,5 +11,7 @@
 <body>
 ${math }
 rawr
+
+<a class="btn btn-primary" href="/scrooge">I Can Change!</a>
 </body>
 </html>
