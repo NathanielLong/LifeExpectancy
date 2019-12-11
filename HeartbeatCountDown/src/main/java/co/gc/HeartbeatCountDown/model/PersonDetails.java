@@ -27,6 +27,17 @@ public class PersonDetails {
 	public String getRegion() {
 		return region;
 	}
+	
+	
+
+	public PersonDetails(int year, String country, String sex) {
+		super();
+		this.year = year;
+		this.country = country;
+		this.sex = sex;
+	}
+
+
 
 	public void setRegion(String region) {
 		this.region = region;
