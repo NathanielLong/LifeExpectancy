@@ -8,9 +8,9 @@ public class MainTester {
 		
 		//This is to test if the beats reduced by smoking method from StatisticsModels class works
 		
-		int totalBeats = StatisticsModels.bmiBeatsReduced(69, 190, 'm');
+		//int totalBeats = StatisticsModels.bmiBeatsReduced(69, 190, 'm');
 				
-		System.out.println(totalBeats);
+		//System.out.println(totalBeats);
 		
 	}
 
