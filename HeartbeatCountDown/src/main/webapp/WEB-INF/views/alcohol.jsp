@@ -10,26 +10,23 @@
 	integrity="sha384-cRAmF0wErT4D9dEBc36qB6pVu+KmLh516IoGWD/Gfm6FicBbyDuHgS4jmkQB8u1a"
 	crossorigin="anonymous">
 <meta charset="ISO-8859-1">
-<title>smoke</title>
+<title>youranalcoholic</title>
 </head>
 <body>
-	<form action="/gender">
-		Do you smoke? Yes <input type="radio"
-			onclick="javascript:yesnoCheck();" name="smokeyes" id="yesCheck">
-		No <input type="radio" onclick="javascript:yesnoCheck();" name="smokeno"
-			id="noCheck"> <input type="submit" Value="Enter."
-			class="btnbtn-primary"></input> <br>
+	<form action="/bmi">
+		Do you drink alcohol? Yes <input type="radio"
+			onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck">
+		No <input type="radio" onclick="javascript:yesnoCheck();"
+			name="alcohol" value="none" id="noCheck"> <input
+			type="submit" Value="Enter." class="btnbtn-primary"></input> <br>
 		<div id="ifYes" style="visibility: hidden">
 			<div class="form-group">
-				How often do you smoke? <select class="custom-select">
-					<option value="1">A cig a day</option>
-					<option value="5">1/4 a pack</option>
-					<option value="10">1/2 a pack</option>
-					<option value="20">Pack a day and above</option>
+				? <select class="custom-select">
+					<option value="low">A drink before bed</option>
+					<option value="medium">Every now and again</option>
+					<option value="high">Bars are my second home</option>
 				</select>
 			</div>
-			<br> For how many years have you smoked: <input type='number'
-				id='years' name='years'>
 		</div>
 	</form>
 	<script type="text/javascript">
@@ -38,17 +35,6 @@
 				document.getElementById('ifYes').style.visibility = 'visible';
 			} else
 				document.getElementById('ifYes').style.visibility = 'hidden';
-		}
-	</script>
-</body>
-</html>
-	<script type="text/javascript">
-		function yesnoCheck() {
-			if (document.getElementById('yesCheck').checked) {
-				document.getElementById('ifYes').style.visibility = 'visible';
-			} else
-				document.getElementById('ifYes').style.visibility = 'hidden';
-
 		}
 
 	</script>
