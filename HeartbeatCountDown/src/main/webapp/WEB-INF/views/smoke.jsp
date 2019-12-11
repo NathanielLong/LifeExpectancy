@@ -15,13 +15,13 @@
 <body>
 	<form action="/gender">
 		Do you smoke? Yes <input type="radio"
-			onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck">
-		No <input type="radio" onclick="javascript:yesnoCheck();" name="yesno"
-			id="noCheck"> <input type="submit" Value="Enter."
-			class="btnbtn-primary"></input> <br>
+			onclick="javascript:yesnoCheck();" name="smokeyes" id="yesCheck">
+		No <input type="radio" onclick="javascript:yesnoCheck();"
+			name="smokeno" id="noCheck"> <input type="submit"
+			Value="Enter." class="btnbtn-primary"></input> <br>
 		<div id="ifYes" style="visibility: hidden">
 			<div class="form-group">
-				How often do you smoke? <select class="custom-select">
+				How often do you smoke? <select class="custom-select" name="night">
 					<option value="1">A cig a day</option>
 					<option value="5">1/4 a pack</option>
 					<option value="10">1/2 a pack</option>

@@ -17,13 +17,13 @@
 		<div class="form-check">
 			<label class="form-check-label"> <input type="radio"
 				class="form-check-input" name="gender" id="optionsRadios1"
-				value="option1" checked=""> Male
+				value="MLE" checked=""> Male
 			</label>
 		</div>
 		<div class="form-check">
 			<label class="form-check-label"> <input type="radio"
 				class="form-check-input" name="gender" id="optionsRadios2"
-				value="option2"> Female <br>
+				value="FMLE"> Female <br>
 			<input type="submit" Value="Enter." class="btnbtn-primary"></input>
 			</label>
 		</div>
