@@ -77,7 +77,7 @@ public class FormController {
 	}
 
 	@RequestMapping("/bmi")
-	public ModelAndView bmi(String alcohol) {
+	public ModelAndView bmi(String yesno) {
 		return new ModelAndView("bmi");
 	}
 	@RequestMapping("/income")

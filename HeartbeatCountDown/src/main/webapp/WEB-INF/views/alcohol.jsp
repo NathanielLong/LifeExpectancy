@@ -17,9 +17,9 @@
 	<form action="/bmi">
 		Do you drink alcohol? Yes <input type="radio"
 			onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck">
-		No <input type="radio" onclick="javascript:yesnoCheck();" name="alcohol" value = "none"
-			id="noCheck"> <input type="submit" Value="Enter."
-			class="btnbtn-primary"></input> <br>
+		No <input type="radio" onclick="javascript:yesnoCheck();"
+			name="yesno" value="none" id="noCheck"> <input
+			type="submit" Value="Enter." class="btnbtn-primary"></input> <br>
 		<div id="ifYes" style="visibility: hidden">
 			<div class="form-group">
 				? <select class="custom-select">
@@ -29,18 +29,18 @@
 				</select>
 			</div>
 		</div>
+	</form>
+
+
+	<script type="text/javascript">
+		function yesnoCheck() {
+			if (document.getElementById('yesCheck').checked) {
+				document.getElementById('ifYes').style.visibility = 'visible';
+			} else
+				document.getElementById('ifYes').style.visibility = 'hidden';
+
+		}
 		</form>
-
-
-		<script type="text/javascript">
-			function yesnoCheck() {
-				if (document.getElementById('yesCheck').checked) {
-					document.getElementById('ifYes').style.visibility = 'visible';
-				} else
-					document.getElementById('ifYes').style.visibility = 'hidden';
-
-			}
-			</form>
-		</script>
+	</script>
 </body>
 </html>
