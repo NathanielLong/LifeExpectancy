@@ -91,12 +91,25 @@ public class FormController {
 		session.setAttribute("user", user);
 		System.out.println(user.getAlcohol() + " " + user.getCountry() + " " + user.getEducation() + " " + user.getEthnicity() + " " + user.getGender() + " " + user.getSmoke() + " " + user.getUserName() + " ");
 		return new ModelAndView("ethnicity");
+
 	}
 
 	@RequestMapping("/income")
 	public ModelAndView income(String eth) {
 		return new ModelAndView("income");
 	}
+
+//	@RequestMapping("/ethnicity")
+//	public ModelAndView ethnicity(String edu) {
+//		return new ModelAndView("ethnicity");
+//	}
+
+//	@RequestMapping("/education")
+//	public ModelAndView education(String alc) {
+//
+//		String educationString = "<form action=\"/ethnicity\"> Name: <input type = \"text\" name = \"name\"></input> <input type=\"submit\" Value=\"Begin.\" class = \"btn btn-primary\"></input> </form>";
+//		return new ModelAndView("form", "formtype", educationString);
+//	}
 
 //	@RequestMapping("start-form/fmh")
 //	public ModelAndView familyMedicalHistory(String inc) {
@@ -116,5 +129,6 @@ public class FormController {
 	public ModelAndView bmi(String bmi) {
 		return new ModelAndView("bmi");
 	}
+
 	// gotta ad ill to database
 }

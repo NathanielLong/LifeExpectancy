@@ -14,7 +14,7 @@
 </head>
 <body>
 
-	<form action="/bmi">
+	<form action="/alcohol">
 		<div class="form-group">
 			<select class="custom-select">
 				<c:forEach var="c" items="${ countries }">

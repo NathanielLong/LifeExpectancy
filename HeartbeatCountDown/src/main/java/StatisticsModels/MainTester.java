@@ -7,11 +7,13 @@ public class MainTester {
 
 		
 		//This is to test if the beats reduced by smoking method from StatisticsModels class works
-		int cigsPerDay = 10;
-		double yearsSmoked = 6;
-		System.out.println(StatisticsModels.smokingBeatsReduced(cigsPerDay, yearsSmoked));
 		
-		System.out.println(StatisticsModels.bmiBeatsReduced(68, 200, 'm'));
+		int totalBeats = StatisticsModels.smokingBeatsReduced(10, 6.0) + StatisticsModels.alcoholBeatsReduced("medium") + 
+				StatisticsModels.bmiBeatsReduced(56, 200, 'm') + StatisticsModels.educationBeatsReduced("Bachelors", 'm') +
+				StatisticsModels.ethnicityBeatsLost("White") + StatisticsModels.incomeBeatsLost(30000, 'm');
+		
+		System.out.println(totalBeats);
+		
 	}
 
 }
