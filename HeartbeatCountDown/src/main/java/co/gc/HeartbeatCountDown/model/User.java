@@ -29,6 +29,15 @@ public class User {
 	private Integer number;
 	private Integer years;
 	private String stillSmokin;
+	private String amountDrunk;
+
+	public String getAmountDrunk() {
+		return amountDrunk;
+	}
+
+	public void setAmountDrunk(String amountDrunk) {
+		this.amountDrunk = amountDrunk;
+	}
 
 	public Integer getAmount() {
 		return amount;
