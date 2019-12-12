@@ -28,6 +28,7 @@ public class FormController {
 
 	@Autowired
 	CountryRepo cRepo;
+	
 	RestTemplate rt = new RestTemplate();
 
 	User user = new User();
@@ -125,6 +126,7 @@ public class FormController {
 				+ " " + user.getEthnicity() + " " + user.getGender() + " " + user.getSmoke() + " " + user.getUserName()
 				+ " ");
 		uRepo.save(user);
+		System.out.println(session.getAttribute("user"));
 		return new ModelAndView("results");
 	}
 
