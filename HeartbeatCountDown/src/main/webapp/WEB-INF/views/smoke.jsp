@@ -31,7 +31,7 @@
 			</div>
 			<br> For how many years have you smoked: <input type='number'
 				id='years' name='years' value="1"><br>
-		<input type="checkbox" name="stillsmokin" value="istillsmoke">I am still a smoker
+		<input type="checkbox" name="stillsmokin" value="istillsmoke" checked>I am still a smoker
 		</div>
 		
 		

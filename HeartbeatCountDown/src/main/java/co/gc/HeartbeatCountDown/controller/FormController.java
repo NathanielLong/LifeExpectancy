@@ -59,9 +59,12 @@ public class FormController {
 	public ModelAndView gender(String smoke, Integer amount, Integer years, Integer number, String stillsmokin) {
 		user = (User) (session.getAttribute("user"));
 //		StatisticsModels.StatisticsModels.smokingBeatsReduced(amount, years);
-
+		user.setSmoke(smoke);
+		user.setAmount(amount);
+		user.setYears(years);
+		user.setStillSmokin(stillsmokin);
 		session.setAttribute("user", user);
-		System.out.println(smoke + amount + " " + years + stillsmokin);
+		System.out.println(smoke + " " + amount + " " + years + " " + stillsmokin);
 		return new ModelAndView("gender");
 	}
 
@@ -90,7 +93,10 @@ public class FormController {
 	}
 
 	@RequestMapping("/bmi")
-	public ModelAndView bmi(String yesno) {
+	public ModelAndView bmi(String alcohol, String amountDrunk) {
+		System.out.println(alcohol + amountDrunk);
+		user.setAlcohol(alcohol);
+		user.setAmountDrunk(amountDrunk);
 		return new ModelAndView("bmi");
 	}
 

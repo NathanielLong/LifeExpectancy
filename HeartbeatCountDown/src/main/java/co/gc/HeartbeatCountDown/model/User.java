@@ -26,9 +26,8 @@ public class User {
 	private int income;
 	private String ethnicity;
 	private Integer amount;
-	private Integer number;
 	private Integer years;
-	private String stillSmokin;
+	private String stillsmokin;
 	private String amountDrunk;
 
 	public String getAmountDrunk() {
@@ -47,14 +46,6 @@ public class User {
 		this.amount = amount;
 	}
 
-	public Integer getNumber() {
-		return number;
-	}
-
-	public void setNumber(Integer number) {
-		this.number = number;
-	}
-
 	public Integer getYears() {
 		return years;
 	}
@@ -64,11 +55,11 @@ public class User {
 	}
 
 	public String getStillSmokin() {
-		return stillSmokin;
+		return stillsmokin;
 	}
 
-	public void setStillSmokin(String stillSmokin) {
-		this.stillSmokin = stillSmokin;
+	public void setStillSmokin(String stillsmokin) {
+		this.stillsmokin = stillsmokin;
 	}
 
 	public User(String userName, String country, Double deathYear, String gender, String alcohol, LocalDate dob,
