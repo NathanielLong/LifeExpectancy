@@ -17,9 +17,9 @@
 		Do you drink alcohol? Yes <input type="radio"
 			onclick="javascript:yesnoCheck();" name="alcohol" value="idrink"
 			id="yesCheck"> No <input type="radio"
-			onclick="javascript:yesnoCheck();" name="alcohol" value="none"
+			onclick="javascript:yesnoCheck();" name="alcohol" value="nodrink"
 			id="noCheck"> <input type="submit" Value="Enter."
-			value="nodrink" class="btnbtn-primary"></input> <br>
+			value="none" class="btnbtn-primary"></input> <br>
 		<div id="ifYes" style="visibility: hidden">
 			<div class="form-group">
 				<select class="custom-select" name="amountDrunk">

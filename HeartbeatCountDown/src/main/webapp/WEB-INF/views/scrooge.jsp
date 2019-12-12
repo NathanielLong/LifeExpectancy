@@ -14,14 +14,16 @@
 </head>
 <body>
 
-	<form action="/gender">
+	<form action="/results">
 		Do you smoke? Yes <input type="radio"
-			onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck">
-		No <input type="radio" onclick="javascript:yesnoCheck();" name="smoke"
-			id="noCheck"> <br>
+			onclick="javascript:yesnoCheck();" name="smoke" id="yesCheck"
+			value="ismoke"> No <input type="radio"
+			onclick="javascript:yesnoCheck();" name="smoke" id="noCheck"
+			value="idontsmoke"> <br>
 		<div id="ifYes" style="visibility: hidden">
 			<div class="form-group">
-				How often do you smoke? <select class="custom-select">
+				How often do you smoke? <select class="custom-select" name="amount">
+					<option value="0" hidden=" ">
 					<option value="1">A cig a day</option>
 					<option value="5">1/4 a pack</option>
 					<option value="10">1/2 a pack</option>
@@ -29,26 +31,24 @@
 				</select>
 			</div>
 			<br> For how many years have you smoked: <input type='number'
-				id='years' name='years'>
-				<input type="submit" Value="Enter."
-			class="btnbtn-primary"></input> 
+				id='years' name='years' value="1"><br> Do you still
+			smoke? Yes <input type="radio" onclick="javascript:yesnoCheck();"
+				name="stillsmokin" id="yesCheck" value="istillsmoke"> No <input
+				type="radio" onclick="javascript:yesnoCheck();" name="stillsmokin"
+				id="noCheck" value="idontsmokeanymore" checked>
 		</div>
-	</form>
-	
-	Would you like more info on tobacco use and its effects on your life expectancy?
+
+		<script type="text/javascript">
+			function yesnoCheck() {
+				if (document.getElementById('yesCheck').checked) {
+					document.getElementById('ifYes').style.visibility = 'visible';
+				} else
+					document.getElementById('ifYes').style.visibility = 'hidden';
+
+			}
+		</script>
 
 
-	<script type="text/javascript">
-		function yesnoCheck() {
-			if (document.getElementById('yesCheck').checked) {
-				document.getElementById('ifYes').style.visibility = 'visible';
-			} else
-				document.getElementById('ifYes').style.visibility = 'hidden';
-
-		}
-	</script>
-
-	<form action="/country">
 		<div class="form-check">
 			<label class="form-check-label"> <input type="radio"
 				class="form-check-input" name="gender" id="optionsRadios1"
@@ -58,61 +58,59 @@
 		<div class="form-check">
 			<label class="form-check-label"> <input type="radio"
 				class="form-check-input" name="gender" id="optionsRadios2"
-				value="option2"> Female <br> <input type="submit"
-				Value="Enter." class="btnbtn-primary"></input>
+				value="option2"> Female <br>
 			</label>
 		</div>
-	</form>
 
-	<form action="/alcohol">
+
+
 		<div class="form-group">
 			<select class="custom-select">
 				<c:forEach var="c" items="${ countries }">
 					<option value="${c.getLabel()}" name="country">${c.getDisplay()}</option>
 				</c:forEach>
-			</select> <input type="submit" Value="Enter." class="btnbtn-primary"></input>
+			</select>
 		</div>
-	</form>
 
-	<form action="/bmi">
+
+
 		Do you drink alcohol? Yes <input type="radio"
-			onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck">
-
-		No <input type="radio" onclick="javascript:yesnoCheck();"
-			name="alcohol" value="none" id="noCheck"> <input
-			type="submit" Value="Enter." class="btnbtn-primary"></input> <br>
+			onclick="javascript:yesnoCheck();" name="alcohol" value="idrink"
+			id="yesCheck"> No <input type="radio"
+			onclick="javascript:yesnoCheck();" name="alcohol" value="nodrink"
+			id="noCheck"> <br>
 		<div id="ifYes" style="visibility: hidden">
 			<div class="form-group">
-				? <select class="custom-select">
-					<option value="low">A drink before bed</option>
-					<option value="medium">Every now and again</option>
-					<option value="high">Bars are my second home</option>
+				<select class="custom-select" name="amountDrunk">
+					<option value="none" hidden=" ">
+					<option value="low">A drink before bed (1-2 drinks per
+						day)</option>
+					<option value="medium">Every now and again (2-3.5 drinks
+						per day)</option>
+					<option value="high">Bars are my second home (3.5+ drinks
+						per day)</option>
 				</select>
 			</div>
 		</div>
-	</form>
 
 
-	<script type="text/javascript">
-		function yesnoCheck() {
-			if (document.getElementById('yesCheck').checked) {
-				document.getElementById('ifYes').style.visibility = 'visible';
-			} else
-				document.getElementById('ifYes').style.visibility = 'hidden';
 
-		}
-	</script>
+		<script type="text/javascript">
+			function yesnoCheck() {
+				if (document.getElementById('yesCheck').checked) {
+					document.getElementById('ifYes').style.visibility = 'visible';
+				} else
+					document.getElementById('ifYes').style.visibility = 'hidden';
 
-	<form action="/income">
-
+			}
+		</script>
 		Please enter how much you weigh in pounds: <br> <input
-			type="number" name="weight"><br> Please enter your
+			type="number" name="weight"> <br> Please enter your
 		height in inches: <br> <input type="number" name="height">
-		<br> <input type="submit" Value="Enter." class="btn btn-primary"></input>
+		<br>
 
-	</form>
 
-	<form action="/ethnicity">
+
 		<div class="form-group">
 			What is your current income? <select class="custom-select">
 				<option value="25,000">25,000 or lower</option>
@@ -120,12 +118,12 @@
 				<option value="77,500">47,501 - 77, 500</option>
 				<option value="127,000">77,501 - 127,000</option>
 				<option value="10000000">127,001 or higher</option>
-			</select> <input type="submit" Value="Enter." class="btnbtn-primary"></input>
+			</select>
 		</div>
-	</form>
 
-	What ethnicity do you identify the most with?
-	<form action="results">
+
+		What ethnicity do you identify the most with?
+
 		<div class="form-group">
 			<select class="custom-select">
 				<option value="Asian-American">Asian-American</option>
@@ -135,6 +133,7 @@
 				<option value="African-American">African-American</option>
 			</select>
 		</div>
+
 	</form>
 
 

@@ -31,7 +31,10 @@
 			</div>
 			<br> For how many years have you smoked: <input type='number'
 				id='years' name='years' value="1"><br>
-		<input type="checkbox" name="stillsmokin" value="istillsmoke" checked>I am still a smoker
+		Do you still smoke? Yes <input type="radio"
+			onclick="javascript:yesnoCheck();" name="stillsmokin" id="yesCheck" value="istillsmoke">
+		No <input type="radio" onclick="javascript:yesnoCheck();" name="stillsmokin"
+			id="noCheck" value="idontsmokeanymore" checked>
 		</div>
 		
 		
