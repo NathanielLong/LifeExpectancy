@@ -8,10 +8,12 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import co.gc.HeartbeatCountDown.CountryRepo.CountryRepo;
 import co.gc.HeartbeatCountDown.countriesmodel.Country;
+import co.gc.HeartbeatCountDown.model.PeopleResults;
 import co.gc.HeartbeatCountDown.model.User;
 import co.gc.HeartbeatCountDown.repo.UserRepo;
 
@@ -26,6 +28,7 @@ public class FormController {
 
 	@Autowired
 	CountryRepo cRepo;
+	RestTemplate rt = new RestTemplate();
 
 	User user = new User();
 
@@ -76,10 +79,13 @@ public class FormController {
 
 	@RequestMapping("/alcohol")
 	public ModelAndView alcohol(String country) {
+
 		user = (User) (session.getAttribute("user"));
+		user.setDeathYear(getDeathYear());
+		System.out.println(user.getDeathYear());
 		user.setCountry(country);
 		session.setAttribute("user", user);
-		
+
 		return new ModelAndView("alcohol");
 	}
 
@@ -109,17 +115,26 @@ public class FormController {
 		user.setEthnicity(ethnicity);
 		session.setAttribute("user", user);
 
-		System.out.println(user.getAlcohol() + " " + user.getAmountDrunk() + " " + user.getCountry() + " " + user.getDob() + " " + user.getEducation()
+		System.out.println(user.getAlcohol() + " " + user.getCountry() + " " + user.getDob() + " " + user.getEducation()
 				+ " " + user.getEthnicity() + " " + user.getGender() + " " + user.getSmoke() + " " + user.getUserName()
 				+ " ");
 		uRepo.save(user);
-
 		return new ModelAndView("results");
 	}
 
 	@RequestMapping("/scrooge")
 	public ModelAndView scrooge() {
 		return new ModelAndView("scrooge");
+	}
+
+	public Double getDeathYear() {
+		User user = (User) (session.getAttribute("user"));
+		String gender = user.getGender();
+		String country = user.getCountry();
+		String url = "http://apps.who.int/gho/athena/api/GHO/WHOSIS_000001?profile=simple&filter=Year:2015;&COUNTRY:"
+				+ country + ";SEX:" + gender + ";&format=json";
+		Double deathYear = rt.getForObject(url, PeopleResults.class).getPeopleArray().get(0).getDeathAge();
+		return deathYear;
 	}
 
 //	@RequestMapping("/education")
