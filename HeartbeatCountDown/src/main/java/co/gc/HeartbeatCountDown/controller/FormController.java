@@ -85,9 +85,9 @@ public class FormController {
 	public ModelAndView alcohol(String country) {
 
 		user = (User) (session.getAttribute("user"));
+		user.setCountry(country);
 		user.setDeathYear(getDeathYear());
 		System.out.println(user.getDeathYear());
-		user.setCountry(country);
 		session.setAttribute("user", user);
 
 		return new ModelAndView("alcohol");
@@ -169,7 +169,8 @@ public class FormController {
 		User user = (User) (session.getAttribute("user"));
 		String gender = user.getGender();
 		String country = user.getCountry();
-		String url = "http://apps.who.int/gho/athena/api/GHO/WHOSIS_000001?profile=simple&filter=Year:2015;&COUNTRY:"
+		System.out.println(user.getGender() + " " + user.getCountry());
+		String url = "http://apps.who.int/gho/athena/api/GHO/WHOSIS_000001?profile=simple&filter=Year:2015;COUNTRY:"
 				+ country + ";SEX:" + gender + ";&format=json";
 		Double deathYear = rt.getForObject(url, PeopleResults.class).getPeopleArray().get(0).getDeathAge();
 		return deathYear;
