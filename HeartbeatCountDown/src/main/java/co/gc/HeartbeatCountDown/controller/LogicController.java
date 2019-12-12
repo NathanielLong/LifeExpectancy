@@ -46,7 +46,7 @@ public class LogicController {
 		LocalDate currentDate = LocalDate.now();
 		Double currentYear = currentDate.getYear()+(double)(currentDate.getDayOfYear()/365);
 		
-		Double birthYear = currentDate.getYear()+(double)(currentDate.getDayOfYear()/365);
+		Double birthYear = birthday.getYear()+(double)(birthday.getDayOfYear()/365);
 		
 		Double yearsSpent = currentYear-birthYear;
 		return (long) (yearsSpent*StatisticsModels.heartbeatsPerYear);
