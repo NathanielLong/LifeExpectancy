@@ -220,4 +220,12 @@ public class User {
 		super();
 	}
 
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", userName=" + userName + ", country=" + country + ", deathYear=" + deathYear
+				+ ", gender=" + gender + ", alcohol=" + alcohol + ", dob=" + dob + ", education=" + education
+				+ ", smoke=" + smoke + ", income=" + income + ", ethnicity=" + ethnicity + ", amount=" + amount
+				+ ", years=" + years + ", stillsmokin=" + stillsmokin + ", amountDrunk=" + amountDrunk + "]";
+	}
+
 }

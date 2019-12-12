@@ -87,7 +87,7 @@
 
 		Please enter how much you weigh in pounds: <br> <input
 			type="number" name="weight"> <br> Please enter your
-		height in inches: <br> <input type="number" name="height" value="${ user.getHeight }">
+		height in inches: <br> <input type="number" name="height" value="${ user }">
 		<br>
 
 
@@ -104,7 +104,9 @@
 
 	</form>
 
-
+<h1 style="color:red">${user.country }</h1>
+${user.income }
+${user.smoke }
 
 
 

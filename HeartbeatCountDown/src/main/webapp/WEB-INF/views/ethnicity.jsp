@@ -17,7 +17,7 @@
 	<form action="/results">
 		<div class="form-group">
 			<select class="custom-select" name = "ethnicity">
-				<option value="Asian-American">Asian-American</option>
+				<option value="Asian-American">Asian</option>
 				<option value="Hispanic">Hispanic</option>
 				<option value="White">White</option>
 				<option value="Native-American">Native-American</option>
