@@ -14,15 +14,17 @@
 </head>
 <body>
 
-	<form action="/results">
-		Do you smoke? Yes <input type="radio"
-			onclick="javascript:yesnoCheck();" name="smoke" id="yesCheck"
+	<form action="/scroogeresults">
+		Will you continue to smoke? Yes <input type="radio"
+			onclick="javascript:yesnoChecksmoke();" name="smoke" id="yesCheck"
 			value="ismoke"> No <input type="radio"
-			onclick="javascript:yesnoCheck();" name="smoke" id="noCheck"
-			value="idontsmoke"> <br>
+			onclick="javascript:yesnoChecksmoke();" name="smoke" id="noCheck"
+			value="idontsmoke"> <input type="submit" Value="Enter."
+			class="btnbtn-primary"></input> <br>
 		<div id="ifYes" style="visibility: hidden">
 			<div class="form-group">
-				How often do you smoke? <select class="custom-select" name="amount">
+				How often will you smoke? <select class="custom-select"
+					name="amount">
 					<option value="0" hidden=" ">
 					<option value="1">A cig a day</option>
 					<option value="5">1/4 a pack</option>
@@ -30,47 +32,27 @@
 					<option value="20">Pack a day and above</option>
 				</select>
 			</div>
-			<br> For how many years have you smoked: <input type='number'
-				id='years' name='years' value="1"><br> Do you still
-			smoke? Yes <input type="radio" onclick="javascript:yesnoCheck();"
-				name="stillsmokin" id="yesCheck" value="istillsmoke"> No <input
-				type="radio" onclick="javascript:yesnoCheck();" name="stillsmokin"
-				id="noCheck" value="idontsmokeanymore" checked>
 		</div>
 
-		<!-- 		<script type="text/javascript">
-			function yesnoCheck() {
-				if (document.getElementById('yesCheck').checked) {
-					document.getElementById('ifYes').style.visibility = 'visible';
-				} else
-					document.getElementById('ifYes').style.visibility = 'hidden';
-
-			}
-		</script> -->
-
-
-
-
-
-
 		<div class="form-group">
-			<select class="custom-select">
+			Where do plan on moving? (if you aren't planning on moving, leave
+			this field as is) <select class="custom-select">
+
 				<c:forEach var="c" items="${ countries }">
-					<option value="${c.getLabel()}" name="country">${c.getDisplay()}</option>
+					<option value="${c.getLabel()}" name="${user.country }">${c.getDisplay()}</option>
 				</c:forEach>
 			</select>
 		</div>
 
-
-
-		Do you drink alcohol? Yes <input type="radio"
+		Will you continue to drink alcohol? Yes <input type="radio"
 			onclick="javascript:yesnoCheck();" name="alcohol" value="idrink"
 			id="yesCheckalc"> No <input type="radio"
 			onclick="javascript:yesnoCheck();" name="alcohol" value="nodrink"
 			id="noCheckalc"> <br>
 		<div id="ifYesalc" style="visibility: hidden">
 			<div class="form-group">
-				<select class="custom-select" name="amountDrunk">
+				How often will you drink? <select class="custom-select"
+					name="amountDrunk">
 					<option value="none" hidden=" ">
 					<option value="low">A drink before bed (1-2 drinks per
 						day)</option>
@@ -82,39 +64,37 @@
 			</div>
 		</div>
 
-
-
-
-		Please enter how much you weigh in pounds: <br> <input
-			type="number" name="weight"> <br> Please enter your
-		height in inches: <br> <input type="number" name="height" value="${ user }">
-		<br>
-
-
+		If you plan on losing weight please enter the weight you are aiming
+		for: <br> <input type="number" name="weight"> <br>
 
 		<div class="form-group">
-			What is your current income? <select class="custom-select">
-				<option value="25,000">25,000 or lower</option>
+			Are you planning on getting a raise? If so, please enter your new
+			possible income: (if not applicable, please leave field as is) <select
+				class="custom-select" default="${user.income}"}><option
+					value="25,000">25,000 or lower</option>
 				<option value="47,500">25,001 - 47,500</option>
 				<option value="77,500">47,501 - 77, 500</option>
 				<option value="127,000">77,501 - 127,000</option>
 				<option value="10000000">127,001 or higher</option>
 			</select>
 		</div>
+		<input class="btn btn-primary" type="submit" value="Enter">
+
 
 	</form>
 
-<h1 style="color:red">${user.country }</h1>
-${user.income }
-${user.smoke }
+	<h1 style="color: red">${user.country }</h1>
+	${user.income } ${user.smoke }
 
+	<script type="text/javascript">
+		function yesnoChecksmoke() {
+			if (document.getElementById('yesCheck').checked) {
+				document.getElementById('ifYes').style.visibility = 'visible';
+			} else
+				document.getElementById('ifYes').style.visibility = 'hidden';
 
-
-
-
-
-
-
+		}
+	</script>
 
 	<script type="text/javascript">
 		function yesnoCheck() {

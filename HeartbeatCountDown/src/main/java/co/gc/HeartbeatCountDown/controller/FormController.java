@@ -28,7 +28,7 @@ public class FormController {
 
 	@Autowired
 	CountryRepo cRepo;
-	
+
 	RestTemplate rt = new RestTemplate();
 
 	User user = new User();
@@ -125,6 +125,32 @@ public class FormController {
 		System.out.println(user.getAlcohol() + " " + user.getCountry() + " " + user.getDob() + " " + user.getEducation()
 				+ " " + user.getEthnicity() + " " + user.getGender() + " " + user.getSmoke() + " " + user.getUserName()
 				+ " ");
+		uRepo.save(user);
+		long hBeats;
+		LogicController lc = new LogicController();
+		hBeats = lc.findBeatDrop(user);
+		return new ModelAndView("results", "hBeat", hBeats);
+
+	}
+
+	@RequestMapping("/scroogeresults")
+	public ModelAndView goToResultsFromScrooge(String alcohol, Integer amount, String amountDrunk, String country,
+			Integer income, String smoke, String stillSmokin, Integer weight, Integer years) {
+		User user = (User) (session.getAttribute("user"));
+		user.setAlcohol(alcohol);
+		user.setAmount(amount);
+		user.setAmountDrunk(amountDrunk);
+		user.setCountry(country);
+		user.setIncome(income);
+		user.setSmoke(smoke);
+		user.setStillSmokin(stillSmokin);
+		user.setWeight(weight);
+		user.setYears(years);
+		session.setAttribute("user", user);
+
+//		System.out.println(user.getAlcohol() + " " + user.getCountry() + " " + user.getDob() + " " + user.getEducation()
+//				+ " " + user.getEthnicity() + " " + user.getGender() + " " + user.getSmoke() + " " + user.getUserName()
+//				+ " ");
 		uRepo.save(user);
 		long hBeats;
 		LogicController lc = new LogicController();

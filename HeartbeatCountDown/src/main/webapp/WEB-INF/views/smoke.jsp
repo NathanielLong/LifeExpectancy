@@ -15,9 +15,10 @@
 <body>
 	<form action="/gender">
 		Do you smoke? Yes <input type="radio"
-			onclick="javascript:yesnoCheck();" name="smoke" id="yesCheck" value="ismoke">
-		No <input type="radio" onclick="javascript:yesnoCheck();" name="smoke"
-			id="noCheck" value="idontsmoke"> <input type="submit" Value="Enter."
+			onclick="javascript:yesnoCheck();" name="smoke" id="yesCheck"
+			value="ismoke"> No <input type="radio"
+			onclick="javascript:yesnoCheck();" name="smoke" id="noCheck"
+			value="idontsmoke"> <input type="submit" Value="Enter."
 			class="btnbtn-primary"></input> <br>
 		<div id="ifYes" style="visibility: hidden">
 			<div class="form-group">
@@ -30,14 +31,14 @@
 				</select>
 			</div>
 			<br> For how many years have you smoked: <input type='number'
-				id='years' name='years' value="1"><br>
-		Do you still smoke? Yes <input type="radio"
-			onclick="javascript:yesnoCheck();" name="stillsmokin" id="yesCheck" value="istillsmoke">
-		No <input type="radio" onclick="javascript:yesnoCheck();" name="stillsmokin"
-			id="noCheck" value="idontsmokeanymore" checked>
+				id='years' name='years' value="1"><br> Do you still
+			smoke? Yes <input type="radio" onclick="javascript:yesnoCheck();"
+				name="stillsmokin" id="yesCheck" value="istillsmoke"> No <input
+				type="radio" onclick="javascript:yesnoCheck();" name="stillsmokin"
+				id="noCheck" value="idontsmokeanymore" checked>
 		</div>
-		
-		
+
+
 	</form>
 
 

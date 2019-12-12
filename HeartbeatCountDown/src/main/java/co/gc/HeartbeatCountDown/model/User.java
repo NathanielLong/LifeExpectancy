@@ -29,41 +29,37 @@ public class User {
 	private Integer years;
 	private String stillSmokin;
 	private String amountDrunk;
+	private Integer height;
+	private Integer weight;
 
-	public String getAmountDrunk() {
-		return amountDrunk;
+	public User() {
+		super();
 	}
 
-	public void setAmountDrunk(String amountDrunk) {
+	public User(int id, String userName, String country, Double deathYear, String gender, String alcohol, LocalDate dob,
+			String education, String smoke, int income, String ethnicity, Integer amount, Integer years,
+			String stillSmokin, String amountDrunk) {
+		super();
+		this.id = id;
+		this.userName = userName;
+		this.country = country;
+		this.deathYear = deathYear;
+		this.gender = gender;
+		this.alcohol = alcohol;
+		this.dob = dob;
+		this.education = education;
+		this.smoke = smoke;
+		this.income = income;
+		this.ethnicity = ethnicity;
+		this.amount = amount;
+		this.years = years;
+		this.stillSmokin = stillSmokin;
 		this.amountDrunk = amountDrunk;
 	}
 
-	public Integer getAmount() {
-		return amount;
-	}
-
-	public void setAmount(Integer amount) {
-		this.amount = amount;
-	}
-
-	public Integer getYears() {
-		return years;
-	}
-
-	public void setYears(Integer years) {
-		this.years = years;
-	}
-
-	public String getStillSmokin() {
-		return stillSmokin;
-	}
-
-	public void setStillSmokin(String stillSmokin) {
-		this.stillSmokin = stillSmokin;
-	}
-
 	public User(String userName, String country, Double deathYear, String gender, String alcohol, LocalDate dob,
-			String education, String smoke, int income, String ethnicity) {
+			String education, String smoke, int income, String ethnicity, Integer amount, Integer years,
+			String stillSmokin, String amountDrunk) {
 		super();
 		this.userName = userName;
 		this.country = country;
@@ -74,6 +70,53 @@ public class User {
 		this.education = education;
 		this.smoke = smoke;
 		this.income = income;
+		this.ethnicity = ethnicity;
+		this.amount = amount;
+		this.years = years;
+		this.stillSmokin = stillSmokin;
+		this.amountDrunk = amountDrunk;
+	}
+
+	public User(String country, String alcohol, String smoke, int income, Integer amount, Integer years,
+			String stillSmokin, String amountDrunk, Integer weight) {
+		super();
+		this.country = country;
+		this.alcohol = alcohol;
+		this.smoke = smoke;
+		this.income = income;
+		this.amount = amount;
+		this.years = years;
+		this.stillSmokin = stillSmokin;
+		this.amountDrunk = amountDrunk;
+		this.weight = weight;
+	}
+
+	public User(String userName, String country, Double deathYear, String gender, String alcohol, LocalDate dob,
+			String education, String smoke, String ethnicity) {
+		super();
+		this.userName = userName;
+		this.country = country;
+		this.deathYear = deathYear;
+		this.gender = gender;
+		this.alcohol = alcohol;
+		this.dob = dob;
+		this.education = education;
+		this.smoke = smoke;
+		this.ethnicity = ethnicity;
+	}
+
+	public User(int id, String userName, String country, Double deathYear, String gender, String alcohol, LocalDate dob,
+			String education, String smoke, String ethnicity) {
+		super();
+		this.id = id;
+		this.userName = userName;
+		this.country = country;
+		this.deathYear = deathYear;
+		this.gender = gender;
+		this.alcohol = alcohol;
+		this.dob = dob;
+		this.education = education;
+		this.smoke = smoke;
 		this.ethnicity = ethnicity;
 	}
 
@@ -94,17 +137,19 @@ public class User {
 
 	}
 
-	public int getIncome() {
-		return income;
-	}
-
-	public void setIncome(int income) {
-		this.income = income;
-	}
-
-	public User(String userName) {
+	public User(String userName, String country, Double deathYear, String gender, String alcohol, LocalDate dob,
+			String education, String smoke, int income, String ethnicity) {
 		super();
 		this.userName = userName;
+		this.country = country;
+		this.deathYear = deathYear;
+		this.gender = gender;
+		this.alcohol = alcohol;
+		this.dob = dob;
+		this.education = education;
+		this.smoke = smoke;
+		this.income = income;
+		this.ethnicity = ethnicity;
 	}
 
 	public int getId() {
@@ -121,35 +166,6 @@ public class User {
 
 	public void setUserName(String userName) {
 		this.userName = userName;
-	}
-
-	public User(int id, String userName, String country, Double deathYear, String gender, String alcohol, LocalDate dob,
-			String education, String smoke, String ethnicity) {
-		super();
-		this.id = id;
-		this.userName = userName;
-		this.country = country;
-		this.deathYear = deathYear;
-		this.gender = gender;
-		this.alcohol = alcohol;
-		this.dob = dob;
-		this.education = education;
-		this.smoke = smoke;
-		this.ethnicity = ethnicity;
-	}
-
-	public User(String userName, String country, Double deathYear, String gender, String alcohol, LocalDate dob,
-			String education, String smoke, String ethnicity) {
-		super();
-		this.userName = userName;
-		this.country = country;
-		this.deathYear = deathYear;
-		this.gender = gender;
-		this.alcohol = alcohol;
-		this.dob = dob;
-		this.education = education;
-		this.smoke = smoke;
-		this.ethnicity = ethnicity;
 	}
 
 	public String getCountry() {
@@ -208,59 +224,69 @@ public class User {
 		this.smoke = smoke;
 	}
 
+	public int getIncome() {
+		return income;
+	}
+
+	public void setIncome(int income) {
+		this.income = income;
+	}
+
 	public String getEthnicity() {
 		return ethnicity;
 	}
-	
 
 	public void setEthnicity(String ethnicity) {
 		this.ethnicity = ethnicity;
 	}
-	
-	
 
-	public User(String userName, String country, Double deathYear, String gender, String alcohol, LocalDate dob,
-			String education, String smoke, int income, String ethnicity, Integer amount, Integer years,
-			String stillSmokin, String amountDrunk) {
-		super();
-		this.userName = userName;
-		this.country = country;
-		this.deathYear = deathYear;
-		this.gender = gender;
-		this.alcohol = alcohol;
-		this.dob = dob;
-		this.education = education;
-		this.smoke = smoke;
-		this.income = income;
-		this.ethnicity = ethnicity;
+	public Integer getAmount() {
+		return amount;
+	}
+
+	public void setAmount(Integer amount) {
 		this.amount = amount;
+	}
+
+	public Integer getYears() {
+		return years;
+	}
+
+	public void setYears(Integer years) {
 		this.years = years;
+	}
+
+	public String getStillSmokin() {
+		return stillSmokin;
+	}
+
+	public void setStillSmokin(String stillSmokin) {
 		this.stillSmokin = stillSmokin;
+	}
+
+	public String getAmountDrunk() {
+		return amountDrunk;
+	}
+
+	public void setAmountDrunk(String amountDrunk) {
 		this.amountDrunk = amountDrunk;
 	}
 
-	public User(int id, String userName, String country, Double deathYear, String gender, String alcohol, LocalDate dob,
-			String education, String smoke, int income, String ethnicity, Integer amount, Integer years,
-			String stillSmokin, String amountDrunk) {
-		super();
-		this.id = id;
-		this.userName = userName;
-		this.country = country;
-		this.deathYear = deathYear;
-		this.gender = gender;
-		this.alcohol = alcohol;
-		this.dob = dob;
-		this.education = education;
-		this.smoke = smoke;
-		this.income = income;
-		this.ethnicity = ethnicity;
-		this.amount = amount;
-		this.years = years;
-		this.stillSmokin = stillSmokin;
-		this.amountDrunk = amountDrunk;
+	public Integer getHeight() {
+		return height;
 	}
-	
-	
+
+	public void setHeight(Integer height) {
+		this.height = height;
+	}
+
+	public Integer getWeight() {
+		return weight;
+	}
+
+	public void setWeight(Integer weight) {
+		this.weight = weight;
+	}
 
 	@Override
 	public String toString() {
@@ -270,16 +296,12 @@ public class User {
 				+ ", years=" + years + ", stillSmokin=" + stillSmokin + ", amountDrunk=" + amountDrunk + "]";
 	}
 
-	public User() {
-		super();
-	}
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", userName=" + userName + ", country=" + country + ", deathYear=" + deathYear
-				+ ", gender=" + gender + ", alcohol=" + alcohol + ", dob=" + dob + ", education=" + education
-				+ ", smoke=" + smoke + ", income=" + income + ", ethnicity=" + ethnicity + ", amount=" + amount
-				+ ", years=" + years + ", stillsmokin=" + stillsmokin + ", amountDrunk=" + amountDrunk + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "User [id=" + id + ", userName=" + userName + ", country=" + country + ", deathYear=" + deathYear
+//				+ ", gender=" + gender + ", alcohol=" + alcohol + ", dob=" + dob + ", education=" + education
+//				+ ", smoke=" + smoke + ", income=" + income + ", ethnicity=" + ethnicity + ", amount=" + amount
+//				+ ", years=" + years + ", stillsmokin=" + stillsmokin + ", amountDrunk=" + amountDrunk + "]";
+//	}
 
 }
