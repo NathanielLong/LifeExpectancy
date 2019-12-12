@@ -130,7 +130,8 @@ public class FormController {
 
 	@RequestMapping("/scrooge")
 	public ModelAndView scrooge() {
-		return new ModelAndView("scrooge");
+		ArrayList<Country> boogaloo = (ArrayList<Country>) cRepo.findAll();
+		return new ModelAndView("scrooge", "countries", boogaloo);
 	}
 
 	public Double getDeathYear() {

@@ -38,7 +38,7 @@
 				id="noCheck" value="idontsmokeanymore" checked>
 		</div>
 
-		<script type="text/javascript">
+		<!-- 		<script type="text/javascript">
 			function yesnoCheck() {
 				if (document.getElementById('yesCheck').checked) {
 					document.getElementById('ifYes').style.visibility = 'visible';
@@ -46,21 +46,10 @@
 					document.getElementById('ifYes').style.visibility = 'hidden';
 
 			}
-		</script>
+		</script> -->
 
 
-		<div class="form-check">
-			<label class="form-check-label"> <input type="radio"
-				class="form-check-input" name="gender" id="optionsRadios1"
-				value="option1" checked=""> Male
-			</label>
-		</div>
-		<div class="form-check">
-			<label class="form-check-label"> <input type="radio"
-				class="form-check-input" name="gender" id="optionsRadios2"
-				value="option2"> Female <br>
-			</label>
-		</div>
+
 
 
 
@@ -76,10 +65,10 @@
 
 		Do you drink alcohol? Yes <input type="radio"
 			onclick="javascript:yesnoCheck();" name="alcohol" value="idrink"
-			id="yesCheck"> No <input type="radio"
+			id="yesCheckalc"> No <input type="radio"
 			onclick="javascript:yesnoCheck();" name="alcohol" value="nodrink"
-			id="noCheck"> <br>
-		<div id="ifYes" style="visibility: hidden">
+			id="noCheckalc"> <br>
+		<div id="ifYesalc" style="visibility: hidden">
 			<div class="form-group">
 				<select class="custom-select" name="amountDrunk">
 					<option value="none" hidden=" ">
@@ -95,18 +84,10 @@
 
 
 
-		<script type="text/javascript">
-			function yesnoCheck() {
-				if (document.getElementById('yesCheck').checked) {
-					document.getElementById('ifYes').style.visibility = 'visible';
-				} else
-					document.getElementById('ifYes').style.visibility = 'hidden';
 
-			}
-		</script>
 		Please enter how much you weigh in pounds: <br> <input
 			type="number" name="weight"> <br> Please enter your
-		height in inches: <br> <input type="number" name="height">
+		height in inches: <br> <input type="number" name="height" value="${ user.getHeight }">
 		<br>
 
 
@@ -118,19 +99,6 @@
 				<option value="77,500">47,501 - 77, 500</option>
 				<option value="127,000">77,501 - 127,000</option>
 				<option value="10000000">127,001 or higher</option>
-			</select>
-		</div>
-
-
-		What ethnicity do you identify the most with?
-
-		<div class="form-group">
-			<select class="custom-select">
-				<option value="Asian-American">Asian-American</option>
-				<option value="Hispanic">Hispanic</option>
-				<option value="White">White</option>
-				<option value="Native-American">Native-American</option>
-				<option value="African-American">African-American</option>
 			</select>
 		</div>
 
@@ -146,7 +114,15 @@
 
 
 
+	<script type="text/javascript">
+		function yesnoCheck() {
+			if (document.getElementById('yesCheckalc').checked) {
+				document.getElementById('ifYesalc').style.visibility = 'visible';
+			} else
+				document.getElementById('ifYesalc').style.visibility = 'hidden';
 
+		}
+	</script>
 
 
 
