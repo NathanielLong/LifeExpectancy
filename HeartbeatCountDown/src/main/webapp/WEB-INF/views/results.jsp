@@ -13,6 +13,7 @@
 <div>
 <img align = "left" src = "https://theladdermn.files.wordpress.com/2013/03/human_heart.jpg">
 </div>
+<p> You have ${hBeat/39420000} years remaining.</p>
 <p> You have <span id="countdowntimer">${hBeat } </span> heartbeats remaining</p>
 
 <a class="btn btn-primary" href="/scrooge">I Can Change!</a>
