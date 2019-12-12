@@ -25,12 +25,12 @@ public class StatisticsModels {
 
 	}
 
-	public static int alcoholBeatsReduced(String drinksPerWeekCategory) {
+	public static long alcoholBeatsReduced(String drinksPerWeekCategory) {
 		// This method calculates beats reduced over lifetime by drinking categories. 0
 		// drinks per week reduces beats by 0.
 		// 1-2 drinks per week reduces beats by 19440000 over lifetime, etc.
 
-		int beatsReduced = 0;
+		long beatsReduced = 0;
 
 		if (drinksPerWeekCategory == "none") {
 			beatsReduced = 0;
@@ -38,13 +38,13 @@ public class StatisticsModels {
 			switch (drinksPerWeekCategory) {
 
 			case "low": // 1-2 drinks per day
-				beatsReduced = (int) (heartbeatsPerYear * 0.5);
+				beatsReduced = (long) (heartbeatsPerYear * 0.5);
 				break;
 			case "medium": // 2-3.5 drinks per day
-				beatsReduced = (int) (heartbeatsPerYear * 1.5);
+				beatsReduced = (long) (heartbeatsPerYear * 1.5);
 				break;
 			case "high": // Greater than 3.5 drinks per day
-				beatsReduced = (int) (heartbeatsPerYear * 4.5);
+				beatsReduced = (long) (heartbeatsPerYear * 4.5);
 				break;
 			}
 		}
@@ -53,35 +53,35 @@ public class StatisticsModels {
 
 	}
 
-	public static int educationBeatsReduced(String educationLevelCategory, String gender) { // this needs to be finished
+	public static long educationBeatsReduced(String educationLevelCategory, String gender) { // this needs to be finished
 
-		int beatsReduced = 0;
+		long beatsReduced = 0;
 
 		if (educationLevelCategory == "bachelors") {
 			switch (gender) {
 			case "FMLE":
-				beatsReduced = (int) (heartbeatsPerYear * -2.8);
+				beatsReduced = (long) (heartbeatsPerYear * -2.8);
 				break;
 			case "MLE":
-				beatsReduced = (int) (heartbeatsPerYear * -1.9);
+				beatsReduced = (long) (heartbeatsPerYear * -1.9);
 				break;
 			}
 		} else if (educationLevelCategory == "noHS") {
 			switch (gender) {
 			case "FMLE":
-				beatsReduced = (int) (heartbeatsPerYear * 5.8);
+				beatsReduced = (long) (heartbeatsPerYear * 5.8);
 				break;
 			case "MLE":
-				beatsReduced = (int) (heartbeatsPerYear * 7.4);
+				beatsReduced = (long) (heartbeatsPerYear * 7.4);
 				break;
 			}
 		} else if (educationLevelCategory == "highSchool") {
 			switch (gender) {
 			case "FMLE":
-				beatsReduced = (int) (heartbeatsPerYear * 2.8);
+				beatsReduced = (long) (heartbeatsPerYear * 2.8);
 				break;
 			case "MLE":
-				beatsReduced = (int) (heartbeatsPerYear * -4.5);
+				beatsReduced = (long) (heartbeatsPerYear * -4.5);
 				break;
 			}
 		}
@@ -91,19 +91,19 @@ public class StatisticsModels {
 
 	
 
-	public static int bmiBeatsReduced(int heightInInches, int weightInPounds, String gender) {
+	public static long bmiBeatsReduced(int heightInInches, int weightInPounds, String gender) {
 
-		int beatsReduced = 0;
+		long beatsReduced = 0;
 
 		double bmi = 703 * (weightInPounds / (heightInInches * heightInInches));
 
 		if (bmi < 18.5) {
 			switch (gender) {
 			case "FMLE":
-				beatsReduced = (int) (heartbeatsPerYear * 4.5);
+				beatsReduced = (long) (heartbeatsPerYear * 4.5);
 				break;
 			case "MLE":
-				beatsReduced = (int) (heartbeatsPerYear * 4.3);
+				beatsReduced = (long) (heartbeatsPerYear * 4.3);
 				break;
 			}
 		} else if (bmi < 25) {
@@ -111,17 +111,17 @@ public class StatisticsModels {
 		} else if (bmi < 30) {
 			switch (gender) {
 			case "FMLE":
-				beatsReduced = (int) (heartbeatsPerYear * 0.8);
+				beatsReduced = (long) (heartbeatsPerYear * 0.8);
 				break;
 			case "MLE":
-				beatsReduced = (int) (heartbeatsPerYear * 1.0);
+				beatsReduced = (long) (heartbeatsPerYear * 1.0);
 			}
 		} else if (bmi >= 30) {
 			switch (gender) {
 			case "FMLE":
-				beatsReduced = (int) (heartbeatsPerYear * 3.5);
+				beatsReduced = (long) (heartbeatsPerYear * 3.5);
 			case "MLE":
-				beatsReduced = (int) (heartbeatsPerYear * 4.2);
+				beatsReduced = (long) (heartbeatsPerYear * 4.2);
 			}
 		}
 
@@ -129,51 +129,51 @@ public class StatisticsModels {
 
 	}
 
-	public static int incomeBeatsLost(int income, String gender) {
+	public static long incomeBeatsLost(int income, String gender) {
 
-		int beatsReduced = 0;
+		long beatsReduced = 0;
 
 		if (income <= 25000) {
 			switch (gender) {
 			case "FMLE":
-				beatsReduced = (int) (heartbeatsPerYear * 2.7);
+				beatsReduced = (long) (heartbeatsPerYear * 2.7);
 				break;
 			case "MLE":
-				beatsReduced = (int) (heartbeatsPerYear * 0.7);
+				beatsReduced = (long) (heartbeatsPerYear * 0.7);
 				break;
 			}
 		} else if (income <= 47500) {
 			switch (gender) {
 			case "FMLE":
-				beatsReduced = (int) (heartbeatsPerYear * 1.3);
+				beatsReduced = (long) (heartbeatsPerYear * 1.3);
 				break;
 			case "MLE":
-				beatsReduced = (int) (heartbeatsPerYear * -1.5);
+				beatsReduced = (long) (heartbeatsPerYear * -1.5);
 			}
 		} else if (income <= 77500) {
 			switch (gender) {
 			case "FMLE":
-				beatsReduced = (int) (heartbeatsPerYear * -1.4);
+				beatsReduced = (long) (heartbeatsPerYear * -1.4);
 				break;
 			case "MLE":
-				beatsReduced = (int) (heartbeatsPerYear * -6.6);
+				beatsReduced = (long) (heartbeatsPerYear * -6.6);
 			}
 		} else if (income <= 127000) {
 			switch (gender) {
 			case "FMLE":
-				beatsReduced = (int) (heartbeatsPerYear * -2.1);
+				beatsReduced = (long) (heartbeatsPerYear * -2.1);
 				break;
 			case "MLE":
-				beatsReduced = (int) (heartbeatsPerYear * -11.0);
+				beatsReduced = (long) (heartbeatsPerYear * -11.0);
 				break;
 			}
 		} else {
 			switch (gender) {
 			case "FMLE":
-				beatsReduced = (int) (heartbeatsPerYear * -10.9);
+				beatsReduced = (long) (heartbeatsPerYear * -10.9);
 				break;
 			case "MLE":
-				beatsReduced = (int) (heartbeatsPerYear * -12.0);
+				beatsReduced = (long) (heartbeatsPerYear * -12.0);
 				break;
 			}
 		}
@@ -182,25 +182,25 @@ public class StatisticsModels {
 
 	}
 
-	public static int ethnicityBeatsLost(String ethnicity) {
+	public static long ethnicityBeatsLost(String ethnicity) {
 
-		int beatsReduced = 0;
+		long beatsReduced = 0;
 
 		switch (ethnicity) {
 		case "Asian-American":
-			beatsReduced = (int) (heartbeatsPerYear * -8.4);
+			beatsReduced = (long) (heartbeatsPerYear * -8.4);
 			break;
 		case "Hispanic":
-			beatsReduced = (int) (heartbeatsPerYear * -4.6);
+			beatsReduced = (long) (heartbeatsPerYear * -4.6);
 			break;
 		case "White":
-			beatsReduced = (int) (heartbeatsPerYear * -0.2);
+			beatsReduced = (long) (heartbeatsPerYear * -0.2);
 			break;
 		case "Native American":
-			beatsReduced = (int) (heartbeatsPerYear * 1.8);
+			beatsReduced = (long) (heartbeatsPerYear * 1.8);
 			break;
 		case "African-American":
-			beatsReduced = (int) (heartbeatsPerYear * 3.3);
+			beatsReduced = (long) (heartbeatsPerYear * 3.3);
 			break;
 		}
 

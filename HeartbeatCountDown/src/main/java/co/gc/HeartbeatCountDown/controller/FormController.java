@@ -65,7 +65,7 @@ public class FormController {
 		user.setYears(years);
 		user.setStillSmokin(stillsmokin);
 		session.setAttribute("user", user);
-		System.out.println(smoke + " " + amount + " " + years + " " + stillsmokin);
+		System.out.println(smoke + " " + amount + " " + years + " " + user.getStillSmokin());
 		return new ModelAndView("gender");
 	}
 
@@ -126,8 +126,11 @@ public class FormController {
 				+ " " + user.getEthnicity() + " " + user.getGender() + " " + user.getSmoke() + " " + user.getUserName()
 				+ " ");
 		uRepo.save(user);
-		System.out.println(session.getAttribute("user"));
-		return new ModelAndView("results");
+		long hBeats;
+		LogicController lc = new LogicController();
+		hBeats = lc.findBeatDrop(user);
+		return new ModelAndView("results", "hBeat", hBeats);
+
 	}
 
 	@RequestMapping("/scrooge")
