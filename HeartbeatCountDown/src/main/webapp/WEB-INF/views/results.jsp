@@ -7,10 +7,11 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/united/bootstrap.min.css" rel="stylesheet" integrity="sha384-WTtvlZJeRyCiKUtbQ88X1x9uHmKi0eHCbQ8irbzqSLkE0DpAZuixT5yFvgX0CjIu" crossorigin="anonymous">
+<link rel="stylesheet" href = "styles.css">
 </head>
 <body>
-<div class ="item-1">
-Heart
+<div>
+<img align = "left" src = "https://theladdermn.files.wordpress.com/2013/03/human_heart.jpg">
 </div>
 <p> You have <span id="countdowntimer">${hBeat } </span> heartbeats remaining</p>
 
