@@ -31,6 +31,7 @@ public class User {
 	private String amountDrunk;
 	private Integer height;
 	private Integer weight;
+	private long age;
 
 	public User() {
 		super();
@@ -286,6 +287,14 @@ public class User {
 
 	public void setWeight(Integer weight) {
 		this.weight = weight;
+	}
+
+	public long getAge() {
+		return age;
+	}
+
+	public void setAge(long yearsOld) {
+		this.age = yearsOld;
 	}
 
 	@Override

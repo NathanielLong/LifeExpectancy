@@ -52,6 +52,9 @@ public class FormController {
 		LocalDate date = LocalDate.parse(borned);
 		User user = (User) (session.getAttribute("user"));
 		user.setDob(date);
+		LogicController lc = new LogicController();
+		long yearsOld = (lc.findHeartbeatsSpent(date)/StatisticsModels.StatisticsModels.heartbeatsPerYear);
+		user.setAge(yearsOld);
 		session.setAttribute("user", user);
 		return new ModelAndView("smoke");
 	}
@@ -111,19 +114,31 @@ public class FormController {
 	public ModelAndView ethnicity(int income) {
 		User user = (User) (session.getAttribute("user"));
 		user.setIncome(income);
+		long age = user.getAge();
 		session.setAttribute("user", user);
-		return new ModelAndView("ethnicity");
+		if (age < 25) {
+			return new ModelAndView("redirect:/results");
+		} else {
+			return new ModelAndView("education");
+		}
+	}
+
+	@RequestMapping("/education")
+	public ModelAndView education(String ethnicity, String gender) {
+		User user = (User) (session.getAttribute("user"));
+		user.setEthnicity(ethnicity);
+		return new ModelAndView("results");
 
 	}
 
 	@RequestMapping("/results")
-	public ModelAndView goToResults(String ethnicity) {
+	public ModelAndView goToResults(String education) {
 		User user = (User) (session.getAttribute("user"));
-		user.setEthnicity(ethnicity);
+		user.setEducation(education);
 		session.setAttribute("user", user);
 
 		System.out.println(user.getAlcohol() + " " + user.getCountry() + " " + user.getDob() + " " + user.getEducation()
-				+ " " + user.getEthnicity() + " " + user.getGender() + " " + user.getSmoke() + " " + user.getUserName()
+		+ " " + user.getEthnicity() + " " + user.getGender() + " " + user.getSmoke() + " " + user.getUserName()
 				+ " ");
 		uRepo.save(user);
 		long hBeats;
