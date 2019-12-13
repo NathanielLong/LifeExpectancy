@@ -29,6 +29,8 @@ public class LogicController {
 		System.out.println(heartBeatsLeft);
 		heartBeatsLeft -= StatisticsModels.ethnicityBeatsLost(user.getEthnicity());
 		System.out.println(heartBeatsLeft);
+		heartBeatsLeft -= StatisticsModels.bmiBeatsReduced(user.getHeight(), user.getWeight(), user.getGender());
+		System.out.println(heartBeatsLeft);
 		heartBeatsLeft -= findHeartbeatsSpent(user.getDob());
 		System.out.println(heartBeatsLeft);
 //		if(user.getStillSmokin().equals("ismoke"))

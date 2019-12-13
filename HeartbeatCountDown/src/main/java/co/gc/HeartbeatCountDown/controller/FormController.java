@@ -105,19 +105,19 @@ public class FormController {
 	}
 
 	@RequestMapping("/income")
-	public ModelAndView income(int height, int weight) {
+	public ModelAndView income(Integer height, Integer weight) {
 
 		return new ModelAndView("income");
 	}
 
 	@RequestMapping("/ethnicity")
-	public ModelAndView ethnicity(int income) {
+	public ModelAndView ethnicity(Integer income) {
 		User user = (User) (session.getAttribute("user"));
 		user.setIncome(income);
 		long age = user.getAge();
 		session.setAttribute("user", user);
 		if (age < 25) {
-			return new ModelAndView("redirect:/results");
+			return new ModelAndView("confirmation");
 		} else {
 			return new ModelAndView("education");
 		}
@@ -172,6 +172,14 @@ public class FormController {
 		hBeats = lc.findBeatDrop(user);
 		return new ModelAndView("results", "hBeat", hBeats);
 
+	}
+	
+	@RequestMapping("/confirmation")
+	public ModelAndView confirm(String ethnicity) {
+		User user = (User) (session.getAttribute("user"));
+		user.setEthnicity(ethnicity);
+		user.setEducation("null");
+		return new ModelAndView("confirmation");
 	}
 
 	@RequestMapping("/scrooge")

@@ -23,7 +23,7 @@ public class User {
 	private LocalDate dob;
 	private String education;
 	private String smoke;
-	private int income;
+	private Integer income;
 	private String ethnicity;
 	private Integer amount;
 	private Integer years;
