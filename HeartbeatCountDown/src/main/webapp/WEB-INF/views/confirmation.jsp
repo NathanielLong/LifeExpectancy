@@ -12,7 +12,7 @@
 
 
 <form action="/results">
-<input class="btn btn-primary" Value="submit" name="submit">
+<input class="btn btn-primary" Value="submit" type="Submit">
 </form>
 </body>
 </html>

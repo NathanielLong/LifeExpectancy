@@ -31,7 +31,7 @@ public class FormController {
 
 	RestTemplate rt = new RestTemplate();
 
-	User user = new User();
+	User userInfo = new User();
 
 //	@RequestMapping("/")
 	public ModelAndView userName() {
@@ -40,9 +40,9 @@ public class FormController {
 
 	@RequestMapping("/date")
 	public ModelAndView dateOfBirth(String userName) {
-		user.setUserName(userName);
-		session.setAttribute("user", user);
-		System.out.println(user.getUserName());
+		userInfo.setUserName(userName);
+		session.setAttribute("user", userInfo);
+		System.out.println(userInfo.getUserName());
 
 		return new ModelAndView("date-of-birth");
 	}
@@ -53,7 +53,7 @@ public class FormController {
 		User user = (User) (session.getAttribute("user"));
 		user.setDob(date);
 		LogicController lc = new LogicController();
-		long yearsOld = (lc.findHeartbeatsSpent(date)/StatisticsModels.StatisticsModels.heartbeatsPerYear);
+		long yearsOld = (lc.findHeartbeatsSpent(date) / StatisticsModels.StatisticsModels.heartbeatsPerYear);
 		user.setAge(yearsOld);
 		session.setAttribute("user", user);
 		return new ModelAndView("smoke");
@@ -61,23 +61,23 @@ public class FormController {
 
 	@RequestMapping("/gender")
 	public ModelAndView gender(String smoke, Integer amount, Integer years, Integer number, String stillsmokin) {
-		user = (User) (session.getAttribute("user"));
+		userInfo = (User) (session.getAttribute("user"));
 //		StatisticsModels.StatisticsModels.smokingBeatsReduced(amount, years);
-		user.setSmoke(smoke);
-		user.setAmount(amount);
-		user.setYears(years);
-		user.setStillSmokin(stillsmokin);
-		session.setAttribute("user", user);
-		System.out.println(smoke + " " + amount + " " + years + " " + user.getStillSmokin());
+		userInfo.setSmoke(smoke);
+		userInfo.setAmount(amount);
+		userInfo.setYears(years);
+		userInfo.setStillSmokin(stillsmokin);
+		session.setAttribute("user", userInfo);
+		System.out.println(smoke + " " + amount + " " + years + " " + userInfo.getStillSmokin());
 		return new ModelAndView("gender");
 	}
 
 	@RequestMapping("/country")
 	public ModelAndView country(String gender) {
 
-		user = (User) (session.getAttribute("user"));
-		user.setGender(gender);
-		session.setAttribute("user", user);
+		userInfo = (User) (session.getAttribute("user"));
+		userInfo.setGender(gender);
+		session.setAttribute("user", userInfo);
 		ArrayList<Country> boogaloo = (ArrayList<Country>) cRepo.findAll();
 //		boogaloo.get(0).getDisplay();
 
@@ -87,11 +87,11 @@ public class FormController {
 	@RequestMapping("/alcohol")
 	public ModelAndView alcohol(String country) {
 
-		user = (User) (session.getAttribute("user"));
-		user.setCountry(country);
-		user.setDeathYear(getDeathYear());
-		System.out.println(user.getDeathYear());
-		session.setAttribute("user", user);
+		userInfo = (User) (session.getAttribute("user"));
+		userInfo.setCountry(country);
+		userInfo.setDeathYear(getDeathYear());
+		System.out.println(userInfo.getDeathYear());
+		session.setAttribute("user", userInfo);
 
 		return new ModelAndView("alcohol");
 	}
@@ -99,13 +99,15 @@ public class FormController {
 	@RequestMapping("/bmi")
 	public ModelAndView bmi(String alcohol, String amountDrunk) {
 		System.out.println(alcohol + amountDrunk);
-		user.setAlcohol(alcohol);
-		user.setAmountDrunk(amountDrunk);
+		userInfo.setAlcohol(alcohol);
+		userInfo.setAmountDrunk(amountDrunk);
 		return new ModelAndView("bmi");
 	}
 
 	@RequestMapping("/income")
 	public ModelAndView income(Integer height, Integer weight) {
+		userInfo.setWeight(weight);
+		userInfo.setHeight(height);
 
 		return new ModelAndView("income");
 	}
@@ -114,36 +116,36 @@ public class FormController {
 	public ModelAndView ethnicity(Integer income) {
 		User user = (User) (session.getAttribute("user"));
 		user.setIncome(income);
-		long age = user.getAge();
+		//long age = user.getAge();
 		session.setAttribute("user", user);
-		if (age < 25) {
-			return new ModelAndView("confirmation");
-		} else {
-			return new ModelAndView("education");
-		}
+		return new ModelAndView("ethnicity");
+
 	}
 
 	@RequestMapping("/education")
 	public ModelAndView education(String ethnicity, String gender) {
 		User user = (User) (session.getAttribute("user"));
 		user.setEthnicity(ethnicity);
-		return new ModelAndView("results");
+		uRepo.save(user);
+		long age = user.getAge();
+		if (age < 25) {
+			return new ModelAndView("redirect:/confirmation?ethnicity=" + ethnicity);
+		} else {
+			return new ModelAndView("education");
+		}
+		
 
 	}
 
 	@RequestMapping("/results")
-	public ModelAndView goToResults(String education) {
-		User user = (User) (session.getAttribute("user"));
-		user.setEducation(education);
-		session.setAttribute("user", user);
-
-		System.out.println(user.getAlcohol() + " " + user.getCountry() + " " + user.getDob() + " " + user.getEducation()
-		+ " " + user.getEthnicity() + " " + user.getGender() + " " + user.getSmoke() + " " + user.getUserName()
-				+ " ");
-		uRepo.save(user);
+	public ModelAndView goToResults() {
+//		System.out.println(userInfo.getAlcohol() + " " + userInfo.getCountry() + " " + userInfo.getDob() + " " + userInfo.getEducation()
+//				+ " " + userInfo.getEthnicity() + " " + userInfo.getGender() + " " + userInfo.getSmoke() + " " + userInfo.getUserName()
+//				+ " ");
+		uRepo.save(userInfo);
 		long hBeats;
 		LogicController lc = new LogicController();
-		hBeats = lc.findBeatDrop(user);
+		hBeats = lc.findBeatDrop(userInfo);
 		return new ModelAndView("results", "hBeat", hBeats);
 
 	}
@@ -151,34 +153,38 @@ public class FormController {
 	@RequestMapping("/scroogeresults")
 	public ModelAndView goToResultsFromScrooge(String alcohol, Integer amount, String amountDrunk, String country,
 			Integer income, String smoke, String stillSmokin, Integer weight, Integer years) {
-		user = (User) (session.getAttribute("user"));
-		user.setAlcohol(alcohol);
-		user.setAmount(amount);
-		user.setAmountDrunk(amountDrunk);
-		user.setCountry(country);
-		user.setIncome(income);
-		user.setSmoke(smoke);
-		user.setStillSmokin(stillSmokin);
-		user.setWeight(weight);
-		user.setYears(years);
-		session.setAttribute("user", user);
+		userInfo = (User) (session.getAttribute("user"));
+		userInfo.setAlcohol(alcohol);
+		userInfo.setAmount(amount);
+		userInfo.setAmountDrunk(amountDrunk);
+		userInfo.setCountry(country);
+		userInfo.setIncome(income);
+		userInfo.setSmoke(smoke);
+		userInfo.setStillSmokin(stillSmokin);
+		userInfo.setYears(years);
+		session.setAttribute("user", userInfo);
 
 //		System.out.println(user.getAlcohol() + " " + user.getCountry() + " " + user.getDob() + " " + user.getEducation()
 //				+ " " + user.getEthnicity() + " " + user.getGender() + " " + user.getSmoke() + " " + user.getUserName()
 //				+ " ");
-		uRepo.save(user);
+		uRepo.save(userInfo);
 		long hBeats;
 		LogicController lc = new LogicController();
-		hBeats = lc.findBeatDrop(user);
+		hBeats = lc.findBeatDrop(userInfo);
 		return new ModelAndView("results", "hBeat", hBeats);
 
 	}
-	
+
 	@RequestMapping("/confirmation")
 	public ModelAndView confirm(String ethnicity) {
 		User user = (User) (session.getAttribute("user"));
-		user.setEthnicity(ethnicity);
-		user.setEducation("null");
+//		User user = (User) (session.getAttribute("user"));
+		userInfo.setEthnicity(ethnicity);
+		userInfo.setEducation("none");
+		uRepo.save(user);
+		System.out.println(userInfo.getAlcohol() + " " + userInfo.getCountry() + " " + userInfo.getDob() + " " + userInfo.getEducation()
+				+ " " + userInfo.getEthnicity() + " " + userInfo.getGender() + " " + userInfo.getSmoke() + " " + userInfo.getUserName()
+				+ " ");
 		return new ModelAndView("confirmation");
 	}
 

@@ -85,18 +85,18 @@ public class StatisticsModels {
 				beatsReduced = (long) (heartbeatsPerYear * -4.5);
 				break;
 			}
-		} else if (educationLevelCategory == "null"){
+		} else if (educationLevelCategory == "none"){
 			return beatsReduced;
 		}
 		return beatsReduced;
 		
 	}
 
-	public static long bmiBeatsReduced(int heightInInches, int weightInPounds, String gender) {
+	public static long bmiBeatsReduced(int height, int weight, String gender) {
 
 		long beatsReduced = 0;
 
-		double bmi = 703 * (weightInPounds / (heightInInches * heightInInches));
+		double bmi = 703 * (weight / (height * height));
 
 		if (bmi < 18.5) {
 			switch (gender) {

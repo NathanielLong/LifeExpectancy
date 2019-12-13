@@ -14,7 +14,7 @@
 </head>
 <body>
 	What ethnicity do you identify the most with?
-	<form action="/results">
+	<form action="/education">
 		<div class="form-group">
 			<select class="custom-select" name = "ethnicity">
 				<option value="Asian-American">Asian</option>
