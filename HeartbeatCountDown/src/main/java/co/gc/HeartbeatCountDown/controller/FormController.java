@@ -151,7 +151,7 @@ public class FormController {
 	@RequestMapping("/scroogeresults")
 	public ModelAndView goToResultsFromScrooge(String alcohol, Integer amount, String amountDrunk, String country,
 			Integer income, String smoke, String stillSmokin, Integer weight, Integer years) {
-		User user = (User) (session.getAttribute("user"));
+		user = (User) (session.getAttribute("user"));
 		user.setAlcohol(alcohol);
 		user.setAmount(amount);
 		user.setAmountDrunk(amountDrunk);
