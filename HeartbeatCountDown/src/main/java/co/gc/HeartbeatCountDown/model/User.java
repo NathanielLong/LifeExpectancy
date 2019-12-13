@@ -1,5 +1,6 @@
 package co.gc.HeartbeatCountDown.model;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
@@ -10,8 +11,12 @@ import javax.persistence.Table;
 
 @Table
 @Entity
-public class User {
+public class User implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;

@@ -53,7 +53,8 @@ public class StatisticsModels {
 
 	}
 
-	public static long educationBeatsReduced(String educationLevelCategory, String gender) { // this needs to be finished
+	public static long educationBeatsReduced(String educationLevelCategory, String gender) { // this needs to be
+																								// finished
 
 		long beatsReduced = 0;
 
@@ -84,12 +85,12 @@ public class StatisticsModels {
 				beatsReduced = (long) (heartbeatsPerYear * -4.5);
 				break;
 			}
+		} else if (educationLevelCategory == "null"){
+			return beatsReduced;
 		}
 		return beatsReduced;
+		
 	}
-
-
-	
 
 	public static long bmiBeatsReduced(int heightInInches, int weightInPounds, String gender) {
 
