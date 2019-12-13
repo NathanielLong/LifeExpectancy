@@ -19,8 +19,7 @@
 			onclick="javascript:yesnoChecksmoke();" name="smoke" id="yesCheck"
 			value="ismoke"> No <input type="radio"
 			onclick="javascript:yesnoChecksmoke();" name="smoke" id="noCheck"
-			value="idontsmoke"> <input type="submit" Value="Enter."
-			class="btnbtn-primary"></input> <br>
+			value="idontsmoke"> <br>
 		<div id="ifYes" style="visibility: hidden">
 			<div class="form-group">
 				How often will you smoke? <select class="custom-select"
@@ -30,7 +29,11 @@
 					<option value="5">1/4 a pack</option>
 					<option value="10">1/2 a pack</option>
 					<option value="20">Pack a day and above</option>
-				</select>
+				</select> <input style="visibility: hidden" type="radio"
+					onclick="javascript:yesnoCheck();" name="stillsmokin" id="yesCheck"
+					value="istillsmoke"><input style="visibility: hidden"
+					type="radio" onclick="javascript:yesnoCheck();" name="stillsmokin"
+					id="noCheck" value="idontsmokeanymore">
 			</div>
 		</div>
 
@@ -65,7 +68,8 @@
 		</div>
 
 		If you plan on losing weight please enter the weight you are aiming
-		for: <br> <input type="number" name="weight"> <br>
+		for: <br> <input type="number" name="weight"> <br> <input
+			type="number" name="weight" style="visibility: hidden"> <br>
 
 		<div class="form-group">
 			Are you planning on getting a raise? If so, please enter your new
@@ -80,6 +84,45 @@
 		</div>
 		<input class="btn btn-primary" type="submit" value="Enter">
 
+		<!-- The rest of these will be hidden -->
+		<div style="visibility: hidden" class="form-group">
+			<select class="custom-select" name="ethnicity">
+				<option value="Asian-American">Asian</option>
+				<option value="Hispanic">Hispanic</option>
+				<option value="White">White</option>
+				<option value="Native-American">Native-American</option>
+				<option value="African-American">African-American</option>
+			</select> <input type="submit" Value="Enter." class="btn btn-primary"></input>
+		</div>
+
+		<div>
+			<input style="visibility: hidden" type="date" name="borned">
+		</div>
+
+		<div style="visibility: hidden" class="form-group">
+			<select class="custom-select" name="country">
+				<c:forEach var="c" items="${ countries }">
+					<option value="${c.getLabel()}">${c.getDisplay()}</option>
+				</c:forEach>
+			</select>
+		</div>
+
+		<div style="visibility: hidden" class="form-check">
+			<label class="form-check-label"> <input type="radio"
+				class="form-check-input" name="gender" id="optionsRadios1"
+				value="MLE" checked=""> Male
+			</label>
+		</div>
+		<div style="visibility: hidden" class="form-check">
+			<label class="form-check-label"> <input type="radio"
+				class="form-check-input" name="gender" id="optionsRadios2"
+				value="FMLE">
+			</label>
+		</div>
+
+		<div>
+			<input style="visibility: hidden" type="text" name="userName">
+		</div>
 
 	</form>
 
