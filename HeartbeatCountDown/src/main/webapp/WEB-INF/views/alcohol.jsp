@@ -23,7 +23,7 @@
 		<div id="ifYes" style="visibility: hidden">
 			<div class="form-group">
 				<select class="custom-select" name="amountDrunk">
-					<option value="none" hidden=" ">
+					<option value="none" hidden=" "></option>
 					<option value="low">A drink before bed (1-2 drinks per
 						day)</option>
 					<option value="medium">Every now and again (2-3.5 drinks
