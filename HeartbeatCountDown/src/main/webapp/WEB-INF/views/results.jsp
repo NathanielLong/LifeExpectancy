@@ -24,7 +24,7 @@
     document.getElementById("countdowntimer").textContent = timeleft;
     if(timeleft <= 0)
         clearInterval(downloadTimer);
-    },(1000/(75/60)));
+    },(1000/1.25));
 </script>
 </body>
 </html>
