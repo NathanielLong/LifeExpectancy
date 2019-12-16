@@ -6,7 +6,7 @@
 <head>
 <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/superhero/bootstrap.min.css" rel="stylesheet" integrity="sha384-LS4/wo5Z/8SLpOLHs0IbuPAGOWTx30XSoZJ8o7WKH0UJhRpjXXTpODOjfVnNjeHu" crossorigin="anonymous">
 <meta charset="ISO-8859-1">
-<title>AREUREADY</title>
+<title>confirmation</title>
 </head>
 <body>
 

@@ -10,13 +10,13 @@
 	integrity="sha384-cRAmF0wErT4D9dEBc36qB6pVu+KmLh516IoGWD/Gfm6FicBbyDuHgS4jmkQB8u1a"
 	crossorigin="anonymous">
 <meta charset="ISO-8859-1">
-<title>youranalcoholic</title>
+<title>alcohol</title>
 </head>
 <body>
 	<form action="/bmi" method="post">
 		Do you drink alcohol? Yes <input type="radio"
 			onclick="javascript:yesnoCheck(); possibleFirst();" name="alcohol" value="idrink"
-			id="yesCheck"> No <input type="radio"
+			id="yesCheck" required> No <input type="radio"
 			onclick="javascript:yesnoCheck(); possibleFirst();" name="alcohol" value="nodrink"
 			id="noCheck"> <input type="submit" Value="Enter."
 			value="none" class="btnbtn-primary"></input> <br>

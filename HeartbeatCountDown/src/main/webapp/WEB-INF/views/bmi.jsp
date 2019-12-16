@@ -10,7 +10,7 @@
 	integrity="sha384-LS4/wo5Z/8SLpOLHs0IbuPAGOWTx30XSoZJ8o7WKH0UJhRpjXXTpODOjfVnNjeHu"
 	crossorigin="anonymous">
 <meta charset="ISO-8859-1">
-<title>bOdYmAsSiNdEx</title>
+<title>bodymassindex</title>
 </head>
 <body>
 	<form action="/income" method="post">
