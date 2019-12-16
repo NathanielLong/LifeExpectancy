@@ -1,16 +1,21 @@
 package co.gc.HeartbeatCountDown.model;
 
-
-
-import co.gc.HeartbeatCountDown.model.User;
-
-public class UserWithHeartBeats extends User {
+public class UserWithHeartBeats {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	private long heartBeats;
+
+	private Long heartBeats;
+	private User user;
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	public long getHeartBeats() {
 		return heartBeats;
@@ -24,11 +29,14 @@ public class UserWithHeartBeats extends User {
 		super();
 		this.heartBeats = heartBeats;
 	}
-	
-	
-	
 
+	public UserWithHeartBeats() {
+
+	}
+
+	public UserWithHeartBeats(User u, long heartBeats) {
+		user = u;
+		this.heartBeats = heartBeats;
+	}
 
 }
-	
-	

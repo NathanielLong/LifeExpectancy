@@ -66,12 +66,12 @@ public class FormController {
 	@PostMapping("/smoke")
 	public ModelAndView smoke(String borned) {
 		LocalDate date = LocalDate.parse(borned);
-		User user = (User) (session.getAttribute("user"));
-		user.setDob(date);
+		userInfo = (User) (session.getAttribute("user"));
+		userInfo.setDob(date);
 		LogicController lc = new LogicController();
 		long yearsOld = (lc.findHeartbeatsSpent(date) / StatisticsModels.StatisticsModels.heartbeatsPerYear);
-		user.setAge(yearsOld);
-		session.setAttribute("user", user);
+		userInfo.setAge(yearsOld);
+		session.setAttribute("user", userInfo);
 		return new ModelAndView("smoke");
 	}
 
@@ -130,20 +130,20 @@ public class FormController {
 
 	@PostMapping("/ethnicity")
 	public ModelAndView ethnicity(Integer income) {
-		User user = (User) (session.getAttribute("user"));
-		user.setIncome(income);
+		userInfo = (User) (session.getAttribute("user"));
+		userInfo.setIncome(income);
 		// long age = user.getAge();
-		session.setAttribute("user", user);
+		session.setAttribute("user", userInfo);
 		return new ModelAndView("ethnicity");
 
 	}
 
 	@PostMapping("/education")
 	public ModelAndView education(String ethnicity, String gender) {
-		User user = (User) (session.getAttribute("user"));
-		user.setEthnicity(ethnicity);
-		uRepo.save(user);
-		long age = user.getAge();
+		userInfo = (User) (session.getAttribute("user"));
+		userInfo.setEthnicity(ethnicity);
+		uRepo.save(userInfo);
+		long age = userInfo.getAge();
 		if (age < 25) {
 			return new ModelAndView("redirect:/confirmation?ethnicity=" + ethnicity);
 		} else {
@@ -192,18 +192,18 @@ public class FormController {
 
 	@PostMapping("/confirmation")
 	public ModelAndView confirmation(String ethnicity) {
-		User user = (User) (session.getAttribute("user"));
+		userInfo = (User) (session.getAttribute("user"));
 		userInfo.setEthnicity(ethnicity);
 		userInfo.setEducation("none");
-		uRepo.save(user);
+		uRepo.save(userInfo);
 		return new ModelAndView("confirmation");
 	}
 
 	@PostMapping("/confirm")
 	public ModelAndView confirm(String education) {
-		User user = (User) (session.getAttribute("user"));
+		userInfo = (User) (session.getAttribute("user"));
 		userInfo.setEducation(education);
-		uRepo.save(user);
+		uRepo.save(userInfo);
 		return new ModelAndView("confirmation");
 	}
 
@@ -214,10 +214,10 @@ public class FormController {
 	}
 
 	public Double getDeathYear() {
-		User user = (User) (session.getAttribute("user"));
-		String gender = user.getGender();
-		String country = user.getCountry();
-		System.out.println(user.getGender() + " " + user.getCountry());
+		userInfo = (User) (session.getAttribute("user"));
+		String gender = userInfo.getGender();
+		String country = userInfo.getCountry();
+		System.out.println(userInfo.getGender() + " " + userInfo.getCountry());
 		String url = "http://apps.who.int/gho/athena/api/GHO/WHOSIS_000001?profile=simple&filter=Year:2015;COUNTRY:"
 				+ country + ";SEX:" + gender + ";&format=json";
 		Double deathYear = rt.getForObject(url, PeopleResults.class).getPeopleArray().get(0).getDeathAge();

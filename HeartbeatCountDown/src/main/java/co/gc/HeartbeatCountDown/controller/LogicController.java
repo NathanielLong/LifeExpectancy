@@ -40,8 +40,8 @@ public class LogicController {
 		System.out.println(heartBeatsLeft);
 		heartBeatsLeft -= StatisticsModels.ethnicityBeatsLost(user.getEthnicity());
 		System.out.println(heartBeatsLeft);
-		heartBeatsLeft -= StatisticsModels.bmiBeatsReduced(user.getHeight(), user.getWeight(), user.getGender());
-		System.out.println(heartBeatsLeft);
+//		heartBeatsLeft -= StatisticsModels.bmiBeatsReduced(user.getHeight(), user.getWeight(), user.getGender());
+//		System.out.println(heartBeatsLeft);
 		heartBeatsLeft -= findHeartbeatsSpent(user.getDob());
 		System.out.println(heartBeatsLeft);
 		heartBeatsLeft -= StatisticsModels.educationBeatsReduced(user.getEducation(), user.getGender());
@@ -71,8 +71,17 @@ public class LogicController {
 		List<UserWithHeartBeats> userList = new ArrayList<>();
 		for(User u : ur.findAll())
 		{
-			userList.add(new UserWithHeartBeats(findBeatDrop(u)));
+			System.out.println(u.getCountry());
+			userList.add(new UserWithHeartBeats(u, findBeatDrop(u)));
+			
 		}
+		System.out.println(userList.size());
+		System.out.println("hi");
+		System.out.println(userList.get(0).getHeartBeats());
+		System.out.println(userList.get(0).getUser());
+		for(UserWithHeartBeats u : userList)
+			System.out.println(u.getUser().getUserName());
+		
 		
 		return new ModelAndView("hiscores", "scores", userList);
 	}
