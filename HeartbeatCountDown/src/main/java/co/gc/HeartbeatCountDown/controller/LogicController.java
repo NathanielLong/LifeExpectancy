@@ -5,15 +5,21 @@ import java.time.LocalDate;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.servlet.ModelAndView;
 
 import StatisticsModels.StatisticsModels;
 import co.gc.HeartbeatCountDown.model.User;
+import co.gc.HeartbeatCountDown.repo.UserRepo;
 
 public class LogicController {
 	
 	@Autowired
 	HttpSession session;
+	
+	@Autowired
+	UserRepo ur;
 	
 	RestTemplate rt = new RestTemplate();
 	
@@ -33,11 +39,11 @@ public class LogicController {
 		System.out.println(heartBeatsLeft);
 		heartBeatsLeft -= findHeartbeatsSpent(user.getDob());
 		System.out.println(heartBeatsLeft);
-//		if(user.getStillSmokin().equals("ismoke"))
-//				{
-//			Double keepSmoking = (double) (heartBeatsLeft/StatisticsModels.heartbeatsPerYear);
-//			heartBeatsLeft -= StatisticsModels.smokingBeatsReduced(user.getAmount(), keepSmoking);
-//				}
+		if(user.getStillSmokin().equals("ismoke"))
+				{
+			Double keepSmoking = (double) (heartBeatsLeft/StatisticsModels.heartbeatsPerYear);
+			heartBeatsLeft -= StatisticsModels.smokingBeatsReduced(user.getAmount(), keepSmoking);
+				}
 		return heartBeatsLeft;
 		
 	}
@@ -54,6 +60,11 @@ public class LogicController {
 		return (long) (yearsSpent*StatisticsModels.heartbeatsPerYear);
 	}
 	
+	@RequestMapping("/hiscores")
+	public ModelAndView hiScoreTable() {
+		
+		return new ModelAndView("hiscores", "scores", ur.findAll());
+	}
 }
 	
 

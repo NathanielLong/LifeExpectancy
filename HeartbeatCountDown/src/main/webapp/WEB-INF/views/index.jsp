@@ -18,5 +18,7 @@
 		Name: <input type="text" name="userName"></input> 
 		<input type="submit" Value="Begin." class="btn btn-primary"></input>
 	</form>
+	
+	<a href = "/hiscores" class = "btn btn-primary">See the High Scores</a>
 </body>
 </html>

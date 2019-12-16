@@ -21,7 +21,7 @@
 				<option value="Hispanic">Hispanic</option>
 				<option value="White">White</option>
 				<option value="Native-American">Native-American</option>
-				<option value="African">African-American</option>
+				<option value="African">Black</option>
 			</select>
 			<input type="submit" Value="Enter." class="btn btn-primary"></input>
 		</div>
