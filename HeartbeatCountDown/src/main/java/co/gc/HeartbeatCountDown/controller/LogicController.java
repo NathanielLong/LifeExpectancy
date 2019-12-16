@@ -1,18 +1,23 @@
 package co.gc.HeartbeatCountDown.controller;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
 import StatisticsModels.StatisticsModels;
 import co.gc.HeartbeatCountDown.model.User;
+import co.gc.HeartbeatCountDown.model.UserWithHeartBeats;
 import co.gc.HeartbeatCountDown.repo.UserRepo;
 
+@Controller
 public class LogicController {
 	
 	@Autowired
@@ -62,8 +67,13 @@ public class LogicController {
 	
 	@RequestMapping("/hiscores")
 	public ModelAndView hiScoreTable() {
+		List<UserWithHeartBeats> userList = new ArrayList<>();
+		for(User u : ur.findAll())
+		{
+			userList.add(new UserWithHeartBeats(findBeatDrop(u)));
+		}
 		
-		return new ModelAndView("hiscores", "scores", ur.findAll());
+		return new ModelAndView("hiscores", "scores", userList);
 	}
 }
 	
