@@ -13,7 +13,7 @@
 <title>smoke</title>
 </head>
 <body>
-	<form action="/gender">
+	<form action="/gender" method="post">
 		Do you smoke? Yes <input type="radio"
 			onclick="javascript:yesnoCheck(); possibleSecond();" name="smoke" id="yesCheck"
 			value="ismoke"> No <input type="radio"

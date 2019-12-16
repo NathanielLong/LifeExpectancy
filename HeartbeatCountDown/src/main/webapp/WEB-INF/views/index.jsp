@@ -14,7 +14,7 @@
 </head>
 <body>
 
-	<form action="/date">
+	<form action="/date" method="post">
 		Name: <input type="text" name="userName"></input> 
 		<input type="submit" Value="Begin." class="btn btn-primary"></input>
 	</form>

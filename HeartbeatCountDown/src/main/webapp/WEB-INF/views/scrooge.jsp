@@ -14,7 +14,7 @@
 </head>
 <body>
 
-	<form action="/scroogeresults">
+	<form action="/scroogeresults" method="post">
 		Will you continue to smoke? Yes <input type="radio"
 			onclick="javascript:yesnoChecksmoke();" name="smoke" id="yesCheck"
 			value="ismoke"> No <input type="radio"

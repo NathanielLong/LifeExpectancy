@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<form action="/smoke">
+<form action="/smoke" method="post">
   Date of birth: <input type="date" name="borned">
   <input type="submit">
 </form>

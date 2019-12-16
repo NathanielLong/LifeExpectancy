@@ -13,7 +13,7 @@
 <title>bOdYmAsSiNdEx</title>
 </head>
 <body>
-	<form action="/income">
+	<form action="/income" method="post">
 
 		Please enter how much you weigh in pounds: <br>
 		<input type="number" name="weight"><br> Please enter your

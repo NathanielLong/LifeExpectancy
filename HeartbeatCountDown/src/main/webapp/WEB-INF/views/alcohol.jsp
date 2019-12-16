@@ -13,7 +13,7 @@
 <title>youranalcoholic</title>
 </head>
 <body>
-	<form action="/bmi">
+	<form action="/bmi" method="post">
 		Do you drink alcohol? Yes <input type="radio"
 			onclick="javascript:yesnoCheck(); possibleFirst();" name="alcohol" value="idrink"
 			id="yesCheck"> No <input type="radio"

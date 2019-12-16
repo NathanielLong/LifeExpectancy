@@ -14,7 +14,7 @@
 </head>
 <body>
 
-	<form action="/ethnicity">
+	<form action="/ethnicity" method="post">
 		<div class="form-group">
 			What is your current income? <select class="custom-select" name = "income">
 				<option value="25000">25,000 or lower</option>
