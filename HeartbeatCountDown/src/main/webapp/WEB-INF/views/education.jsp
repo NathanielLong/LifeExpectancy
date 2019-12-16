@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
@@ -14,7 +14,19 @@
 </head>
 <body>
 
+	<form action="/confirm">
 
+		<div class="form-group">
+			How much u learned man? <select class="custom-select"
+				name="education">
+				<option value="noHS">No highschool diploma</option>
+				<option value="highSchool">Highschool diploma</option>
+				<option value="bachelors">Bachelors degree</option>
+				<option value="bachelors">Masters degree</option>
+				<option value="bachelors">Bruh, I got a PHD</option>
+			</select> <input type="submit" Value="Enter." class="btn btn-primary"></input>
+		</div>
+	</form>
 
 </body>
 </html>

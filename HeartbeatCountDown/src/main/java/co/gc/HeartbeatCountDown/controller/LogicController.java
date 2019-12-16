@@ -44,6 +44,7 @@ public class LogicController {
 		System.out.println(heartBeatsLeft);
 		heartBeatsLeft -= findHeartbeatsSpent(user.getDob());
 		System.out.println(heartBeatsLeft);
+		heartBeatsLeft -= StatisticsModels.educationBeatsReduced(user.getEducation(), user.getGender());
 		if(user.getStillSmokin().equals("ismoke"))
 				{
 			Double keepSmoking = (double) (heartBeatsLeft/StatisticsModels.heartbeatsPerYear);
