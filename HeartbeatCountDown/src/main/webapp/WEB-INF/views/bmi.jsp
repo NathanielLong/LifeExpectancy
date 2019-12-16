@@ -13,7 +13,7 @@
 <title>bodymassindex</title>
 </head>
 <body>
-	<form action="/income" method="post">
+	<form action="/ethnicity" method="post">
 
 		Please enter how much you weigh in pounds: <br>
 		<input type="number" name="weight"><br> Please enter your

@@ -14,8 +14,8 @@
 </head>
 <body>
 
-	<form action="/confirm" method="post">
-
+	<form action="/income" method="post">
+		<input value="${ethnicity }" name = "ethnicity" type = "hidden">
 		<div class="form-group">
 			How much u learned man? <select class="custom-select"
 				name="education">

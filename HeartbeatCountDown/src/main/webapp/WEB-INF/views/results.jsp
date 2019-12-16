@@ -10,7 +10,7 @@
 <link rel="stylesheet" href = "styles.css">
 </head>
 <body>
-<div>
+<div class = "heartbeat">
 <img align = "left" src = "https://theladdermn.files.wordpress.com/2013/03/human_heart.jpg">
 </div>
 <p> You have ${hBeat/39420000} years remaining.</p>

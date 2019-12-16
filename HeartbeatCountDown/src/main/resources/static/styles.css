@@ -1,4 +1,4 @@
-/* @keyframes heartbeat
+ @keyframes heartbeat
 {
   0%
   {
@@ -25,8 +25,8 @@
     transform: scale( .75 );
   }
 }
- */
-/* div
+
+div.heartbeat
 {
 
   background-color: red;
@@ -34,7 +34,7 @@
   height: 50px;
   animation: heartbeat .8s infinite;
 }
- */
+
 
 
 

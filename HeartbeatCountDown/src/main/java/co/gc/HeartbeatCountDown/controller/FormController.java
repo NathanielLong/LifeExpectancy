@@ -120,18 +120,11 @@ public class FormController {
 		return new ModelAndView("bmi");
 	}
 
-	@PostMapping("/income")
-	public ModelAndView income(Integer height, Integer weight) {
-		userInfo.setWeight(weight);
-		userInfo.setHeight(height);
-
-		return new ModelAndView("income");
-	}
 
 	@PostMapping("/ethnicity")
-	public ModelAndView ethnicity(Integer income) {
+	public ModelAndView ethnicity(Integer height, Integer weight) {
 		userInfo = (User) (session.getAttribute("user"));
-		userInfo.setIncome(income);
+//		userInfo.setIncome(income);
 		// long age = user.getAge();
 		session.setAttribute("user", userInfo);
 		return new ModelAndView("ethnicity");
@@ -139,24 +132,55 @@ public class FormController {
 	}
 
 	@PostMapping("/education")
-	public ModelAndView education(String ethnicity, String gender) {
+	public ModelAndView education(String ethnicity) {
 		userInfo = (User) (session.getAttribute("user"));
 		userInfo.setEthnicity(ethnicity);
-		uRepo.save(userInfo);
+		
 		long age = userInfo.getAge();
 		if (age < 25) {
-			return new ModelAndView("redirect:/confirmation?ethnicity=" + ethnicity);
+			return new ModelAndView("income", "ethnicity", ethnicity);
 		} else {
-			return new ModelAndView("education");
+			return new ModelAndView("education", "ethnicity", ethnicity);
 		}
 
 	}
+	
+	@PostMapping("/confirm")
+	public ModelAndView confirm(String education) {
+		userInfo = (User) (session.getAttribute("user"));
+		userInfo.setEducation(education);
+		uRepo.save(userInfo);
+		return new ModelAndView("confirmation");
+	}
 
+	@PostMapping("/income")
+	public ModelAndView income(String ethnicity, String education) {
+//		userInfo.setWeight(weight);
+//		userInfo.setHeight(height);
+		
+		
+		if(education != null)
+			userInfo.setEducation(education);
+		else
+			userInfo.setEducation("none");
+		userInfo.setEthnicity(ethnicity);
+		uRepo.save(userInfo);
+		return new ModelAndView("income");
+	}
+	
 	@PostMapping("/results")
-	public ModelAndView goToResults() {
+	public ModelAndView goToResults(Integer income) {
 //		System.out.println(userInfo.getAlcohol() + " " + userInfo.getCountry() + " " + userInfo.getDob() + " " + userInfo.getEducation()
 //				+ " " + userInfo.getEthnicity() + " " + userInfo.getGender() + " " + userInfo.getSmoke() + " " + userInfo.getUserName()
 //				+ " ");
+		userInfo = (User) (session.getAttribute("user"));
+//		if(education != null)
+//		userInfo.setEducation(education);
+//		else
+//		userInfo.setEducation("none");
+//		userInfo.setEthnicity(ethnicity);
+		userInfo.setIncome(income);
+		System.out.println(userInfo);
 		uRepo.save(userInfo);
 		long hBeats;
 		LogicController lc = new LogicController();
@@ -199,13 +223,6 @@ public class FormController {
 		return new ModelAndView("confirmation");
 	}
 
-	@PostMapping("/confirm")
-	public ModelAndView confirm(String education) {
-		userInfo = (User) (session.getAttribute("user"));
-		userInfo.setEducation(education);
-		uRepo.save(userInfo);
-		return new ModelAndView("confirmation");
-	}
 
 	@PostMapping("/scrooge")
 	public ModelAndView scrooge() {
