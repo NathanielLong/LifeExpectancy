@@ -27,7 +27,7 @@
 		style="background-image: url('images/iStock_45504088_MEDIUM.jpg');">
 		<div class="container-contact3">
 			<div class="wrap-contact3">
-				<form class="contact3-form validate-form" action="/date">
+				<form class="contact3-form validate-form" action="/date" method = "post">
 					<span class="contact3-form-title"> Beat Dropper</span>
 
 					<!-- <div class="wrap-contact3-form-radio">
