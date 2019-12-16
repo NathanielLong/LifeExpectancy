@@ -15,17 +15,17 @@
 <body>
 	<form action="/bmi">
 		Do you drink alcohol? Yes <input type="radio"
-			onclick="javascript:yesnoCheck();" name="alcohol" value="idrink"
+			onclick="javascript:yesnoCheck(); possibleFirst();" name="alcohol" value="idrink"
 			id="yesCheck"> No <input type="radio"
-			onclick="javascript:yesnoCheck();" name="alcohol" value="nodrink"
+			onclick="javascript:yesnoCheck(); possibleFirst();" name="alcohol" value="nodrink"
 			id="noCheck"> <input type="submit" Value="Enter."
 			value="none" class="btnbtn-primary"></input> <br>
 		<div id="ifYes" style="visibility: hidden">
 			<div class="form-group">
 			How much do you drink?
 				<select class="custom-select" name="amountDrunk">
-					<option value="none" hidden=" "></option>
-					<option value="low">A drink before bed (1-2 drinks per
+					<option value="none" hidden=" " id="teehee"></option>
+					<option value="low" id="first">A drink before bed (1-2 drinks per
 						day)</option>
 					<option value="medium">Every now and again (2-3.5 drinks
 						per day)</option>
@@ -41,6 +41,13 @@
 				document.getElementById('ifYes').style.visibility = 'visible';
 			} else
 				document.getElementById('ifYes').style.visibility = 'hidden';
+		}
+		
+		function possibleFirst() {
+			if (document.getElementById('yesCheck').checked) {
+				document.getElementById('first').selected = "true";
+			} else
+				document.getElementById('teehee').selected = "true";
 		}
 	</script>
 </body>

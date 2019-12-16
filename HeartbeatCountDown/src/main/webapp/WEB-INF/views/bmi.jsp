@@ -16,9 +16,9 @@
 	<form action="/income">
 
 		Please enter how much you weigh in pounds: <br>
-		<input type="number" name="height"><br> Please enter your
+		<input type="number" name="weight"><br> Please enter your
 		height in inches: <br>
-		<input type="number" name="weight"> <br>
+		<input type="number" name="height"> <br>
 		<input type="submit" Value="Enter." class="btnbtn-primary"></input>
 
 	</form>
