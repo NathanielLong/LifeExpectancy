@@ -14,7 +14,7 @@
 </head>
 <body>
 
-	<form action="/alcohol">
+	<form action="/alcohol" method="post">
 		<div class="form-group">
 			<select class="custom-select" name="country">
 				<c:forEach var="c" items="${ countries }">

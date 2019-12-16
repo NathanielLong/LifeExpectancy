@@ -13,25 +13,25 @@
 <title>smoke</title>
 </head>
 <body>
-	<form action="/gender">
+	<form action="/gender" method="post">
 		Do you smoke? Yes <input type="radio"
-			onclick="javascript:yesnoCheck();" name="smoke" id="yesCheck"
+			onclick="javascript:yesnoCheck(); possibleSecond();" name="smoke" id="yesCheck"
 			value="ismoke"> No <input type="radio"
-			onclick="javascript:yesnoCheck();" name="smoke" id="noCheck"
+			onclick="javascript:yesnoCheck(); possibleSecond();" name="smoke" id="noCheck"
 			value="idontsmoke"> <input type="submit" Value="Enter."
 			class="btnbtn-primary"></input> <br>
 		<div id="ifYes" style="visibility: hidden">
 			<div class="form-group">
 				How often do you smoke? <select class="custom-select" name="amount">
-					<option value="0" hidden=" ">
-					<option value="1">A cig a day</option>
+					<option value="0" hidden=" " id="haha">
+					<option value="1" id="second">A cig a day</option>
 					<option value="5">1/4 a pack</option>
 					<option value="10">1/2 a pack</option>
 					<option value="20">Pack a day and above</option>
 				</select>
 			</div>
 			<br> For how many years have you smoked: <input type='number'
-				id='years' name='years' value="1"><br> Do you still
+				id='years' name='years' value="0"><br> Do you still
 			smoke? Yes <input type="radio" onclick="javascript:yesnoCheck();"
 				name="stillsmokin" id="yesCheck" value="istillsmoke"> No <input
 				type="radio" onclick="javascript:yesnoCheck();" name="stillsmokin"
@@ -49,6 +49,13 @@
 			} else
 				document.getElementById('ifYes').style.visibility = 'hidden';
 
+		}
+		
+		function possibleSecond() {
+			if (document.getElementById('yesCheck').checked) {
+				document.getElementById('second').selected = "true";
+			} else
+				document.getElementById('haha').selected = "true";
 		}
 	</script>
 </body>

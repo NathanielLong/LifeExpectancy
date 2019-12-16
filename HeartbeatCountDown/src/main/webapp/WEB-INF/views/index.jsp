@@ -60,31 +60,9 @@
 		</div>
 	</div>
 
-	<script type="text/javascript" async=""
-		src="https://www.google-analytics.com/analytics.js"></script>
-	<script src="vendor/jquery/jquery-3.2.1.min.js" type="text/javascript"></script>
-	<script src="vendor/bootstrap/js/popper.js" type="text/javascript"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"
-		type="text/javascript"></script>
-	<script src="vendor/select2/select2.min.js" type="text/javascript"></script>
-	<script type="text/javascript">
-		$(".selection-2").select2({
-			minimumResultsForSearch : 20,
-			dropdownParent : $('#dropDownSelect1')
-		});
-	</script>
-	<script src="js/main.js" type="text/javascript"></script>
-	<script async=""
-		src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"
-		type="text/javascript"></script>
-	<script type="text/javascript">
-		window.dataLayer = window.dataLayer || [];
-		function gtag() {
-			dataLayer.push(arguments);
-		}
-		gtag('js', new Date());
 
-		gtag('config', 'UA-23581568-13');
-	</script>
+	<!-- 	
+	<a href = "/hiscores" class = "btn btn-primary">See the High Scores</a> -->
+
 </body>
 </html>

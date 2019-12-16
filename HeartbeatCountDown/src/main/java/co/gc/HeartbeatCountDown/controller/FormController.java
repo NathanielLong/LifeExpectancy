@@ -7,7 +7,9 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -33,13 +35,27 @@ public class FormController {
 
 	User userInfo = new User();
 
-//	@RequestMapping("/")
+	@RequestMapping("/")
 	public ModelAndView userName() {
 		return new ModelAndView("index");
 	}
 
-	@RequestMapping("/date")
-	public ModelAndView dateOfBirth(String userName) {
+//	@PostMapping("/")
+//	public ModelAndView userNamePost(String userName) {
+//		return new ModelAndView("index");
+//	}	
+
+//	@RequestMapping("/date")
+//	public ModelAndView dateOfBirth(String userName) {
+//		userInfo.setUserName(userName);
+//		session.setAttribute("user", userInfo);
+//		System.out.println(userInfo.getUserName());
+//
+//		return new ModelAndView("date-of-birth");
+//	}
+
+	@PostMapping("/date")
+	public ModelAndView dateOfBirthPost(String userName) {
 		userInfo.setUserName(userName);
 		session.setAttribute("user", userInfo);
 		System.out.println(userInfo.getUserName());
@@ -47,7 +63,7 @@ public class FormController {
 		return new ModelAndView("date-of-birth");
 	}
 
-	@RequestMapping("/smoke")
+	@PostMapping("/smoke")
 	public ModelAndView smoke(String borned) {
 		LocalDate date = LocalDate.parse(borned);
 		User user = (User) (session.getAttribute("user"));
@@ -59,7 +75,7 @@ public class FormController {
 		return new ModelAndView("smoke");
 	}
 
-	@RequestMapping("/gender")
+	@PostMapping("/gender")
 	public ModelAndView gender(String smoke, Integer amount, Integer years, Integer number, String stillsmokin) {
 		userInfo = (User) (session.getAttribute("user"));
 //		StatisticsModels.StatisticsModels.smokingBeatsReduced(amount, years);
@@ -72,7 +88,7 @@ public class FormController {
 		return new ModelAndView("gender");
 	}
 
-	@RequestMapping("/country")
+	@PostMapping("/country")
 	public ModelAndView country(String gender) {
 
 		userInfo = (User) (session.getAttribute("user"));
@@ -84,7 +100,7 @@ public class FormController {
 		return new ModelAndView("country", "countries", boogaloo);
 	}
 
-	@RequestMapping("/alcohol")
+	@PostMapping("/alcohol")
 	public ModelAndView alcohol(String country) {
 
 		userInfo = (User) (session.getAttribute("user"));
@@ -96,7 +112,7 @@ public class FormController {
 		return new ModelAndView("alcohol");
 	}
 
-	@RequestMapping("/bmi")
+	@PostMapping("/bmi")
 	public ModelAndView bmi(String alcohol, String amountDrunk) {
 		System.out.println(alcohol + amountDrunk);
 		userInfo.setAlcohol(alcohol);
@@ -104,7 +120,7 @@ public class FormController {
 		return new ModelAndView("bmi");
 	}
 
-	@RequestMapping("/income")
+	@PostMapping("/income")
 	public ModelAndView income(Integer height, Integer weight) {
 		userInfo.setWeight(weight);
 		userInfo.setHeight(height);
@@ -112,17 +128,17 @@ public class FormController {
 		return new ModelAndView("income");
 	}
 
-	@RequestMapping("/ethnicity")
+	@PostMapping("/ethnicity")
 	public ModelAndView ethnicity(Integer income) {
 		User user = (User) (session.getAttribute("user"));
 		user.setIncome(income);
-		//long age = user.getAge();
+		// long age = user.getAge();
 		session.setAttribute("user", user);
 		return new ModelAndView("ethnicity");
 
 	}
 
-	@RequestMapping("/education")
+	@PostMapping("/education")
 	public ModelAndView education(String ethnicity, String gender) {
 		User user = (User) (session.getAttribute("user"));
 		user.setEthnicity(ethnicity);
@@ -133,11 +149,10 @@ public class FormController {
 		} else {
 			return new ModelAndView("education");
 		}
-		
 
 	}
 
-	@RequestMapping("/results")
+	@PostMapping("/results")
 	public ModelAndView goToResults() {
 //		System.out.println(userInfo.getAlcohol() + " " + userInfo.getCountry() + " " + userInfo.getDob() + " " + userInfo.getEducation()
 //				+ " " + userInfo.getEthnicity() + " " + userInfo.getGender() + " " + userInfo.getSmoke() + " " + userInfo.getUserName()
@@ -150,7 +165,7 @@ public class FormController {
 
 	}
 
-	@RequestMapping("/scroogeresults")
+	@PostMapping("/scroogeresults")
 	public ModelAndView goToResultsFromScrooge(String alcohol, Integer amount, String amountDrunk, String country,
 			Integer income, String smoke, String stillSmokin, Integer weight, Integer years) {
 		userInfo = (User) (session.getAttribute("user"));
@@ -175,20 +190,24 @@ public class FormController {
 
 	}
 
-	@RequestMapping("/confirmation")
-	public ModelAndView confirm(String ethnicity) {
+	@PostMapping("/confirmation")
+	public ModelAndView confirmation(String ethnicity) {
 		User user = (User) (session.getAttribute("user"));
-//		User user = (User) (session.getAttribute("user"));
 		userInfo.setEthnicity(ethnicity);
 		userInfo.setEducation("none");
 		uRepo.save(user);
-		System.out.println(userInfo.getAlcohol() + " " + userInfo.getCountry() + " " + userInfo.getDob() + " " + userInfo.getEducation()
-				+ " " + userInfo.getEthnicity() + " " + userInfo.getGender() + " " + userInfo.getSmoke() + " " + userInfo.getUserName()
-				+ " ");
 		return new ModelAndView("confirmation");
 	}
 
-	@RequestMapping("/scrooge")
+	@PostMapping("/confirm")
+	public ModelAndView confirm(String education) {
+		User user = (User) (session.getAttribute("user"));
+		userInfo.setEducation(education);
+		uRepo.save(user);
+		return new ModelAndView("confirmation");
+	}
+
+	@PostMapping("/scrooge")
 	public ModelAndView scrooge() {
 		ArrayList<Country> boogaloo = (ArrayList<Country>) cRepo.findAll();
 		return new ModelAndView("scrooge", "countries", boogaloo);

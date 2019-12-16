@@ -18,6 +18,7 @@
   <tr>
     <td>${u.getId() }</td>
     <td>${u.getUserName() }</td>
+    <td>${u.getHeartBeats() }</td>
   </tr>
   </c:forEach>
 </table>

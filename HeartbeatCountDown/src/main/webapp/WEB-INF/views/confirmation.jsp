@@ -11,7 +11,7 @@
 <body>
 
 
-<form action="/results">
+<form action="/results" method="post">
 <input class="btn btn-primary" Value="submit" type="Submit">
 </form>
 </body>
