@@ -176,18 +176,22 @@ public class FormController {
 	}
 
 	@RequestMapping("/confirmation")
-	public ModelAndView confirm(String ethnicity) {
+	public ModelAndView confirmation(String ethnicity) {
 		User user = (User) (session.getAttribute("user"));
-//		User user = (User) (session.getAttribute("user"));
 		userInfo.setEthnicity(ethnicity);
 		userInfo.setEducation("none");
 		uRepo.save(user);
-		System.out.println(userInfo.getAlcohol() + " " + userInfo.getCountry() + " " + userInfo.getDob() + " " + userInfo.getEducation()
-				+ " " + userInfo.getEthnicity() + " " + userInfo.getGender() + " " + userInfo.getSmoke() + " " + userInfo.getUserName()
-				+ " ");
 		return new ModelAndView("confirmation");
 	}
 
+	@RequestMapping("/confirm")
+	public ModelAndView confirm(String education) {
+		User user = (User) (session.getAttribute("user"));
+		userInfo.setEducation(education);
+		uRepo.save(user);	
+		return new ModelAndView("confirmation");
+	}
+	
 	@RequestMapping("/scrooge")
 	public ModelAndView scrooge() {
 		ArrayList<Country> boogaloo = (ArrayList<Country>) cRepo.findAll();
