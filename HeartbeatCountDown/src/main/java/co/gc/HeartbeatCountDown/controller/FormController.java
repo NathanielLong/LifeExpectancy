@@ -126,6 +126,8 @@ public class FormController {
 		userInfo = (User) (session.getAttribute("user"));
 //		userInfo.setIncome(income);
 		// long age = user.getAge();
+		userInfo.setWeight(weight);
+		userInfo.setHeight(height);
 		session.setAttribute("user", userInfo);
 		return new ModelAndView("ethnicity");
 
@@ -155,15 +157,14 @@ public class FormController {
 
 	@PostMapping("/income")
 	public ModelAndView income(String ethnicity, String education) {
-//		userInfo.setWeight(weight);
-//		userInfo.setHeight(height);
-		
+		System.out.println("ethnicity" + ethnicity);
 		
 		if(education != null)
 			userInfo.setEducation(education);
 		else
 			userInfo.setEducation("none");
 		userInfo.setEthnicity(ethnicity);
+		System.out.println(userInfo.getEthnicity());
 		uRepo.save(userInfo);
 		return new ModelAndView("income");
 	}

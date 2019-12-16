@@ -38,6 +38,7 @@ public class LogicController {
 		System.out.println(heartBeatsLeft);
 		heartBeatsLeft -= StatisticsModels.incomeBeatsLost(user.getIncome(), user.getGender());
 		System.out.println(heartBeatsLeft);
+		System.out.println(user.getEthnicity());
 		heartBeatsLeft -= StatisticsModels.ethnicityBeatsLost(user.getEthnicity());
 		System.out.println(heartBeatsLeft);
 //		heartBeatsLeft -= StatisticsModels.bmiBeatsReduced(user.getHeight(), user.getWeight(), user.getGender());
