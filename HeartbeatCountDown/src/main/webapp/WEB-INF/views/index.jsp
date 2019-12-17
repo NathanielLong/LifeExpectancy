@@ -25,9 +25,10 @@
 
 	<div class="bg-contact3"
 		style="background-image: url('images/iStock_45504088_MEDIUM.jpg');">
+		<div class="container">
 <div class = "row">
-<div class = "column"></div>
- <div class = "column">
+<!-- <div class = "column"></div> -->
+ <div class = "col-lg-6">
 		<div class="container-contact3">
 			<div class="wrap-contact3">
 				<form class="contact3-form validate-form" action="/login-result" method = "post">
@@ -54,7 +55,7 @@
 			</div>
 	</div>
 	</div>
-		<div class="column">
+		<div class="col-lg-6">
 		<div class="container-contact3">
 			<div class="wrap-contact3">
 				<form class="contact3-form validate-form" action="/date" method = "post">
@@ -93,14 +94,14 @@
 		
 		
 	</div>
-		<div class="column">
-	</div>
-	</div>
-	
-	
-	
+<!-- 		<div class="column">
+	</div> -->
 	</div>
 	
+	
+	
+	</div>
+	</div>
 	<script>
 function confirmPassword() {
 	  if (document.getElementById("password").value === document.getElementById("confirm_password").value) {

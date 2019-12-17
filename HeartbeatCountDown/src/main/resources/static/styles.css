@@ -70,11 +70,11 @@ div.heartbeat
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
 
-* {
+/* * {
 	margin: 0px; 
 	padding: 0px; 
 	box-sizing: border-box;
-}
+} */
 
 body, html {
 	height: 100%;
@@ -170,14 +170,14 @@ iframe {
 /*//////////////////////////////////////////////////////////////////
 [ Contact 2 ]*/
 .bg-contact3 {
-  width: 100%;  
+/*   width: 100%;   */
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
 }
 
 .container-contact3 {
-  width: 100%;  
+ /*  width: 100%; */  
   min-height: 100vh;
   display: -webkit-box;
   display: -webkit-flex;
@@ -193,7 +193,7 @@ iframe {
 }
 
 .wrap-contact3 {
-  width: 500px;
+ /*  width: 500px; */
   background: #80c64a;
   background: -webkit-linear-gradient(45deg, #56ab2f, #a8e063);
   background: -o-linear-gradient(45deg, #56ab2f, #a8e063);
@@ -209,7 +209,7 @@ iframe {
 [  ]*/
 
 .contact3-form {
-  width: 100%;
+ /*  width: 100%; */
 }
 
 .contact3-form-title {
@@ -229,7 +229,7 @@ iframe {
 [  ]*/
 
 .wrap-input3 {
-  width: 100%;
+ /*  width: 100%; */
   position: relative;
   border-bottom: 2px solid rgba(255,255,255,0.24);
   margin-bottom: 27px;
@@ -237,7 +237,7 @@ iframe {
 
 .input3 {
   display: block;
-  width: 100%;
+  /* width: 100%; */
   background: transparent;
   font-family: Poppins-Regular;
   font-size: 15px;
@@ -249,7 +249,7 @@ iframe {
 .focus-input3 {
   position: absolute;
   display: block;
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
   top: 0;
   left: 0;
@@ -262,7 +262,7 @@ iframe {
   position: absolute;
   bottom: -2px;
   left: 0;
-  width: 0;
+  /* width: 0; */
   height: 2px;
 
   -webkit-transition: all 0.4s;
@@ -288,11 +288,11 @@ textarea.input3 {
 
 
 .input3:focus + .focus-input3::before {
-  width: 100%;
+  /* width: 100%; */
 }
 
 .has-val.input3 + .focus-input3::before {
-  width: 100%;
+ /*  width: 100%; */
 }
 
 /*------------------------------------------------------------------
@@ -339,7 +339,7 @@ textarea.input3 {
   position: absolute;
   z-index: -1;
   border-radius: 2px;
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
   top: 0;
   left: 0;
@@ -469,7 +469,7 @@ textarea.input3 {
   content: "";
   display: block;
   position: absolute;
-  width: 20px;
+  /* width: 20px; */
   height: 20px;
   border-radius: 50%;
   border: 2px solid rgba(255,255,255,0.5);
@@ -487,7 +487,7 @@ textarea.input3 {
   content: "";
   display: block;
   position: absolute;
-  width: 20px;
+ /*  width: 20px; */
   height: 20px;
   border-radius: 50%;
   border: 6px solid transparent;
