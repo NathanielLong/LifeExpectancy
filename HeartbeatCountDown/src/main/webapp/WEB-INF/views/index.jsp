@@ -6,6 +6,7 @@
 <head>
 
 ${sorry }
+${wrong }
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,23 +33,8 @@ ${sorry }
  <div class = "column">
 		<div class="container-contact3">
 			<div class="wrap-contact3">
-				<form class="contact3-form validate-form" action="/date" method = "post">
+				<form class="contact3-form validate-form" action="/login-result" method = "post">
 					<span class="contact3-form-title"> Existing User</span>
-
-					<!-- <div class="wrap-contact3-form-radio">
-						<div class="contact3-form-radio m-r-42">
-							<input class="input-radio3" id="radio1" type="radio"
-								name="choice" value="say-hi" checked="checked"> <label
-								class="label-radio3" for="radio1"> Say Hi </label>
-						</div>
-
-						<div class="contact3-form-radio">
-							<input class="input-radio3" id="radio2" type="radio"
-								name="choice" value="get-quote"> <label
-								class="label-radio3" for="radio2"> Get a Quote </label>
-						</div>
-					</div> -->
-
 					<div class="wrap-input3 validate-input"
 						data-validate="Name is required">
 						<input class="input3" type="text" name="userName"
@@ -61,7 +47,7 @@ ${sorry }
 					</div>
 
 					<div class="container-contact3-form-btn">
-						<button class="contact3-form-btn">Submit</button>
+						<button class="contact3-form-btn" type = "submit">Submit</button>
 					</div>
 				</form>
 
