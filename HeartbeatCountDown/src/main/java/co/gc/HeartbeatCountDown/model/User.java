@@ -20,6 +20,8 @@ public class User implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	private String name;
+	private String password;
 	private String userName;
 	private String country;
 	private Double deathYear;
@@ -30,6 +32,27 @@ public class User implements Serializable {
 	private String smoke;
 	private Integer income;
 	private String ethnicity;
+	public String getName() {
+		return name;
+	}
+	
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setIncome(Integer income) {
+		this.income = income;
+	}
+
 	private Integer amount;
 	private Integer years;
 	private String stillSmokin;
@@ -41,6 +64,63 @@ public class User implements Serializable {
 	public User() {
 		super();
 	}
+	
+	
+
+	public User(int id, String name, String password, String userName, String country, Double deathYear, String gender,
+			String alcohol, LocalDate dob, String education, String smoke, Integer income, String ethnicity,
+			Integer amount, Integer years, String stillSmokin, String amountDrunk, Integer height, Integer weight,
+			long age) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.password = password;
+		this.userName = userName;
+		this.country = country;
+		this.deathYear = deathYear;
+		this.gender = gender;
+		this.alcohol = alcohol;
+		this.dob = dob;
+		this.education = education;
+		this.smoke = smoke;
+		this.income = income;
+		this.ethnicity = ethnicity;
+		this.amount = amount;
+		this.years = years;
+		this.stillSmokin = stillSmokin;
+		this.amountDrunk = amountDrunk;
+		this.height = height;
+		this.weight = weight;
+		this.age = age;
+	}
+
+
+	public User(String name, String password, String userName, String country, Double deathYear, String gender,
+			String alcohol, LocalDate dob, String education, String smoke, Integer income, String ethnicity,
+			Integer amount, Integer years, String stillSmokin, String amountDrunk, Integer height, Integer weight,
+			long age) {
+		super();
+		this.name = name;
+		this.password = password;
+		this.userName = userName;
+		this.country = country;
+		this.deathYear = deathYear;
+		this.gender = gender;
+		this.alcohol = alcohol;
+		this.dob = dob;
+		this.education = education;
+		this.smoke = smoke;
+		this.income = income;
+		this.ethnicity = ethnicity;
+		this.amount = amount;
+		this.years = years;
+		this.stillSmokin = stillSmokin;
+		this.amountDrunk = amountDrunk;
+		this.height = height;
+		this.weight = weight;
+		this.age = age;
+	}
+
 
 	public User(int id, String userName, String country, Double deathYear, String gender, String alcohol, String dob,
 			String education, String smoke, int income, String ethnicity, Integer amount, Integer years,
@@ -325,13 +405,22 @@ public class User implements Serializable {
 		this.age = yearsOld;
 	}
 
+
 	@Override
 	public String toString() {
+<<<<<<< HEAD
 		return "User [id=" + id + ", userName=" + userName + ", country=" + country + ", deathYear=" + deathYear
 				+ ", gender=" + gender + ", alcohol=" + alcohol + ", dob=" + dob + ", education=" + education
 				+ ", smoke=" + smoke + ", income=" + income + ", ethnicity=" + ethnicity + ", amount=" + amount
 				+ ", years=" + years + ", stillSmokin=" + stillSmokin + ", amountDrunk=" + amountDrunk + ", height="
 				+ height + ", weight=" + weight + ", age=" + age + "]";
+=======
+		return "User [id=" + id + ", name=" + name + ", password=" + password + ", userName=" + userName + ", country="
+				+ country + ", deathYear=" + deathYear + ", gender=" + gender + ", alcohol=" + alcohol + ", dob=" + dob
+				+ ", education=" + education + ", smoke=" + smoke + ", income=" + income + ", ethnicity=" + ethnicity
+				+ ", amount=" + amount + ", years=" + years + ", stillSmokin=" + stillSmokin + ", amountDrunk="
+				+ amountDrunk + ", height=" + height + ", weight=" + weight + ", age=" + age + "]";
+>>>>>>> 0bb8a9e2b5a26960a3d33774d19a97b6ef06052e
 	}
 
 
