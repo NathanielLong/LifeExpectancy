@@ -63,11 +63,11 @@ public class FormController {
 	}
 
 	@PostMapping("/smoke")
-	public ModelAndView smoke(String borned) {
-		LocalDate date = LocalDate.parse(borned);
+	public ModelAndView smoke(String dob) {
 		userInfo = (User) (session.getAttribute("user"));
-		userInfo.setDob(date);
+		userInfo.setDob(dob);
 		LogicController lc = new LogicController();
+		LocalDate date = LocalDate.parse(dob);
 		long yearsOld = (lc.findHeartbeatsSpent(date) / StatisticsModels.StatisticsModels.heartbeatsPerYear);
 		userInfo.setAge(yearsOld);
 		session.setAttribute("user", userInfo);
@@ -119,7 +119,6 @@ public class FormController {
 		return new ModelAndView("bmi");
 	}
 
-
 	@PostMapping("/ethnicity")
 	public ModelAndView ethnicity(Integer height, Integer weight) {
 		userInfo = (User) (session.getAttribute("user"));
@@ -136,7 +135,7 @@ public class FormController {
 	public ModelAndView education(String ethnicity) {
 		userInfo = (User) (session.getAttribute("user"));
 		userInfo.setEthnicity(ethnicity);
-		
+
 		long age = userInfo.getAge();
 		if (age < 25) {
 			return new ModelAndView("income", "ethnicity", ethnicity);
@@ -145,7 +144,7 @@ public class FormController {
 		}
 
 	}
-	
+
 	@PostMapping("/confirm")
 	public ModelAndView confirm(String education) {
 		userInfo = (User) (session.getAttribute("user"));
@@ -157,8 +156,8 @@ public class FormController {
 	@PostMapping("/income")
 	public ModelAndView income(String ethnicity, String education) {
 		System.out.println("ethnicity" + ethnicity);
-		
-		if(education != null)
+
+		if (education != null)
 			userInfo.setEducation(education);
 		else
 			userInfo.setEducation("none");
@@ -167,20 +166,12 @@ public class FormController {
 		uRepo.save(userInfo);
 		return new ModelAndView("income");
 	}
-	
+
 	@PostMapping("/results")
 	public ModelAndView goToResults(Integer income) {
-//		System.out.println(userInfo.getAlcohol() + " " + userInfo.getCountry() + " " + userInfo.getDob() + " " + userInfo.getEducation()
-//				+ " " + userInfo.getEthnicity() + " " + userInfo.getGender() + " " + userInfo.getSmoke() + " " + userInfo.getUserName()
-//				+ " ");
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("results");
 		userInfo = (User) (session.getAttribute("user"));
-//		if(education != null)
-//		userInfo.setEducation(education);
-//		else
-//		userInfo.setEducation("none");
-//		userInfo.setEthnicity(ethnicity);
 		userInfo.setIncome(income);
 		System.out.println(userInfo);
 		uRepo.save(userInfo);
@@ -194,31 +185,26 @@ public class FormController {
 	}
 
 	@PostMapping("/scroogeresults")
-	public ModelAndView goToResultsFromScrooge(String alcohol, Integer amount, String amountDrunk, String country,
-			Integer income, String smoke, String stillSmokin, Integer weight, Integer years) {
+	public ModelAndView goToResultsFromScrooge(User user) {
 		userInfo = (User) (session.getAttribute("user"));
-		userInfo.setAlcohol(alcohol);
-		userInfo.setAmount(amount);
-		userInfo.setAmountDrunk(amountDrunk);
-		userInfo.setCountry(country);
-		userInfo.setIncome(income);
-		userInfo.setSmoke(smoke);
-		userInfo.setStillSmokin(stillSmokin);
-		userInfo.setYears(years);
+//		userInfo.setAlcohol(alcohol);
+//		userInfo.setAmount(amount);
+//		userInfo.setAmountDrunk(amountDrunk);
+//		userInfo.setCountry(country);
+//		userInfo.setIncome(income);
+//		userInfo.setSmoke(smoke);
+//		userInfo.setStillSmokin(stillSmokin);
+//		userInfo.setWeight(weight);
+//		userInfo.setYears(years);
+//		userInfo.setEducation(education);
+		
 		session.setAttribute("user", userInfo);
-
-//		System.out.println(user.getAlcohol() + " " + user.getCountry() + " " + user.getDob() + " " + user.getEducation()
-//				+ " " + user.getEthnicity() + " " + user.getGender() + " " + user.getSmoke() + " " + user.getUserName()
-//				+ " ");
-		uRepo.save(userInfo);
 		long hBeats;
 		LogicController lc = new LogicController();
-		hBeats = lc.findBeatDrop(userInfo);
+		hBeats = lc.findBeatDrop(user);
 		return new ModelAndView("results", "hBeat", hBeats);
 
 	}
-	
-	
 
 	@PostMapping("/confirmation")
 	public ModelAndView confirmation(String ethnicity) {
@@ -229,11 +215,13 @@ public class FormController {
 		return new ModelAndView("confirmation");
 	}
 
-
-	@PostMapping("/scrooge")
+	@RequestMapping("/scrooge")
 	public ModelAndView scrooge() {
-		ArrayList<Country> boogaloo = (ArrayList<Country>) cRepo.findAll();
-		return new ModelAndView("scrooge", "countries", boogaloo);
+		ArrayList<Country> countryList = (ArrayList<Country>) cRepo.findAll();
+		ModelAndView mv = new ModelAndView("scrooge");
+		mv.addObject("countries", countryList);
+		mv.addObject("userDeets", userInfo);
+		return mv;
 	}
 
 	public Double getDeathYear() {
@@ -246,50 +234,14 @@ public class FormController {
 		Double deathYear = rt.getForObject(url, PeopleResults.class).getPeopleArray().get(0).getDeathAge();
 		return deathYear;
 	}
-	
-	public String dateOfDeath(long hBeats)
-	{
-		
-		int deathDays = (int)(hBeats/StatisticsModels.StatisticsModels.heartbeatsPerYear*365);
+
+	public String dateOfDeath(long hBeats) {
+
+		int deathDays = (int) (hBeats / StatisticsModels.StatisticsModels.heartbeatsPerYear * 365);
 		LocalDate dDay = LocalDate.now().plusDays(deathDays);
-		String deathSentence = "I estimate you make it to " + dDay.getMonth() + " " + dDay.getDayOfMonth()
-		+ ", " + dDay.getYear() + ".";
+		String deathSentence = "I estimate you make it to " + dDay.getMonth() + " " + dDay.getDayOfMonth() + ", "
+				+ dDay.getYear() + ".";
 		return deathSentence;
 	}
 
-//	@RequestMapping("/education")
-//	public ModelAndView education(String alc) {
-//
-//		String educationString = "<form action=\"/ethnicity\"> Name: <input type = \"text\" name = \"name\"></input> <input type=\"submit\" Value=\"Begin.\" class = \"btn btn-primary\"></input> </form>";
-//		return new ModelAndView("form", "formtype", educationString);
-//	}
-
-//	@RequestMapping("/ethnicity")
-//	public ModelAndView ethnicity(String edu) {
-//		return new ModelAndView("ethnicity");
-//	}
-
-//	@RequestMapping("/education")
-//	public ModelAndView education(String alc) {
-//
-//		String educationString = "<form action=\"/ethnicity\"> Name: <input type = \"text\" name = \"name\"></input> <input type=\"submit\" Value=\"Begin.\" class = \"btn btn-primary\"></input> </form>";
-//		return new ModelAndView("form", "formtype", educationString);
-//	}
-
-//	@RequestMapping("start-form/fmh")
-//	public ModelAndView familyMedicalHistory(String inc) {
-//
-//		String fmhString = "<form action=\"/illness\"> Name: <input type = \"text\" name = \"name\"></input> <input type=\"submit\" Value=\"Begin.\" class = \"btn btn-primary\"></input> </form>";
-//		return new ModelAndView("form", "formtype", fmhString);
-//	}
-//
-//	@RequestMapping("start-form/illness")
-//	public ModelAndView currentIllness(String fmh) {
-//
-//		String currentillnessString = "<form action=\"/results\"> Name: <input type = \"text\" name = \"name\"></input> <input type=\"submit\" Value=\"Begin.\" class = \"btn btn-primary\"></input> </form>";
-//		return new ModelAndView("form", "formtype", currentillnessString);
-//	}
-//	
-
-	// gotta ad ill to database
 }

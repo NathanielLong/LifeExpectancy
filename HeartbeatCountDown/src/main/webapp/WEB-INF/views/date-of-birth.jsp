@@ -30,7 +30,7 @@
 				<form class="contact3-form validate-form" action="/smoke"
 					method=post>
 					<span class="contact3-form-title"> Beat Dropper</span> Date of
-					birth: <br> <input type="date" name="borned">
+					birth: <br> <input type="date" name="dob">
 
 					<div class="container-contact3-form-btn">
 						<button class="contact3-form-btn">Submit</button>

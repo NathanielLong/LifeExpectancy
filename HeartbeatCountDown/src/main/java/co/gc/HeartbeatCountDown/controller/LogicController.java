@@ -31,20 +31,11 @@ public class LogicController {
 	public long findBeatDrop(User user){
 		System.out.println(user);
 		long heartBeatsLeft = (long) (user.getDeathYear()*StatisticsModels.heartbeatsPerYear);
-		System.out.println(heartBeatsLeft);
 		heartBeatsLeft -= StatisticsModels.smokingBeatsReduced(user.getAmount(), user.getYears());
-		System.out.println(heartBeatsLeft);
 		heartBeatsLeft -= StatisticsModels.alcoholBeatsReduced(user.getAlcohol());
-		System.out.println(heartBeatsLeft);
 		heartBeatsLeft -= StatisticsModels.incomeBeatsLost(user.getIncome(), user.getGender());
-		System.out.println(heartBeatsLeft);
-		System.out.println(user.getEthnicity());
 		heartBeatsLeft -= StatisticsModels.ethnicityBeatsLost(user.getEthnicity());
-		System.out.println(heartBeatsLeft);
-//		heartBeatsLeft -= StatisticsModels.bmiBeatsReduced(user.getHeight(), user.getWeight(), user.getGender());
-//		System.out.println(heartBeatsLeft);
-		heartBeatsLeft -= findHeartbeatsSpent(user.getDob());
-		System.out.println(heartBeatsLeft);
+		heartBeatsLeft -= findHeartbeatsSpent(LocalDate.parse(user.getDob()));
 		heartBeatsLeft -= StatisticsModels.educationBeatsReduced(user.getEducation(), user.getGender());
 		if(user.getStillSmokin().equals("ismoke"))
 				{

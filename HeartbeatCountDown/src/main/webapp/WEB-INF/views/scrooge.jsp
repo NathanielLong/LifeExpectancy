@@ -33,16 +33,18 @@
 					onclick="javascript:yesnoCheck();" name="stillsmokin" id="yesCheck"
 					value="istillsmoke"><input style="visibility: hidden"
 					type="radio" onclick="javascript:yesnoCheck();" name="stillsmokin"
-					id="noCheck" value="idontsmokeanymore">
+					id="noCheck" value="${userInfo.stillSmokin }" checked> <input
+					type='number' id='years' name='years' value="0"
+					style="visibility: hidden">
 			</div>
 		</div>
 
 		<div class="form-group">
 			Where do plan on moving? (if you aren't planning on moving, leave
-			this field as is) <select class="custom-select">
+			this field as is) <select class="custom-select" name="country">
 
 				<c:forEach var="c" items="${ countries }">
-					<option value="${c.getLabel()}" name="${user.country }">${c.getDisplay()}</option>
+					<option value="${c.getLabel()}">${c.getDisplay()}</option>
 				</c:forEach>
 			</select>
 		</div>
@@ -57,7 +59,7 @@
 				How often will you drink? <select class="custom-select"
 					name="amountDrunk">
 					<option value="none" hidden=" ">
-					<option value="low">A drink before bed (1-2 drinks per
+						<option value="low">A drink before bed (1-2 drinks per
 						day)</option>
 					<option value="medium">Every now and again (2-3.5 drinks
 						per day)</option>
@@ -68,66 +70,71 @@
 		</div>
 
 		If you plan on losing weight please enter the weight you are aiming
-		for: <br> <input type="number" name="weight"> <br> <input
-			type="number" name="weight" style="visibility: hidden"> <br>
+		for: <br> <input type="number" name="weight" value="${userDeets.weight }"> <br> <input
+			type="number" name="height" value="${userDeets.height }" style="visibility: hidden"> <br>
 
 		<div class="form-group">
 			Are you planning on getting a raise? If so, please enter your new
-			possible income: (if not applicable, please leave field as is) <select
-				class="custom-select" default="${user.income}"}><option
-					value="25,000">25,000 or lower</option>
-				<option value="47,500">25,001 - 47,500</option>
-				<option value="77,500">47,501 - 77, 500</option>
-				<option value="127,000">77,501 - 127,000</option>
+			possible income: (if not applicable, please leave field as is) 
+			<select class="custom-select" name="income">
+				<option value="25000">25,000 or lower</option>
+				<option value="47500">25,001 - 47,500</option>
+				<option value="77500">47,501 - 77, 500</option>
+				<option value="127000">77,501 - 127,000</option>
 				<option value="10000000">127,001 or higher</option>
 			</select>
 		</div>
-		<input class="btn btn-primary" type="submit" value="Enter">
+
+		<input value="${ethnicity }" name="ethnicity" type="hidden">
+
+		<div class="form-group">
+			Please select your what level of education you will strive for: <select
+				class="custom-select" name="education">
+				<option value="highSchool">High school diploma</option>
+				<option value="bachelors">Bachelor's degree</option>
+				<option value="bachelors">Master's degree</option>
+				<option value="bachelors">Doctorate</option>
+			</select>
+		</div>
+
+		<input type="submit" Value="Enter." class="btn btn-primary"></input>
 
 		<!-- The rest of these will be hidden -->
-		<div style="visibility: hidden" class="form-group">
+						<div style="visibility: hidden" class="form-group">
 			<select class="custom-select" name="ethnicity">
 				<option value="Asian-American">Asian</option>
 				<option value="Hispanic">Hispanic</option>
 				<option value="White">White</option>
 				<option value="Native-American">Native-American</option>
-				<option value="African-American">African-American</option>
-			</select> <input type="submit" Value="Enter." class="btn btn-primary"></input>
-		</div>
-
-		<div>
-			<input style="visibility: hidden" type="date" name="borned">
-		</div>
-
-		<div style="visibility: hidden" class="form-group">
-			<select class="custom-select" name="country">
-				<c:forEach var="c" items="${ countries }">
-					<option value="${c.getLabel()}">${c.getDisplay()}</option>
-				</c:forEach>
+				<option value="African-American">Black</option>
 			</select>
 		</div>
 
+		<div>
+			<input style="visibility: hidden" type="date" name="dob"
+								value="${userDeets.dob }">
+		</div>
+
 		<div style="visibility: hidden" class="form-check">
 			<label class="form-check-label"> <input type="radio"
-				class="form-check-input" name="gender" id="optionsRadios1"
-				value="MLE" checked=""> Male
+								class="form-check-input" name="gender" id="optionsRadios1"
+								value="MLE" checked="">
 			</label>
 		</div>
 		<div style="visibility: hidden" class="form-check">
 			<label class="form-check-label"> <input type="radio"
-				class="form-check-input" name="gender" id="optionsRadios2"
-				value="FMLE">
+								class="form-check-input" name="gender" id="optionsRadios2"
+								value="FMLE">
 			</label>
 		</div>
 
 		<div>
-			<input style="visibility: hidden" type="text" name="userName">
+			<input style="visibility: hidden" type="text" name="userName"
+								value="${userDeets.userName }">
 		</div>
 
-	</form>
-
-	<h1 style="color: red">${user.country }</h1>
-	${user.income } ${user.smoke }
+	
+					</form>
 
 	<script type="text/javascript">
 		function yesnoChecksmoke() {

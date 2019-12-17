@@ -25,7 +25,7 @@ public class User implements Serializable {
 	private Double deathYear;
 	private String gender;
 	private String alcohol;
-	private LocalDate dob;
+	private String dob;
 	private String education;
 	private String smoke;
 	private Integer income;
@@ -42,7 +42,7 @@ public class User implements Serializable {
 		super();
 	}
 
-	public User(int id, String userName, String country, Double deathYear, String gender, String alcohol, LocalDate dob,
+	public User(int id, String userName, String country, Double deathYear, String gender, String alcohol, String dob,
 			String education, String smoke, int income, String ethnicity, Integer amount, Integer years,
 			String stillSmokin, String amountDrunk) {
 		super();
@@ -62,8 +62,31 @@ public class User implements Serializable {
 		this.stillSmokin = stillSmokin;
 		this.amountDrunk = amountDrunk;
 	}
+	
+	
 
-	public User(String userName, String country, Double deathYear, String gender, String alcohol, LocalDate dob,
+	public User(String userName, String country, String gender, String alcohol, String dob,
+			String education, String smoke, Integer income, String ethnicity, Integer amount, Integer years,
+			String stillSmokin, String amountDrunk, Integer height, Integer weight) {
+		super();
+		this.userName = userName;
+		this.country = country;
+		this.gender = gender;
+		this.alcohol = alcohol;
+		this.dob = dob;
+		this.education = education;
+		this.smoke = smoke;
+		this.income = income;
+		this.ethnicity = ethnicity;
+		this.amount = amount;
+		this.years = years;
+		this.stillSmokin = stillSmokin;
+		this.amountDrunk = amountDrunk;
+		this.height = height;
+		this.weight = weight;
+	}
+
+	public User(String userName, String country, Double deathYear, String gender, String alcohol, String dob,
 			String education, String smoke, int income, String ethnicity, Integer amount, Integer years,
 			String stillSmokin, String amountDrunk) {
 		super();
@@ -97,7 +120,7 @@ public class User implements Serializable {
 		this.weight = weight;
 	}
 
-	public User(String userName, String country, Double deathYear, String gender, String alcohol, LocalDate dob,
+	public User(String userName, String country, Double deathYear, String gender, String alcohol, String dob,
 			String education, String smoke, String ethnicity) {
 		super();
 		this.userName = userName;
@@ -111,7 +134,7 @@ public class User implements Serializable {
 		this.ethnicity = ethnicity;
 	}
 
-	public User(int id, String userName, String country, Double deathYear, String gender, String alcohol, LocalDate dob,
+	public User(int id, String userName, String country, Double deathYear, String gender, String alcohol, String dob,
 			String education, String smoke, String ethnicity) {
 		super();
 		this.id = id;
@@ -126,7 +149,7 @@ public class User implements Serializable {
 		this.ethnicity = ethnicity;
 	}
 
-	public User(int id, String userName, String country, Double deathYear, String gender, String alcohol, LocalDate dob,
+	public User(int id, String userName, String country, Double deathYear, String gender, String alcohol, String dob,
 			String education, String smoke, int income, String ethnicity) {
 		super();
 		this.id = id;
@@ -143,7 +166,7 @@ public class User implements Serializable {
 
 	}
 
-	public User(String userName, String country, Double deathYear, String gender, String alcohol, LocalDate dob,
+	public User(String userName, String country, Double deathYear, String gender, String alcohol, String dob,
 			String education, String smoke, int income, String ethnicity) {
 		super();
 		this.userName = userName;
@@ -206,11 +229,11 @@ public class User implements Serializable {
 		this.alcohol = alcohol;
 	}
 
-	public LocalDate getDob() {
+	public String getDob() {
 		return dob;
 	}
 
-	public void setDob(LocalDate dob) {
+	public void setDob(String dob) {
 		this.dob = dob;
 	}
 
@@ -307,15 +330,10 @@ public class User implements Serializable {
 		return "User [id=" + id + ", userName=" + userName + ", country=" + country + ", deathYear=" + deathYear
 				+ ", gender=" + gender + ", alcohol=" + alcohol + ", dob=" + dob + ", education=" + education
 				+ ", smoke=" + smoke + ", income=" + income + ", ethnicity=" + ethnicity + ", amount=" + amount
-				+ ", years=" + years + ", stillSmokin=" + stillSmokin + ", amountDrunk=" + amountDrunk + "]";
+				+ ", years=" + years + ", stillSmokin=" + stillSmokin + ", amountDrunk=" + amountDrunk + ", height="
+				+ height + ", weight=" + weight + ", age=" + age + "]";
 	}
 
-//	@Override
-//	public String toString() {
-//		return "User [id=" + id + ", userName=" + userName + ", country=" + country + ", deathYear=" + deathYear
-//				+ ", gender=" + gender + ", alcohol=" + alcohol + ", dob=" + dob + ", education=" + education
-//				+ ", smoke=" + smoke + ", income=" + income + ", ethnicity=" + ethnicity + ", amount=" + amount
-//				+ ", years=" + years + ", stillsmokin=" + stillsmokin + ", amountDrunk=" + amountDrunk + "]";
-//	}
+
 
 }
