@@ -4,37 +4,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link
-	href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/simplex/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-cRAmF0wErT4D9dEBc36qB6pVu+KmLh516IoGWD/Gfm6FicBbyDuHgS4jmkQB8u1a"
-	crossorigin="anonymous">
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+<link rel="stylesheet" type="text/css"
+	href="vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<link rel="stylesheet" type="text/css"
+	href="vendor/css-hamburgers/hamburgers.min.css">
+<link rel="stylesheet" type="text/css"
+	href="vendor/select2/select2.min.css">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<link rel="stylesheet" type="text/css" href="styles.css">
 <title>Alcohol</title>
 </head>
 <body>
-	<form action="/bmi" method="post">
-		Do you drink alcohol? Yes <input type="radio"
-			onclick="javascript:yesnoCheck(); possibleFirst();" name="alcohol" value="idrink"
-			id="yesCheck" required> No <input type="radio"
-			onclick="javascript:yesnoCheck(); possibleFirst();" name="alcohol" value="nodrink"
-			id="noCheck"> <input type="submit" Value="Enter."
-			value="none" class="btnbtn-primary"></input> <br>
-		<div id="ifYes" style="visibility: hidden">
-			<div class="form-group">
-			How much do you drink?
-				<select class="custom-select" name="amountDrunk">
-					<option value="none" hidden=" " id="zero"></option>
-					<option value="low" id="first">A drink before bed (1-2 drinks per
-						day)</option>
-					<option value="medium">Every now and again (2-3.5 drinks
-						per day)</option>
-					<option value="high">Bars are my second home (3.5+ drinks
-						per day)</option>
-				</select>
+
+	<div class="bg-contact3"
+		style="background-image: url('images/iStock_45504088_MEDIUM.jpg');">
+		<div class="container-contact3">
+			<div class="wrap-contact3">
+				<div class="contact3-form-radio m-r-42">
+					<form class="contact3-form validate-form" action="/bmi"
+						method="post">
+						<span class="contact3-form-title"> Beat Dropper</span> Do you
+						drink alcohol? Yes <input type="radio"
+							onclick="javascript:yesnoCheck(); possibleFirst();"
+							name="alcohol" value="idrink" id="yesCheck" required> No
+						<input type="radio"
+							onclick="javascript:yesnoCheck(); possibleFirst();"
+							name="alcohol" value="nodrink" id="noCheck"> <br>
+						<div id="ifYes" style="visibility: hidden">
+							<div class="form-group">
+								How much do you drink? <select class="custom-select"
+									name="amountDrunk">
+									<option value="none" hidden=" " id="zero"></option>
+									<option value="low" id="first">A drink before bed (1-2
+										drinks per day)</option>
+									<option value="medium">Every now and again (2-3.5
+										drinks per day)</option>
+									<option value="high">Bars are my second home (3.5+
+										drinks per day)</option>
+								</select>
+
+							</div>
+						</div>
+						<div class="container-contact3-form-btn">
+							<button class="contact3-form-btn">Submit</button>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
-	</form>
+	</div>
+
 	<script type="text/javascript">
 		function yesnoCheck() {
 			if (document.getElementById('yesCheck').checked) {
@@ -42,7 +67,7 @@
 			} else
 				document.getElementById('ifYes').style.visibility = 'hidden';
 		}
-		
+
 		function possibleFirst() {
 			if (document.getElementById('yesCheck').checked) {
 				document.getElementById('first').selected = "true";
