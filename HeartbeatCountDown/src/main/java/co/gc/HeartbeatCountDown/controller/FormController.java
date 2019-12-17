@@ -34,7 +34,7 @@ public class FormController {
 
 	User userInfo = new User();
 
-//	@RequestMapping("/")
+	@RequestMapping("/")
 	public ModelAndView userName() {
 		return new ModelAndView("index");
 	}
