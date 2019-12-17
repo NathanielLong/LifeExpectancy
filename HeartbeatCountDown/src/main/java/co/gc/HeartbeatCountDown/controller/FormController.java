@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -174,6 +173,8 @@ public class FormController {
 //		System.out.println(userInfo.getAlcohol() + " " + userInfo.getCountry() + " " + userInfo.getDob() + " " + userInfo.getEducation()
 //				+ " " + userInfo.getEthnicity() + " " + userInfo.getGender() + " " + userInfo.getSmoke() + " " + userInfo.getUserName()
 //				+ " ");
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("results");
 		userInfo = (User) (session.getAttribute("user"));
 //		if(education != null)
 //		userInfo.setEducation(education);
@@ -186,7 +187,9 @@ public class FormController {
 		long hBeats;
 		LogicController lc = new LogicController();
 		hBeats = lc.findBeatDrop(userInfo);
-		return new ModelAndView("results", "hBeat", hBeats);
+		mv.addObject("hBeat", hBeats);
+		mv.addObject("deathDay", dateOfDeath());
+		return mv;
 
 	}
 
@@ -214,6 +217,8 @@ public class FormController {
 		return new ModelAndView("results", "hBeat", hBeats);
 
 	}
+	
+	
 
 	@PostMapping("/confirmation")
 	public ModelAndView confirmation(String ethnicity) {
@@ -240,6 +245,16 @@ public class FormController {
 				+ country + ";SEX:" + gender + ";&format=json";
 		Double deathYear = rt.getForObject(url, PeopleResults.class).getPeopleArray().get(0).getDeathAge();
 		return deathYear;
+	}
+	
+	public String dateOfDeath()
+	{
+		LocalDate bDay = userInfo.getDob();
+		int deathDays = (int)(userInfo.getDeathYear()*365);
+		bDay = bDay.plusDays(deathDays);
+		String deathSentence = "I estimate you make it to " + bDay.getMonth() + " " + bDay.getDayOfMonth()
+		+ ", " + bDay.getYear() + ".";
+		return deathSentence;
 	}
 
 //	@RequestMapping("/education")
