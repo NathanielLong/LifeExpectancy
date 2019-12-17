@@ -63,22 +63,22 @@
 					<div class="wrap-input3 validate-input"
 						data-validate="Name is required">
 						<input class="input3" type="text" name="name"
-							placeholder="Name: "></input><span class="focus-input3"></span>
+							placeholder="Name: " required></input><span class="focus-input3"></span>
 					</div>
 					<div class="wrap-input3 validate-input"
 						data-validate="userName is required">
 						<input class="input3" type="text" name="userName"
-							placeholder="Username: "></input><span class="focus-input3"></span>
+							placeholder="Username: " required></input><span class="focus-input3"></span>
 					</div>
 					<div class="wrap-input3 validate-input"
 						data-validate="Name is required">
 						<input id = "password" class="input3" type="password" name="passWord"
-							placeholder="Password: " onkeyup="confirmPassword()"></input><span class="focus-input3"></span>
+							placeholder="Password: " onkeyup="confirmPassword()" required></input><span class="focus-input3"></span>
 					
 					</div>
 					<div class="wrap-input3 validate-input" data-validate="Password is required">
 						<input id = "confirm_password" class="input3" type="password"
-							placeholder="Confirm Password: " onkeyup="confirmPassword()"></input><span class="focus-input3"></span>
+							placeholder="Confirm Password: " onkeyup="confirmPassword()" required></input><span class="focus-input3"></span>
 					</div>
 						<span id = "message"></span>
 
