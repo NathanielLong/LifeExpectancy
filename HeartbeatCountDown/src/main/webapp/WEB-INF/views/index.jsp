@@ -5,9 +5,6 @@
 <html>
 <head>
 
-${sorry }
-${wrong }
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
@@ -38,13 +35,15 @@ ${wrong }
 					<div class="wrap-input3 validate-input"
 						data-validate="Name is required">
 						<input class="input3" type="text" name="userName"
-							placeholder="Username: "></input><span class="focus-input3"></span>
+							placeholder="Username: " required></input><span class="focus-input3"></span>
 					</div>
 					<div class="wrap-input3 validate-input" data-validate="Password is required">
 						<input class="input3" type="password" name="passWord"
-							placeholder="Password: "></input><span class="focus-input3"></span>
+							placeholder="Password: " required></input><span class="focus-input3"></span>
 					
 					</div>
+					
+					<span> ${wrong }</span>
 
 					<div class="container-contact3-form-btn">
 						<button class="contact3-form-btn" type = "submit">Submit</button>
@@ -64,22 +63,22 @@ ${wrong }
 					<div class="wrap-input3 validate-input"
 						data-validate="Name is required">
 						<input class="input3" type="text" name="name"
-							placeholder="Name: "></input><span class="focus-input3"></span>
+							placeholder="Name: " required></input><span class="focus-input3"></span>
 					</div>
 					<div class="wrap-input3 validate-input"
 						data-validate="userName is required">
 						<input class="input3" type="text" name="userName"
-							placeholder="Username: "></input><span class="focus-input3"></span>
+							placeholder="Username: " required></input><span class="focus-input3"></span>
 					</div>
 					<div class="wrap-input3 validate-input"
 						data-validate="Name is required">
 						<input id = "password" class="input3" type="password" name="passWord"
-							placeholder="Password: " onkeyup="confirmPassword()"></input><span class="focus-input3"></span>
+							placeholder="Password: " onkeyup="confirmPassword()" required></input><span class="focus-input3"></span>
 					
 					</div>
 					<div class="wrap-input3 validate-input" data-validate="Password is required">
 						<input id = "confirm_password" class="input3" type="password"
-							placeholder="Confirm Password: " onkeyup="confirmPassword()"></input><span class="focus-input3"></span>
+							placeholder="Confirm Password: " onkeyup="confirmPassword()" required></input><span class="focus-input3"></span>
 					</div>
 						<span id = "message"></span>
 
@@ -105,7 +104,7 @@ ${wrong }
 	<script>
 function confirmPassword() {
 	  if (document.getElementById("password").value === document.getElementById("confirm_password").value) {
-	    document.getElementById("message").style.color = "green";
+	    document.getElementById("message").style.color = "black";
 	    document.getElementById("message").innerHTML = "Passwords are matching";
 	    document.getElementById("submit").disabled = false;
 	  } else {
