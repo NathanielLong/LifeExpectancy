@@ -34,7 +34,7 @@ public class FormController {
 
 	User userInfo = new User();
 
-	@RequestMapping("/")
+//	@RequestMapping("/")
 	public ModelAndView userName() {
 		return new ModelAndView("index");
 	}
@@ -54,8 +54,13 @@ public class FormController {
 //	}
 
 	@PostMapping("/date")
-	public ModelAndView dateOfBirthPost(String userName) {
+	public ModelAndView dateOfBirthPost(String userName, String name, String passWord) {
+		if(uRepo.findByUserName(userName) != null)
+			return new ModelAndView("index", "sorry", "That username is already taken, please try again.");
+		
 		userInfo.setUserName(userName);
+		userInfo.setName(name);
+		userInfo.setPassword(passWord);
 		session.setAttribute("user", userInfo);
 		System.out.println(userInfo.getUserName());
 

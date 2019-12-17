@@ -7,4 +7,5 @@ import co.gc.HeartbeatCountDown.model.User;
 
 public interface UserRepo extends JpaRepository<User, Integer> {
 
+	User findByUserName(String username);
 }

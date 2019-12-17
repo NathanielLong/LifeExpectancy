@@ -31,7 +31,7 @@ public class CountryController {
 	
 	RestTemplate rt = new RestTemplate();
 	
-//	@RequestMapping("/")
+	@RequestMapping("/")
 	public ModelAndView createTables()
 	{
 		String testUrl = "http://apps.who.int/gho/athena/api/COUNTRY?format=json";
