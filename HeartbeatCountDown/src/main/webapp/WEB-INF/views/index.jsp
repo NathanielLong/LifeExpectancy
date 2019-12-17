@@ -25,8 +25,8 @@
 
 	<div class="bg-contact3"
 		style="background-image: url('images/iStock_45504088_MEDIUM.jpg');">
-
 <div class = "row">
+<div class = "column"></div>
  <div class = "column">
 		<div class="container-contact3">
 			<div class="wrap-contact3">
@@ -53,7 +53,7 @@
 							placeholder="Username: "></input><span class="focus-input3"></span>
 					</div>
 					<div class="wrap-input3 validate-input" data-validate="Password is required">
-						<input class="input3" type="text" name="passWord"
+						<input class="input3" type="password" name="passWord"
 							placeholder="Password: "></input><span class="focus-input3"></span>
 					
 					</div>
@@ -66,8 +66,6 @@
 				<!-- 		<a href="/hiscores" class="btn btn-primary">See the High Scores</a> -->
 			</div>
 	</div>
-	</div>
-		<div class="column">Hello
 	</div>
 		<div class="column">
 		<div class="container-contact3">
@@ -87,17 +85,18 @@
 					</div>
 					<div class="wrap-input3 validate-input"
 						data-validate="Name is required">
-						<input class="input3" type="text" name="passWord"
-							placeholder="Password: "></input><span class="focus-input3"></span>
-					</div>
-					<div class="wrap-input3 validate-input" data-validate="Password is required">
-						<input class="input3" type="text" name="passWordConfirm"
-							placeholder="Confirm Password: "></input><span class="focus-input3"></span>
+						<input id = "password" class="input3" type="password" name="passWord"
+							placeholder="Password: " onkeyup="confirmPassword()"></input><span class="focus-input3"></span>
 					
 					</div>
+					<div class="wrap-input3 validate-input" data-validate="Password is required">
+						<input id = "confirm_password" class="input3" type="password"
+							placeholder="Confirm Password: " onkeyup="confirmPassword()"></input><span class="focus-input3"></span>
+					</div>
+						<span id = "message"></span>
 
 					<div class="container-contact3-form-btn">
-						<button class="contact3-form-btn">Submit</button>
+						<button id = "submit" class="contact3-form-btn">Submit</button>
 					</div>
 				</form>
 
@@ -107,15 +106,27 @@
 		
 		
 	</div>
+		<div class="column">
+	</div>
 	</div>
 	
 	
 	
 	</div>
 	
-
-	<!-- 	
-	<a href = "/hiscores" class = "btn btn-primary">See the High Scores</a> -->
+	<script>
+function confirmPassword() {
+	  if (document.getElementById("password").value === document.getElementById("confirm_password").value) {
+	    document.getElementById("message").style.color = "green";
+	    document.getElementById("message").innerHTML = "Passwords are matching";
+	    document.getElementById("submit").disabled = false;
+	  } else {
+	    document.getElementById("message").style.color = "red";
+	    document.getElementById("message").innerHTML = "Passwords are not matching! You will not be able to submit unless the passwords match";
+	    document.getElementById("submit").disabled = true;
+	  }
+}
+</script>
 
 </body>
 </html>
