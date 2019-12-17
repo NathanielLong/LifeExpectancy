@@ -25,10 +25,13 @@
 
 	<div class="bg-contact3"
 		style="background-image: url('images/iStock_45504088_MEDIUM.jpg');">
+
+<div class = "row">
+ <div class = "column">
 		<div class="container-contact3">
 			<div class="wrap-contact3">
 				<form class="contact3-form validate-form" action="/date" method = "post">
-					<span class="contact3-form-title"> Beat Dropper</span>
+					<span class="contact3-form-title"> Existing User</span>
 
 					<!-- <div class="wrap-contact3-form-radio">
 						<div class="contact3-form-radio m-r-42">
@@ -47,7 +50,12 @@
 					<div class="wrap-input3 validate-input"
 						data-validate="Name is required">
 						<input class="input3" type="text" name="userName"
-							placeholder="Your Name"></input><span class="focus-input3"></span>
+							placeholder="Username: "></input><span class="focus-input3"></span>
+					</div>
+					<div class="wrap-input3 validate-input" data-validate="Password is required">
+						<input class="input3" type="text" name="passWord"
+							placeholder="Password: "></input><span class="focus-input3"></span>
+					
 					</div>
 
 					<div class="container-contact3-form-btn">
@@ -57,9 +65,54 @@
 
 				<!-- 		<a href="/hiscores" class="btn btn-primary">See the High Scores</a> -->
 			</div>
-		</div>
 	</div>
+	</div>
+		<div class="column">Hello
+	</div>
+		<div class="column">
+		<div class="container-contact3">
+			<div class="wrap-contact3">
+				<form class="contact3-form validate-form" action="/date" method = "post">
+					<span class="contact3-form-title"> New User </span>
 
+					<div class="wrap-input3 validate-input"
+						data-validate="Name is required">
+						<input class="input3" type="text" name="name"
+							placeholder="Name: "></input><span class="focus-input3"></span>
+					</div>
+					<div class="wrap-input3 validate-input"
+						data-validate="userName is required">
+						<input class="input3" type="text" name="userName"
+							placeholder="Username: "></input><span class="focus-input3"></span>
+					</div>
+					<div class="wrap-input3 validate-input"
+						data-validate="Name is required">
+						<input class="input3" type="text" name="passWord"
+							placeholder="Password: "></input><span class="focus-input3"></span>
+					</div>
+					<div class="wrap-input3 validate-input" data-validate="Password is required">
+						<input class="input3" type="text" name="passWordConfirm"
+							placeholder="Confirm Password: "></input><span class="focus-input3"></span>
+					
+					</div>
+
+					<div class="container-contact3-form-btn">
+						<button class="contact3-form-btn">Submit</button>
+					</div>
+				</form>
+
+				<!-- 		<a href="/hiscores" class="btn btn-primary">See the High Scores</a> -->
+			</div>
+	</div>
+		
+		
+	</div>
+	</div>
+	
+	
+	
+	</div>
+	
 
 	<!-- 	
 	<a href = "/hiscores" class = "btn btn-primary">See the High Scores</a> -->
