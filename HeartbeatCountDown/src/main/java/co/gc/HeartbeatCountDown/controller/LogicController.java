@@ -36,7 +36,7 @@ public class LogicController {
 		heartBeatsLeft -= StatisticsModels.incomeBeatsLost(user.getIncome(), user.getGender());
 		heartBeatsLeft -= StatisticsModels.ethnicityBeatsLost(user.getEthnicity());
 		System.out.println(heartBeatsLeft);
-//		heartBeatsLeft -= StatisticsModels.bmiBeatsReduced(user.getHeight(), user.getWeight(), user.getGender());
+		heartBeatsLeft -= StatisticsModels.bmiBeatsReduced(user.getHeight(), user.getWeight(), user.getGender());
 //		System.out.println(heartBeatsLeft);
 		heartBeatsLeft -= findHeartbeatsSpent(LocalDate.parse(user.getDob()));
 		System.out.println(heartBeatsLeft);
