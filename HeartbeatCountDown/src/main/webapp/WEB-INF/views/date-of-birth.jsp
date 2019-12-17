@@ -18,7 +18,7 @@
 	href="vendor/select2/select2.min.css">
 <link rel="stylesheet" type="text/css" href="styles.css">
 <link rel="stylesheet" type="text/css" href="styles.css">
-<title>date'obirth</title>
+<title>DateOfBirth</title>
 </head>
 <body>
 

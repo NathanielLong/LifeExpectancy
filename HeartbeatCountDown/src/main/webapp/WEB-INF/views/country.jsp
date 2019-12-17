@@ -10,7 +10,7 @@
 	integrity="sha384-cRAmF0wErT4D9dEBc36qB6pVu+KmLh516IoGWD/Gfm6FicBbyDuHgS4jmkQB8u1a"
 	crossorigin="anonymous">
 <meta charset="ISO-8859-1">
-<title>country</title>
+<title>Country</title>
 </head>
 <body>
 
@@ -20,7 +20,7 @@
 				<c:forEach var="c" items="${ countries }">
 					<option value="${c.getLabel()}">${c.getDisplay()}</option>
 				</c:forEach>
-			</select> <input type="submit" Value="Enter." class="btnbtn-primary"></input>
+			</select> <input type="submit" Value="Enter" class="btnbtn-primary"></input>
 		</div>
 	</form>
 
