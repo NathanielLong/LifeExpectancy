@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -66,12 +65,12 @@ public class FormController {
 	@PostMapping("/smoke")
 	public ModelAndView smoke(String borned) {
 		LocalDate date = LocalDate.parse(borned);
-		User user = (User) (session.getAttribute("user"));
-		user.setDob(date);
+		userInfo = (User) (session.getAttribute("user"));
+		userInfo.setDob(date);
 		LogicController lc = new LogicController();
 		long yearsOld = (lc.findHeartbeatsSpent(date) / StatisticsModels.StatisticsModels.heartbeatsPerYear);
-		user.setAge(yearsOld);
-		session.setAttribute("user", user);
+		userInfo.setAge(yearsOld);
+		session.setAttribute("user", userInfo);
 		return new ModelAndView("smoke");
 	}
 
@@ -120,48 +119,77 @@ public class FormController {
 		return new ModelAndView("bmi");
 	}
 
-	@PostMapping("/income")
-	public ModelAndView income(Integer height, Integer weight) {
-		userInfo.setWeight(weight);
-		userInfo.setHeight(height);
-
-		return new ModelAndView("income");
-	}
 
 	@PostMapping("/ethnicity")
-	public ModelAndView ethnicity(Integer income) {
-		User user = (User) (session.getAttribute("user"));
-		user.setIncome(income);
+	public ModelAndView ethnicity(Integer height, Integer weight) {
+		userInfo = (User) (session.getAttribute("user"));
+//		userInfo.setIncome(income);
 		// long age = user.getAge();
-		session.setAttribute("user", user);
+		userInfo.setWeight(weight);
+		userInfo.setHeight(height);
+		session.setAttribute("user", userInfo);
 		return new ModelAndView("ethnicity");
 
 	}
 
 	@PostMapping("/education")
-	public ModelAndView education(String ethnicity, String gender) {
-		User user = (User) (session.getAttribute("user"));
-		user.setEthnicity(ethnicity);
-		uRepo.save(user);
-		long age = user.getAge();
+	public ModelAndView education(String ethnicity) {
+		userInfo = (User) (session.getAttribute("user"));
+		userInfo.setEthnicity(ethnicity);
+		
+		long age = userInfo.getAge();
 		if (age < 25) {
-			return new ModelAndView("redirect:/confirmation?ethnicity=" + ethnicity);
+			return new ModelAndView("income", "ethnicity", ethnicity);
 		} else {
-			return new ModelAndView("education");
+			return new ModelAndView("education", "ethnicity", ethnicity);
 		}
 
 	}
+	
+	@PostMapping("/confirm")
+	public ModelAndView confirm(String education) {
+		userInfo = (User) (session.getAttribute("user"));
+		userInfo.setEducation(education);
+		uRepo.save(userInfo);
+		return new ModelAndView("confirmation");
+	}
 
+	@PostMapping("/income")
+	public ModelAndView income(String ethnicity, String education) {
+		System.out.println("ethnicity" + ethnicity);
+		
+		if(education != null)
+			userInfo.setEducation(education);
+		else
+			userInfo.setEducation("none");
+		userInfo.setEthnicity(ethnicity);
+		System.out.println(userInfo.getEthnicity());
+		uRepo.save(userInfo);
+		return new ModelAndView("income");
+	}
+	
 	@PostMapping("/results")
-	public ModelAndView goToResults() {
+	public ModelAndView goToResults(Integer income) {
 //		System.out.println(userInfo.getAlcohol() + " " + userInfo.getCountry() + " " + userInfo.getDob() + " " + userInfo.getEducation()
 //				+ " " + userInfo.getEthnicity() + " " + userInfo.getGender() + " " + userInfo.getSmoke() + " " + userInfo.getUserName()
 //				+ " ");
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("results");
+		userInfo = (User) (session.getAttribute("user"));
+//		if(education != null)
+//		userInfo.setEducation(education);
+//		else
+//		userInfo.setEducation("none");
+//		userInfo.setEthnicity(ethnicity);
+		userInfo.setIncome(income);
+		System.out.println(userInfo);
 		uRepo.save(userInfo);
 		long hBeats;
 		LogicController lc = new LogicController();
 		hBeats = lc.findBeatDrop(userInfo);
-		return new ModelAndView("results", "hBeat", hBeats);
+		mv.addObject("hBeat", hBeats);
+		mv.addObject("deathDay", dateOfDeath(hBeats));
+		return mv;
 
 	}
 
@@ -189,23 +217,18 @@ public class FormController {
 		return new ModelAndView("results", "hBeat", hBeats);
 
 	}
+	
+	
 
 	@PostMapping("/confirmation")
 	public ModelAndView confirmation(String ethnicity) {
-		User user = (User) (session.getAttribute("user"));
+		userInfo = (User) (session.getAttribute("user"));
 		userInfo.setEthnicity(ethnicity);
 		userInfo.setEducation("none");
-		uRepo.save(user);
+		uRepo.save(userInfo);
 		return new ModelAndView("confirmation");
 	}
 
-	@PostMapping("/confirm")
-	public ModelAndView confirm(String education) {
-		User user = (User) (session.getAttribute("user"));
-		userInfo.setEducation(education);
-		uRepo.save(user);
-		return new ModelAndView("confirmation");
-	}
 
 	@PostMapping("/scrooge")
 	public ModelAndView scrooge() {
@@ -214,14 +237,24 @@ public class FormController {
 	}
 
 	public Double getDeathYear() {
-		User user = (User) (session.getAttribute("user"));
-		String gender = user.getGender();
-		String country = user.getCountry();
-		System.out.println(user.getGender() + " " + user.getCountry());
+		userInfo = (User) (session.getAttribute("user"));
+		String gender = userInfo.getGender();
+		String country = userInfo.getCountry();
+		System.out.println(userInfo.getGender() + " " + userInfo.getCountry());
 		String url = "http://apps.who.int/gho/athena/api/GHO/WHOSIS_000001?profile=simple&filter=Year:2015;COUNTRY:"
 				+ country + ";SEX:" + gender + ";&format=json";
 		Double deathYear = rt.getForObject(url, PeopleResults.class).getPeopleArray().get(0).getDeathAge();
 		return deathYear;
+	}
+	
+	public String dateOfDeath(long hBeats)
+	{
+		
+		int deathDays = (int)(hBeats/StatisticsModels.StatisticsModels.heartbeatsPerYear*365);
+		LocalDate dDay = LocalDate.now().plusDays(deathDays);
+		String deathSentence = "I estimate you make it to " + dDay.getMonth() + " " + dDay.getDayOfMonth()
+		+ ", " + dDay.getYear() + ".";
+		return deathSentence;
 	}
 
 //	@RequestMapping("/education")

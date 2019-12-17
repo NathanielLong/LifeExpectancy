@@ -18,7 +18,7 @@
 	href="vendor/select2/select2.min.css">
 <link rel="stylesheet" type="text/css" href="styles.css">
 <link rel="stylesheet" type="text/css" href="styles.css">
-<title>smoke</title>
+<title>Smoke</title>
 </head>
 <body>
 
@@ -38,10 +38,10 @@
 							<div class="form-group">
 								How often do you smoke? <select class="custom-select"
 									name="amount">
-									<option value="0" hidden=" " id="haha">
-									<option value="1" id="second">A cig a day</option>
-									<option value="5">1/4 a pack</option>
-									<option value="10">1/2 a pack</option>
+									<option value="0" hidden=" " id="zero">
+									<option value="1" id="second">A cigarette per day</option>
+									<option value="5">1/4 a pack per day</option>
+									<option value="10">1/2 a pack per day</option>
 									<option value="20">Pack a day and above</option>
 								</select>
 							</div>
@@ -79,7 +79,7 @@
 			if (document.getElementById('yesCheck').checked) {
 				document.getElementById('second').selected = "true";
 			} else
-				document.getElementById('haha').selected = "true";
+				document.getElementById('zero').selected = "true";
 		}
 	</script>
 </body>

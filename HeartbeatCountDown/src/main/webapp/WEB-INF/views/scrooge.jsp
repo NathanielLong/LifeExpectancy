@@ -10,7 +10,7 @@
 	integrity="sha384-LS4/wo5Z/8SLpOLHs0IbuPAGOWTx30XSoZJ8o7WKH0UJhRpjXXTpODOjfVnNjeHu"
 	crossorigin="anonymous">
 <meta charset="ISO-8859-1">
-<title>selectwisely...</title>
+<title>SelectWisely...</title>
 </head>
 <body>
 
@@ -25,9 +25,9 @@
 				How often will you smoke? <select class="custom-select"
 					name="amount">
 					<option value="0" hidden=" ">
-					<option value="1">A cig a day</option>
-					<option value="5">1/4 a pack</option>
-					<option value="10">1/2 a pack</option>
+					<option value="1">A cigarette per day</option>
+					<option value="5">1/4 a pack per day</option>
+					<option value="10">1/2 a pack per day</option>
 					<option value="20">Pack a day and above</option>
 				</select> <input style="visibility: hidden" type="radio"
 					onclick="javascript:yesnoCheck();" name="stillsmokin" id="yesCheck"

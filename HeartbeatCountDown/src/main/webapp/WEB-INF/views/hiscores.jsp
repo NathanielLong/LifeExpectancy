@@ -5,20 +5,19 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>High-Scores</title>
 <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/united/bootstrap.min.css" rel="stylesheet" integrity="sha384-WTtvlZJeRyCiKUtbQ88X1x9uHmKi0eHCbQ8irbzqSLkE0DpAZuixT5yFvgX0CjIu" crossorigin="anonymous">
 </head>
 <body>
-<table id="scoreboard">
+<table id="scoreboard" class = "table"">
   <tr>
     <th onclick="sortTable(0)">User id</th>
     <th onclick="sortTable(1)">Name</th>
-    <th onclick="sortTable(1)">Heartbeats</th>
+    <th onclick="sortTable(2)">Heartbeats</th>
     
   </tr>
   <c:forEach var = "u" items = "${scores }">
   <tr>
-    <td></td>
     <td>${u.getUser().getUserName() }</td>
     <td>${u.getHeartBeats() }</td>
     <td id="countdowntimer">${u.getHeartBeats() } <td>

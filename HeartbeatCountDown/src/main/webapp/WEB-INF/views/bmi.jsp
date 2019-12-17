@@ -10,16 +10,16 @@
 	integrity="sha384-LS4/wo5Z/8SLpOLHs0IbuPAGOWTx30XSoZJ8o7WKH0UJhRpjXXTpODOjfVnNjeHu"
 	crossorigin="anonymous">
 <meta charset="ISO-8859-1">
-<title>bOdYmAsSiNdEx</title>
+<title>BodyMassIndex</title>
 </head>
 <body>
-	<form action="/income" method="post">
+	<form action="/ethnicity" method="post">
 
-		Please enter how much you weigh in pounds: <br>
+		Please enter your weight in pounds: <br>
 		<input type="number" name="weight"><br> Please enter your
 		height in inches: <br>
 		<input type="number" name="height"> <br>
-		<input type="submit" Value="Enter." class="btnbtn-primary"></input>
+		<input type="submit" Value="Enter" class="btnbtn-primary"></input>
 
 	</form>
 

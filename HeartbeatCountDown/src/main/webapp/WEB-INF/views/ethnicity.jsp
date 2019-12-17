@@ -10,10 +10,10 @@
 	integrity="sha384-cRAmF0wErT4D9dEBc36qB6pVu+KmLh516IoGWD/Gfm6FicBbyDuHgS4jmkQB8u1a"
 	crossorigin="anonymous">
 <meta charset="ISO-8859-1">
-<title>blackandwhitewhattchuwant</title>
+<title>Ethnicity</title>
 </head>
 <body>
-	What ethnicity do you identify the most with?
+	Which ethnicity do you identify with the most?
 	<form action="/education" method="post">
 		<div class="form-group">
 			<select class="custom-select" name = "ethnicity">
@@ -23,7 +23,7 @@
 				<option value="Native-American">Native-American</option>
 				<option value="African">Black</option>
 			</select>
-			<input type="submit" Value="Enter." class="btn btn-primary"></input>
+			<input type="submit" Value="Enter" class="btn btn-primary"></input>
 		</div>
 	</form>
 

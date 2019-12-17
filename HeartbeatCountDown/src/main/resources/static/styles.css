@@ -1,4 +1,4 @@
-/* @keyframes heartbeat
+ @keyframes heartbeat
 {
   0%
   {
@@ -25,8 +25,8 @@
     transform: scale( .75 );
   }
 }
- */
-/* div
+
+div.heartbeat
 {
 
   background-color: red;
@@ -34,7 +34,7 @@
   height: 50px;
   animation: heartbeat .8s infinite;
 }
- */
+
 
 
 
@@ -78,7 +78,7 @@ a {
 	font-family: Poppins-Regular;
 	font-size: 14px;
 	line-height: 1.7;
-	color: #666666;
+	color: white;
 	margin: 0px;
 	transition: all 0.4s;
 	-webkit-transition: all 0.4s;
@@ -104,7 +104,7 @@ p {
 	font-family: Poppins-Regular;
 	font-size: 14px;
 	line-height: 1.7;
-	color: #666666;
+	color: #fff;
 	margin: 0px;
 }
 
