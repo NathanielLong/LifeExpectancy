@@ -80,7 +80,6 @@ public class User implements Serializable {
 		this.deathYear = deathYear;
 		this.gender = gender;
 		this.alcohol = alcohol;
-		this.dob = dob;
 		this.education = education;
 		this.smoke = smoke;
 		this.income = income;
@@ -107,7 +106,6 @@ public class User implements Serializable {
 		this.deathYear = deathYear;
 		this.gender = gender;
 		this.alcohol = alcohol;
-		this.dob = dob;
 		this.education = education;
 		this.smoke = smoke;
 		this.income = income;
@@ -408,19 +406,11 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-<<<<<<< HEAD
-		return "User [id=" + id + ", userName=" + userName + ", country=" + country + ", deathYear=" + deathYear
-				+ ", gender=" + gender + ", alcohol=" + alcohol + ", dob=" + dob + ", education=" + education
-				+ ", smoke=" + smoke + ", income=" + income + ", ethnicity=" + ethnicity + ", amount=" + amount
-				+ ", years=" + years + ", stillSmokin=" + stillSmokin + ", amountDrunk=" + amountDrunk + ", height="
-				+ height + ", weight=" + weight + ", age=" + age + "]";
-=======
 		return "User [id=" + id + ", name=" + name + ", password=" + password + ", userName=" + userName + ", country="
 				+ country + ", deathYear=" + deathYear + ", gender=" + gender + ", alcohol=" + alcohol + ", dob=" + dob
 				+ ", education=" + education + ", smoke=" + smoke + ", income=" + income + ", ethnicity=" + ethnicity
 				+ ", amount=" + amount + ", years=" + years + ", stillSmokin=" + stillSmokin + ", amountDrunk="
 				+ amountDrunk + ", height=" + height + ", weight=" + weight + ", age=" + age + "]";
->>>>>>> 0bb8a9e2b5a26960a3d33774d19a97b6ef06052e
 	}
 
 

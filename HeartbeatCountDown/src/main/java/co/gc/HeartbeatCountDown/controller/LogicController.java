@@ -35,16 +35,11 @@ public class LogicController {
 		heartBeatsLeft -= StatisticsModels.alcoholBeatsReduced(user.getAlcohol());
 		heartBeatsLeft -= StatisticsModels.incomeBeatsLost(user.getIncome(), user.getGender());
 		heartBeatsLeft -= StatisticsModels.ethnicityBeatsLost(user.getEthnicity());
-<<<<<<< HEAD
-		heartBeatsLeft -= findHeartbeatsSpent(LocalDate.parse(user.getDob()));
-=======
 		System.out.println(heartBeatsLeft);
 //		heartBeatsLeft -= StatisticsModels.bmiBeatsReduced(user.getHeight(), user.getWeight(), user.getGender());
 //		System.out.println(heartBeatsLeft);
-		
-		heartBeatsLeft -= findHeartbeatsSpent(user.getDob());
+		heartBeatsLeft -= findHeartbeatsSpent(LocalDate.parse(user.getDob()));
 		System.out.println(heartBeatsLeft);
->>>>>>> 0bb8a9e2b5a26960a3d33774d19a97b6ef06052e
 		heartBeatsLeft -= StatisticsModels.educationBeatsReduced(user.getEducation(), user.getGender());
 		if(user.getStillSmokin().equals("ismoke"))
 				{

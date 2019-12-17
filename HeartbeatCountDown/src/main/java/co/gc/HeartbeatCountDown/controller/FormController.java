@@ -55,9 +55,9 @@ public class FormController {
 
 	@PostMapping("/date")
 	public ModelAndView dateOfBirthPost(String userName, String name, String passWord) {
-		if(uRepo.findByUserName(userName) != null)
+		if (uRepo.findByUserName(userName) != null)
 			return new ModelAndView("index", "sorry", "That username is already taken, please try again.");
-		
+
 		userInfo.setUserName(userName);
 		userInfo.setName(name);
 		userInfo.setPassword(passWord);
@@ -190,23 +190,27 @@ public class FormController {
 	}
 
 	@PostMapping("/scroogeresults")
-	public ModelAndView goToResultsFromScrooge(User user) {
+	public ModelAndView goToResultsFromScrooge(String userName, String country, String gender, String alcohol,
+			String dob, String education, String smoke, Integer income, String ethnicity, Integer amount, Integer years,
+			String stillSmokin, String amountDrunk, Integer height, Integer weight) {
+		System.out.print(userName + "," + country + "," + gender + "," + alcohol + "," + dob + "," + "," + education
+				+ "," + smoke + "," + "," + income + "," + ethnicity + "," + amount + "," + years + "," + stillSmokin
+				+ "," + amountDrunk + "," + height + "," + weight);
 		userInfo = (User) (session.getAttribute("user"));
-//		userInfo.setAlcohol(alcohol);
-//		userInfo.setAmount(amount);
-//		userInfo.setAmountDrunk(amountDrunk);
-//		userInfo.setCountry(country);
-//		userInfo.setIncome(income);
-//		userInfo.setSmoke(smoke);
-//		userInfo.setStillSmokin(stillSmokin);
-//		userInfo.setWeight(weight);
-//		userInfo.setYears(years);
-//		userInfo.setEducation(education);
-		
+		userInfo.setAlcohol(alcohol);
+		userInfo.setAmount(amount);
+		userInfo.setAmountDrunk(amountDrunk);
+		userInfo.setCountry(country);
+		userInfo.setIncome(income);
+		userInfo.setSmoke(smoke);
+		userInfo.setWeight(weight);
+		userInfo.setYears(years);
+		userInfo.setEducation(education);
+
 		session.setAttribute("user", userInfo);
 		long hBeats;
 		LogicController lc = new LogicController();
-		hBeats = lc.findBeatDrop(user);
+		hBeats = lc.findBeatDrop(userInfo);
 		return new ModelAndView("results", "hBeat", hBeats);
 
 	}
