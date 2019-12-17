@@ -26,37 +26,41 @@
 		style="background-image: url('images/iStock_45504088_MEDIUM.jpg');">
 		<div class="container-contact3">
 			<div class="wrap-contact3">
-				<form action="/gender" method="post">
-					<span class="contact3-form-title"> Beat Dropper</span> Do you
-					smoke?<br> Yes <input type="radio"
-						onclick="javascript:yesnoCheck(); possibleSecond();" name="smoke"
-						id="yesCheck" value="ismoke"> No <input type="radio"
-						onclick="javascript:yesnoCheck(); possibleSecond();" name="smoke"
-						id="noCheck" value="idontsmoke"> <br>
-					<div id="ifYes" style="visibility: hidden">
-						<div class="form-group">
-							How often do you smoke? <select class="custom-select"
-								name="amount">
-								<option value="0" hidden=" " id="haha">
-								<option value="1" id="second">A cig a day</option>
-								<option value="5">1/4 a pack</option>
-								<option value="10">1/2 a pack</option>
-								<option value="20">Pack a day and above</option>
-							</select>
+				<div class="contact3-form-radio m-r-42">
+					<form action="/gender" method="post">
+						<span class="contact3-form-title"> Beat Dropper</span> Do you
+						smoke?<br> Yes <input type="radio"
+							onclick="javascript:yesnoCheck(); possibleSecond();" name="smoke"
+							id="yesCheck" value="ismoke"> No <input type="radio"
+							onclick="javascript:yesnoCheck(); possibleSecond();" name="smoke"
+							id="noCheck" value="idontsmoke"> <br>
+						<div id="ifYes" style="visibility: hidden">
+							<div class="form-group">
+								How often do you smoke? <select class="custom-select"
+									name="amount">
+									<option value="0" hidden=" " id="haha">
+									<option value="1" id="second">A cig a day</option>
+									<option value="5">1/4 a pack</option>
+									<option value="10">1/2 a pack</option>
+									<option value="20">Pack a day and above</option>
+								</select>
+							</div>
+							<br> For how many years have you smoked: <input
+								type='number' id='years' name='years' value="0"><br>
+							Do you still smoke? Yes <input type="radio"
+								onclick="javascript:yesnoCheck();" name="stillsmokin"
+								id="yesCheck" value="istillsmoke"> No <input
+								type="radio" onclick="javascript:yesnoCheck();"
+								name="stillsmokin" id="noCheck" value="idontsmokeanymore"
+								checked>
 						</div>
-						<br> For how many years have you smoked: <input type='number'
-							id='years' name='years' value="0"><br> Do you still
-						smoke? Yes <input type="radio" onclick="javascript:yesnoCheck();"
-							name="stillsmokin" id="yesCheck" value="istillsmoke"> No
-						<input type="radio" onclick="javascript:yesnoCheck();"
-							name="stillsmokin" id="noCheck" value="idontsmokeanymore" checked>
-					</div>
 
-					<div class="container-contact3-form-btn">
-						<button class="contact3-form-btn">Submit</button>
-					</div>
+						<div class="container-contact3-form-btn">
+							<button class="contact3-form-btn">Submit</button>
+						</div>
 
-				</form>
+					</form>
+				</div>
 			</div>
 		</div>
 	</div>
