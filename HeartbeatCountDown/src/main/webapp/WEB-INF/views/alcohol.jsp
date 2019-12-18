@@ -40,8 +40,9 @@
 							<div class="form-group">
 								How much do you drink? <br>
 								<select class="custom-select" name="amountDrunk">
-									<option value="none" hidden=" " id="zero"></option>
-									<option value="low" id="first">A drink before bed (1-2
+									<option value=" " hidden=" " id="first">Choose Below</option>
+									<option value = "none" id = "zero">Less than 1-2 drinks per day</option>
+									<option value="low">A drink before bed (1-2
 										drinks per day)</option>
 									<option value="medium">Every now and again (2-3.5
 										drinks per day)</option>

@@ -188,8 +188,11 @@ public class FormController {
 		long hBeats;
 		LogicController lc = new LogicController();
 		hBeats = lc.findBeatDrop(userInfo);
+		if(hBeats < 1000)
+			hBeats = 1000;
 		mv.addObject("hBeat", hBeats);
 		mv.addObject("deathDay", dateOfDeath(hBeats));
+		uRepo.save(userInfo);
 		return mv;
 
 	}
@@ -198,9 +201,6 @@ public class FormController {
 	public ModelAndView goToResultsFromScrooge(String userName, String country, String gender, String alcohol,
 			String dob, String education, String smoke, Integer income, String ethnicity, Integer amount, Integer years,
 			String stillSmokin, String amountDrunk, Integer height, Integer weight) {
-		System.out.print(userName + "," + country + "," + gender + "," + alcohol + "," + dob + "," + "," + education
-				+ "," + smoke + "," + "," + income + "," + ethnicity + "," + amount + "," + years + "," + stillSmokin
-				+ "," + amountDrunk + "," + height + "," + weight);
 		userInfo = (User) (session.getAttribute("user"));
 		userInfo.setAlcohol(alcohol);
 		userInfo.setAmount(amount);
@@ -215,6 +215,7 @@ public class FormController {
 
 		session.setAttribute("user", userInfo);
 		uRepo.save(userInfo);
+		System.out.println(userInfo);
 		long hBeats;
 		LogicController lc = new LogicController();
 		hBeats = lc.findBeatDrop(userInfo);
@@ -234,6 +235,7 @@ public class FormController {
 	@RequestMapping("/newresults")
 	public ModelAndView newHeartBeats(User user) {
 		ModelAndView mv = new ModelAndView("scrooge");
+		ArrayList<Country> countryList = (ArrayList<Country>) cRepo.findAll();
 		System.out.println("This is the user: " + user);
 		System.out.println(userInfo);
 		long hBeats;
@@ -243,9 +245,11 @@ public class FormController {
 		System.out.println("old beats: " + hBeats);
 		nHBeats = lc.findBeatDrop(user);
 		System.out.println("new beats: " + nHBeats);
+		mv.addObject("beatsPerYear", hBeats/StatisticsModels.StatisticsModels.heartbeatsPerYear);
 		mv.addObject("newHBeat", nHBeats);
 		mv.addObject("currentHBeat", hBeats);
 		mv.addObject("choices", true);
+		mv.addObject("countries", countryList);
 		return mv;
 
 	}
@@ -283,15 +287,13 @@ public class FormController {
 	}
 
 	public String dateOfDeath(long hBeats) {
-
-	int deathDays = (int) (hBeats / StatisticsModels.StatisticsModels.heartbeatsPerYear * 365);
-	LocalDate dDay = LocalDate.now().plusDays(deathDays);
-	userInfo.setDeathDay(String.valueOf(dDay));
-	String deathSentence = dDay.getMonth() + " " + dDay.getDayOfMonth() + ", " + dDay.getYear()
-			+ ".";
-	System.out.println(deathSentence + "test");
-	return deathSentence;
-}
+		int deathDays = (int) (hBeats / StatisticsModels.StatisticsModels.heartbeatsPerYear * 365);
+		LocalDate dDay = LocalDate.now().plusDays(deathDays);
+		userInfo.setDeathDay(String.valueOf(dDay));
+		String deathSentence = dDay.getMonth() + " " + dDay.getDayOfMonth() + ", " + dDay.getYear() + ".";
+		System.out.println(deathSentence + "test");
+		return deathSentence;
+	}
 
 	@PostMapping("/login-result")
 	public ModelAndView login(String userName, String passWord) {
@@ -314,18 +316,15 @@ public class FormController {
 	}
 
 	@RequestMapping("death-buddies")
-	public ModelAndView dBuddy()
-	{
+	public ModelAndView dBuddy() {
 		List<User> buddyList = new ArrayList<>();
 		System.out.println(userInfo.getDeathDay() + "test");
-		for(User u : uRepo.findAll())
-		{
+		for (User u : uRepo.findAll()) {
 			System.out.println(u.getDeathDay());
-			if(u.getDeathDay().equals(userInfo.getDeathDay()))
+			if (u.getDeathDay().equals(userInfo.getDeathDay()))
 				buddyList.add(u);
 		}
-		
-		
-		return new ModelAndView("death-buddies","buds", buddyList);
+
+		return new ModelAndView("death-buddies", "buds", buddyList);
 	}
 }

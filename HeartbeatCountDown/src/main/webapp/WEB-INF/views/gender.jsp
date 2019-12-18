@@ -33,7 +33,7 @@
 					<div class="form-check">
 						<label class="form-check-label"> <input type="radio"
 							class="form-check-input" name="gender" id="optionsRadios1"
-							value="MLE" checked=""> Male
+							value="MLE" checked="" required> Male
 						</label>
 					</div>
 					<div class="form-check">

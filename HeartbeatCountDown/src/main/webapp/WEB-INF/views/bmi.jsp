@@ -31,8 +31,8 @@
 						method="post">
 						<span class="contact3-form-title"> Beat Dropper</span> Please
 						enter your weight in pounds: <br> <input type="number"
-							name="weight"><br> Please enter your height in
-						inches: <br> <input type="number" name="height"> <br>
+							name="weight" required><br> Please enter your height in
+						inches: <br> <input type="number" name="height" required> <br>
 						<div class="container-contact3-form-btn">
 							<button class="contact3-form-btn">Submit</button>
 						</div>

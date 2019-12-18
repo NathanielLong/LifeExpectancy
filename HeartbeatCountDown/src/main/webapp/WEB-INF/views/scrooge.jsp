@@ -33,9 +33,10 @@
 					<c:if test="${choices  == true}">
 						<p>This was your current heart-beats left:</p>${currentHBeat }
 			<p>This is your new heart-beats left with these choices:</p>${newHBeat}
-			<p>This is the difference in those heart-beats:</p>("${newHBeat + currentHBeat}")
+			<p>This is the difference in those heart-beats:</p>${newHBeat - currentHBeat}
 
 		</c:if>
+
 					Will you continue to smoke? Yes <input type="radio"
 						onclick="javascript:yesnoChecksmoke();" name="smoke" id="yesCheck"
 						value="ismoke"> No <input type="radio"
@@ -56,7 +57,7 @@
 								style="visibility: hidden" type="radio"
 								onclick="javascript:yesnoCheck();" name="stillSmokin"
 								id="noCheck" value="${userDeets.stillSmokin }" checked>
-							<input type='number' id='years' name='years' value="0"
+							<input type='number' id='years' name='years' value="${beatsPerYear}"
 								style="visibility: hidden">
 						</div>
 					</div>
@@ -115,6 +116,7 @@
 					<div class="form-group">
 						Please select your what level of education you will strive for: <br>
 						<select class="custom-select" name="education">
+							<option value = "none">No further education</option>
 							<option value="highSchool">High school diploma</option>
 							<option value="bachelors">Bachelor's degree</option>
 							<option value="bachelors">Master's degree</option>
@@ -168,6 +170,7 @@
 						style="visibility: hidden" type="number" name="deathYear"
 						value="${userDeets.deathYear }">
 				</form>
+>>>>>>> 14b99486d9fd3dff156ef2ef23348104f6a67e81
 			</div>
 		</div>
 	</div>
