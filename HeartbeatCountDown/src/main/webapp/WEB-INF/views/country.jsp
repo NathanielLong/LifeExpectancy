@@ -34,6 +34,7 @@
 						<span class="contact3-form-title"> Beat Dropper</span>
 						<div class="form-group">
 							<select class="custom-select" name="country">
+							<option value = "USA" selected>United States of America</option>
 								<c:forEach var="c" items="${ countries }">
 									<option value="${c.getLabel()}">${c.getDisplay()}</option>
 								</c:forEach>

@@ -13,9 +13,13 @@
 <div class = "heartbeat">
 <img align = "left" src = "https://theladdermn.files.wordpress.com/2013/03/human_heart.jpg">
 </div>
+<div>
+<a href="mailto:?subject=I'm dying! Save the Date!&body=You are cordially invited to my funeral. It will probably be a couple days after I die, which, at my current rate, is on ${deathDay } Venue is to be determined. Please RSVP as soon as possible. Want to see if your own funeral might conflict? Visit Beat Dropper! http://www.dropthebeat.com">Send Email</a>
+</div>
 <p> You have ${hBeat/39420000} years remaining.</p>
-<p> ${deathDay }
+<p> I predict you make it to ${deathDay }
 <p> You have <span id="countdowntimer">${hBeat } </span> heartbeats remaining</p>
+
 
 <a class="btn btn-primary" href="/scrooge">I Can Change!</a>
 <script type="text/javascript">

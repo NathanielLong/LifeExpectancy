@@ -249,10 +249,33 @@ public class FormController {
 		userInfo = (User) (session.getAttribute("user"));
 		String gender = userInfo.getGender();
 		String country = userInfo.getCountry();
+		String url = "";
+		Double deathYear = 0.0;
 		System.out.println(userInfo.getGender() + " " + userInfo.getCountry());
-		String url = "http://apps.who.int/gho/athena/api/GHO/WHOSIS_000001?profile=simple&filter=Year:2015;COUNTRY:"
+		try {
+		if(userInfo.getAge()<60)
+		url = "http://apps.who.int/gho/athena/api/GHO/WHOSIS_000001?profile=simple&filter=Year:2015;COUNTRY:"
 				+ country + ";SEX:" + gender + ";&format=json";
-		Double deathYear = rt.getForObject(url, PeopleResults.class).getPeopleArray().get(0).getDeathAge();
+		else
+		{url = "http://apps.who.int/gho/athena/api/GHO/WHOSIS_000015?profile=simple&filter=Year:2015;COUNTRY:"
+				+ country + ";SEX:" + gender + ";&format=json";
+		deathYear+=60;
+		}
+		deathYear += rt.getForObject(url, PeopleResults.class).getPeopleArray().get(0).getDeathAge();
+		}
+		catch(IndexOutOfBoundsException e)
+		{
+			country = "USA";
+			if(userInfo.getAge()<60)
+			url = "http://apps.who.int/gho/athena/api/GHO/WHOSIS_000001?profile=simple&filter=Year:2015;COUNTRY:"
+					+ country + ";SEX:" + gender + ";&format=json";
+			else
+			{url = "http://apps.who.int/gho/athena/api/GHO/WHOSIS_000015?profile=simple&filter=Year:2015;COUNTRY:"
+					+ country + ";SEX:" + gender + ";&format=json";
+			deathYear+=60;
+			}
+			deathYear += rt.getForObject(url, PeopleResults.class).getPeopleArray().get(0).getDeathAge();
+		}
 		return deathYear;
 	}
 
@@ -260,8 +283,7 @@ public class FormController {
 
 		int deathDays = (int) (hBeats / StatisticsModels.StatisticsModels.heartbeatsPerYear * 365);
 		LocalDate dDay = LocalDate.now().plusDays(deathDays);
-		String deathSentence = "I estimate you make it to " + dDay.getMonth() + " " + dDay.getDayOfMonth() + ", "
-				+ dDay.getYear() + ".";
+		String deathSentence = dDay.getMonth() + " " + dDay.getDayOfMonth() + ", " + dDay.getYear() + ".";
 		return deathSentence;
 	}
 	

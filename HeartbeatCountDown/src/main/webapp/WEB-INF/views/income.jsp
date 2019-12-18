@@ -4,27 +4,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link
-	href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/simplex/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-cRAmF0wErT4D9dEBc36qB6pVu+KmLh516IoGWD/Gfm6FicBbyDuHgS4jmkQB8u1a"
-	crossorigin="anonymous">
-<meta charset="ISO-8859-1">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+<link rel="stylesheet" type="text/css"
+	href="vendor/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<link rel="stylesheet" type="text/css"
+	href="vendor/css-hamburgers/hamburgers.min.css">
+<link rel="stylesheet" type="text/css"
+	href="vendor/select2/select2.min.css">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<link rel="stylesheet" type="text/css" href="styles.css">
 <title>Income</title>
 </head>
 <body>
 
-	<form action="/results" method="post">
-		<div class="form-group">
-			What is your current income range? <select class="custom-select" name = "income">
-				<option value="25000">25,000 or lower</option>
-				<option value="47500">25,001 - 47,500</option>
-				<option value="77500">47,501 - 77, 500</option>
-				<option value="127000">77,501 - 127,000</option>
-				<option value="10000000">127,001 or higher</option>
-			</select> <input type="submit" Value="Enter" class="btnbtn-primary"></input>
+	<div class="bg-contact3"
+		style="background-image: url('images/iStock_45504088_MEDIUM.jpg');">
+		<div class="container-contact3">
+			<div class="wrap-contact3">
+				<div class="contact3-form-radio m-r-42">
+					<form class="contact3-form validate-form" action="/results"
+						method="post">
+						<span class="contact3-form-title"> Beat Dropper</span>
+						<div class="form-group">
+							What is your current income range? <br> <select
+								class="custom-select" name="income">
+								<option value="25000">25,000 or lower</option>
+								<option value="47500">25,001 - 47,500</option>
+								<option value="77500">47,501 - 77, 500</option>
+								<option value="127000">77,501 - 127,000</option>
+								<option value="10000000">127,001 or higher</option>
+							</select>
+						</div>
+						<div class="container-contact3-form-btn">
+							<button class="contact3-form-btn">Submit</button>
+						</div>
+					</form>
+				</div>
+			</div>
 		</div>
-	</form>
+	</div>
 
 </body>
 </html>
