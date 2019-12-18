@@ -33,7 +33,7 @@
 					<c:if test="${choices  == true}">
 						<p>This was your current heart-beats left:</p>${currentHBeat }
 			<p>This is your new heart-beats left with these choices:</p>${newHBeat}
-			<p>This is the difference in those heart-beats:</p>("${newHBeat + currentHBeat}")
+			<p>This is the difference in those heart-beats:</p>${newHBeat - currentHBeat}
 
 		</c:if>
 					Will you continue to smoke? Yes <input type="radio"
