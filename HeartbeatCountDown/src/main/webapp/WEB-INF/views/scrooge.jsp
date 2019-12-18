@@ -38,10 +38,10 @@
 		</c:if>
 
 					Will you continue to smoke? Yes <input type="radio"
-						onclick="javascript:yesnoChecksmoke();" name="smoke" id="yesCheck"
-						value="ismoke"> No <input type="radio"
-						onclick="javascript:yesnoChecksmoke();" name="smoke" id="noCheck"
-						value="idontsmoke"> <br>
+						onclick="javascript:yesnoChecksmoke();" name="stillSmokin" id="yesCheck"
+						value="istillsmoke"> No <input type="radio"
+						onclick="javascript:yesnoChecksmoke();" name="stillSmokin" id="noCheck"
+						value="idontsmokeanymore"> <br>
 					<div id="ifYes" style="visibility: hidden">
 						<div class="form-group">
 							How often will you smoke? <select class="custom-select"
@@ -52,12 +52,13 @@
 								<option value="10">1/2 a pack per day</option>
 								<option value="20">Pack a day and above</option>
 							</select> <input style="visibility: hidden" type="radio"
-								onclick="javascript:yesnoCheck();" name="stillSmokin"
-								id="yesCheck" value="istillsmoke"><input
+								onclick="javascript:yesnoCheck();" name="smoke"
+								id="yesCheck" value="ismoke"><input
 								style="visibility: hidden" type="radio"
-								onclick="javascript:yesnoCheck();" name="stillSmokin"
-								id="noCheck" value="${userDeets.stillSmokin }" checked>
+								onclick="javascript:yesnoCheck();" name="smoke"
+								id="noCheck" value="idontsmoke" checked>
 							<input type='number' id='years' name='years' value="${beatsPerYear}"
+
 								style="visibility: hidden">
 						</div>
 					</div>
