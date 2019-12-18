@@ -253,7 +253,7 @@ public class FormController {
 		try {
 		deathYear += rt.getForObject(url, PeopleResults.class).getPeopleArray().get(0).getDeathAge();
 		}
-		catch(ArrayIndexOutOfBoundsException e)
+		catch(IndexOutOfBoundsException e)
 		{
 			country = "USA";
 			deathYear += rt.getForObject(url, PeopleResults.class).getPeopleArray().get(0).getDeathAge();
