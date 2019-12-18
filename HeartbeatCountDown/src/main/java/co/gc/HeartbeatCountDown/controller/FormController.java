@@ -198,9 +198,6 @@ public class FormController {
 	public ModelAndView goToResultsFromScrooge(String userName, String country, String gender, String alcohol,
 			String dob, String education, String smoke, Integer income, String ethnicity, Integer amount, Integer years,
 			String stillSmokin, String amountDrunk, Integer height, Integer weight) {
-		System.out.print(userName + "," + country + "," + gender + "," + alcohol + "," + dob + "," + "," + education
-				+ "," + smoke + "," + "," + income + "," + ethnicity + "," + amount + "," + years + "," + stillSmokin
-				+ "," + amountDrunk + "," + height + "," + weight);
 		userInfo = (User) (session.getAttribute("user"));
 		userInfo.setAlcohol(alcohol);
 		userInfo.setAmount(amount);
@@ -215,6 +212,7 @@ public class FormController {
 
 		session.setAttribute("user", userInfo);
 		uRepo.save(userInfo);
+		System.out.println(userInfo);
 		long hBeats;
 		LogicController lc = new LogicController();
 		hBeats = lc.findBeatDrop(userInfo);
@@ -286,18 +284,10 @@ public class FormController {
 
 		int deathDays = (int) (hBeats / StatisticsModels.StatisticsModels.heartbeatsPerYear * 365);
 		LocalDate dDay = LocalDate.now().plusDays(deathDays);
-		userInfo.setDeathDay(dDay);
+		userInfo.setDeathDay(String.valueOf(dDay));
 		String deathSentence = dDay.getMonth() + " " + dDay.getDayOfMonth() + ", " + dDay.getYear() + ".";
 		return deathSentence;
 	}
-
-//	int deathDays = (int) (hBeats / StatisticsModels.StatisticsModels.heartbeatsPerYear * 365);
-//	LocalDate dDay = LocalDate.now()
-//			.plusDays(deathDays);userInfo.setDeathDay(String.valueOf(dDay));System.out.println(userInfo.getDeathDay());
-//	String deathSentence = dDay.getMonth() + " " + dDay.getDayOfMonth() + ", " + dDay.getYear()
-//			+ ".";
-//	return deathSentence;
-//}
 
 	@PostMapping("/login-result")
 	public ModelAndView login(String userName, String passWord) {
@@ -320,18 +310,15 @@ public class FormController {
 	}
 
 	@RequestMapping("death-buddies")
-	public ModelAndView dBuddy()
-	{
+	public ModelAndView dBuddy() {
 		List<User> buddyList = new ArrayList<>();
 		System.out.println(userInfo.getDeathDay() + "test");
-		for(User u : uRepo.findAll())
-		{
+		for (User u : uRepo.findAll()) {
 			System.out.println(u.getDeathDay());
-			if(u.getDeathDay().equals(userInfo.getDeathDay()))
+			if (u.getDeathDay().equals(userInfo.getDeathDay()))
 				buddyList.add(u);
 		}
-		
-		
-		return new ModelAndView("death-buddies","buds", buddyList);
+
+		return new ModelAndView("death-buddies", "buds", buddyList);
 	}
 }

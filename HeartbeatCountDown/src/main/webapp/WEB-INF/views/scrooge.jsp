@@ -38,10 +38,10 @@
 					<option value="20">Pack a day and above</option>
 				</select> <input style="visibility: hidden" type="radio"
 					onclick="javascript:yesnoCheck();" name="stillSmokin" id="yesCheck"
-					value="istillsmoke"><input style="visibility: hidden"
+					value="${userDeets.stillSmokin }"><input style="visibility: hidden"
 					type="radio" onclick="javascript:yesnoCheck();" name="stillSmokin"
 					id="noCheck" value="${userDeets.stillSmokin }" checked> <input
-					type='number' id='years' name='years' value="0"
+					type='number' id='years' name='years' value="${userDeets.years}"
 					style="visibility: hidden">
 			</div>
 		</div>
