@@ -33,7 +33,7 @@
 							onclick="javascript:yesnoCheck(); possibleSecond();" name="smoke"
 							id="yesCheck" value="ismoke"> No <input type="radio"
 							onclick="javascript:yesnoCheck(); possibleSecond();" name="smoke"
-							id="noCheck" value="idontsmoke"> <br>
+							id="noCheck" value="idontsmoke" required> <br>
 						<div id="ifYes" style="visibility: hidden">
 							<div class="form-group">
 								How often do you smoke? <select class="custom-select"
@@ -46,10 +46,10 @@
 								</select>
 							</div>
 							<br> For how many years have you smoked: <input
-								type='number' id='years' name='years' value="0"><br>
+								type='number' id='years' name='years' value="0" required><br>
 							Do you still smoke? Yes <input type="radio"
 								onclick="javascript:yesnoCheck();" name="stillsmokin"
-								id="yesCheck" value="istillsmoke"> No <input
+								id="yesCheck" value="istillsmoke" required> No <input
 								type="radio" onclick="javascript:yesnoCheck();"
 								name="stillsmokin" id="noCheck" value="idontsmokeanymore"
 								checked>

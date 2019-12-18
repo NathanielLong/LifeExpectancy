@@ -189,7 +189,7 @@ public class FormController {
 		LogicController lc = new LogicController();
 		hBeats = lc.findBeatDrop(userInfo);
 		mv.addObject("hBeat", hBeats);
-		mv.addObject("deathDay", hBeats);
+		mv.addObject("deathDay", dateOfDeath(hBeats));
 		return mv;
 
 	}
@@ -232,6 +232,7 @@ public class FormController {
 	@RequestMapping("/newresults")
 	public ModelAndView newHeartBeats(User user) {
 		ModelAndView mv = new ModelAndView("scrooge");
+		ArrayList<Country> countryList = (ArrayList<Country>) cRepo.findAll();
 		System.out.println("This is the user: " + user);
 		System.out.println(userInfo);
 		long hBeats;
@@ -244,6 +245,7 @@ public class FormController {
 		mv.addObject("newHBeat", nHBeats);
 		mv.addObject("currentHBeat", hBeats);
 		mv.addObject("choices", true);
+		mv.addObject("countries", countryList);
 		return mv;
 
 	}
@@ -281,11 +283,11 @@ public class FormController {
 	}
 
 	public String dateOfDeath(long hBeats) {
-
 		int deathDays = (int) (hBeats / StatisticsModels.StatisticsModels.heartbeatsPerYear * 365);
 		LocalDate dDay = LocalDate.now().plusDays(deathDays);
 		userInfo.setDeathDay(String.valueOf(dDay));
 		String deathSentence = dDay.getMonth() + " " + dDay.getDayOfMonth() + ", " + dDay.getYear() + ".";
+		System.out.println(deathSentence + "test");
 		return deathSentence;
 	}
 
