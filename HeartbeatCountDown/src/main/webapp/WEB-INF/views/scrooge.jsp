@@ -36,29 +36,7 @@
 			<p>This is the difference in those heart-beats:</p>${newHBeat - currentHBeat}
 
 		</c:if>
-<<<<<<< HEAD
-		Will you continue to smoke? Yes <input type="radio"
-			onclick="javascript:yesnoChecksmoke();" name="smoke" id="yesCheck"
-			value="ismoke"> No <input type="radio"
-			onclick="javascript:yesnoChecksmoke();" name="smoke" id="noCheck"
-			value="idontsmoke"> <br>
-		<div id="ifYes" style="visibility: hidden">
-			<div class="form-group">
-				How often will you smoke? <select class="custom-select"
-					name="amount">
-					<option value="0" hidden=" ">
-					<option value="1">A cigarette per day</option>
-					<option value="5">1/4 a pack per day</option>
-					<option value="10">1/2 a pack per day</option>
-					<option value="20">Pack a day and above</option>
-				</select> <input style="visibility: hidden" type="radio"
-					onclick="javascript:yesnoCheck();" name="stillSmokin" id="yesCheck"
-					value="${userDeets.stillSmokin }"><input style="visibility: hidden"
-					type="radio" onclick="javascript:yesnoCheck();" name="stillSmokin"
-					id="noCheck" value="${userDeets.stillSmokin }" checked> <input
-					type='number' id='years' name='years' value="${userDeets.years}"
-					style="visibility: hidden">
-=======
+
 					Will you continue to smoke? Yes <input type="radio"
 						onclick="javascript:yesnoChecksmoke();" name="smoke" id="yesCheck"
 						value="ismoke"> No <input type="radio"
