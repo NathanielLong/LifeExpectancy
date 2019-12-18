@@ -192,6 +192,7 @@ public class FormController {
 			hBeats = 1000;
 		mv.addObject("hBeat", hBeats);
 		mv.addObject("deathDay", dateOfDeath(hBeats));
+		uRepo.save(userInfo);
 		return mv;
 
 	}
