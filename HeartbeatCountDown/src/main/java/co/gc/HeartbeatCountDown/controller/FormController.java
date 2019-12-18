@@ -309,5 +309,12 @@ return new ModelAndView("index","wrong","Sorry, your username was not found, ple
 			return new ModelAndView("index","wrong","Sorry, your credentials did not match, please try again!");
 		
 	}
+	
+	@RequestMapping("death-buddies")
+	public ModelAndView dBuddy()
+	{
+		
+		return new ModelAndView("death-buddies");
+	}
 
 }
