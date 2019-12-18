@@ -36,11 +36,11 @@
 					remaining
 				</p>
 
-				<a class="contact3-form-btn" href="/scrooge">I Can Change!</a>
 			<div class="heartbeat">
 				<span><img align="left" width="200" src="images/heart.png"></span>
 			</div>
 
+				<a class="btn btn-primary" href="/scrooge">I Can Change!</a>
 			</div>
 		</div>
 	</div>
