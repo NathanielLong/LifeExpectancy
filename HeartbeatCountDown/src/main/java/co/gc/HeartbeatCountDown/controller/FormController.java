@@ -2,6 +2,7 @@ package co.gc.HeartbeatCountDown.controller;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -57,7 +58,7 @@ public class FormController {
 	public ModelAndView dateOfBirthPost(String userName, String name, String passWord) {
 		if (uRepo.findByUserName(userName) != null)
 			return new ModelAndView("index", "sorry", "That username is already taken, please try again.");
-
+		userInfo = new User();
 		userInfo.setUserName(userName);
 		userInfo.setName(name);
 		userInfo.setPassword(passWord);
@@ -168,7 +169,7 @@ public class FormController {
 			userInfo.setEducation("none");
 		userInfo.setEthnicity(ethnicity);
 		System.out.println(userInfo.getEthnicity());
-		uRepo.save(userInfo);
+//		uRepo.save(userInfo);
 		return new ModelAndView("income");
 	}
 
@@ -283,7 +284,8 @@ public class FormController {
 
 		int deathDays = (int) (hBeats / StatisticsModels.StatisticsModels.heartbeatsPerYear * 365);
 		LocalDate dDay = LocalDate.now().plusDays(deathDays);
-		userInfo.setDeathDay(dDay);
+		userInfo.setDeathDay(String.valueOf(dDay));
+		System.out.println(userInfo.getDeathDay());
 		String deathSentence = dDay.getMonth() + " " + dDay.getDayOfMonth() + ", " + dDay.getYear() + ".";
 		return deathSentence;
 	}
@@ -295,9 +297,9 @@ public class FormController {
 		if(uRepo.findByUserName(userName) == null)
 return new ModelAndView("index","wrong","Sorry, your username was not found, please create an account!");
 
-		userInfo = uRepo.findByUserName(userName);
-		if(userInfo.getPassword().equals(passWord))
+		if(uRepo.findByUserName(userName).getPassword().equals(passWord))
 		{
+			userInfo = uRepo.findByUserName(userName);
 			ModelAndView mv = new ModelAndView("results");
 			long hBeats;
 			LogicController lc = new LogicController();
@@ -314,10 +316,17 @@ return new ModelAndView("index","wrong","Sorry, your username was not found, ple
 	@RequestMapping("death-buddies")
 	public ModelAndView dBuddy()
 	{
+		List<User> buddyList = new ArrayList<>();
+		System.out.println(userInfo.getDeathDay() + "test");
+		for(User u : uRepo.findAll())
+		{
+			System.out.println(u.getDeathDay());
+			if(u.getDeathDay().equals(userInfo.getDeathDay()))
+				buddyList.add(u);
+		}
 		
-		System.out.println(userInfo.getDeathDay());
 		
-		return new ModelAndView("death-buddies");
+		return new ModelAndView("death-buddies","buds", buddyList);
 	}
 
 }

@@ -1,7 +1,6 @@
 package co.gc.HeartbeatCountDown.model;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +18,7 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	private String name;
 	private String password;
 	private String userName;
@@ -32,15 +31,15 @@ public class User implements Serializable {
 	private String smoke;
 	private Integer income;
 	private String ethnicity;
-	private LocalDate deathDay;
+	private String deathDay;
 
 
-	public LocalDate getDeathDay() {
+	public String getDeathDay() {
 		return deathDay;
 	}
 
 
-	public void setDeathDay(LocalDate deathDay) {
+	public void setDeathDay(String deathDay) {
 		this.deathDay = deathDay;
 	}
 
@@ -80,8 +79,8 @@ public class User implements Serializable {
 	
 	
 
-	public User(int id, String name, String password, String userName, String country, Double deathYear, String gender,
-			String alcohol, LocalDate dob, String education, String smoke, Integer income, String ethnicity,
+	public User(Integer id, String name, String password, String userName, String country, Double deathYear, String gender,
+			String alcohol, String dob, String education, String smoke, Integer income, String ethnicity,
 			Integer amount, Integer years, String stillSmokin, String amountDrunk, Integer height, Integer weight,
 			long age) {
 		super();
@@ -108,7 +107,7 @@ public class User implements Serializable {
 
 
 	public User(String name, String password, String userName, String country, Double deathYear, String gender,
-			String alcohol, LocalDate dob, String education, String smoke, Integer income, String ethnicity,
+			String alcohol, String dob, String education, String smoke, Integer income, String ethnicity,
 			Integer amount, Integer years, String stillSmokin, String amountDrunk, Integer height, Integer weight,
 			long age) {
 		super();
@@ -133,7 +132,7 @@ public class User implements Serializable {
 	}
 
 
-	public User(int id, String userName, String country, Double deathYear, String gender, String alcohol, String dob,
+	public User(Integer id, String userName, String country, Double deathYear, String gender, String alcohol, String dob,
 			String education, String smoke, int income, String ethnicity, Integer amount, Integer years,
 			String stillSmokin, String amountDrunk) {
 		super();
@@ -225,7 +224,7 @@ public class User implements Serializable {
 		this.ethnicity = ethnicity;
 	}
 
-	public User(int id, String userName, String country, Double deathYear, String gender, String alcohol, String dob,
+	public User(Integer id, String userName, String country, Double deathYear, String gender, String alcohol, String dob,
 			String education, String smoke, String ethnicity) {
 		super();
 		this.id = id;
@@ -240,7 +239,7 @@ public class User implements Serializable {
 		this.ethnicity = ethnicity;
 	}
 
-	public User(int id, String userName, String country, Double deathYear, String gender, String alcohol, String dob,
+	public User(Integer id, String userName, String country, Double deathYear, String gender, String alcohol, String dob,
 			String education, String smoke, int income, String ethnicity) {
 		super();
 		this.id = id;
@@ -272,11 +271,11 @@ public class User implements Serializable {
 		this.ethnicity = ethnicity;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -416,9 +415,9 @@ public class User implements Serializable {
 		this.age = yearsOld;
 	}
 
-	public User(int id, String name, String password, String userName, String country, Double deathYear, String gender,
+	public User(Integer id, String name, String password, String userName, String country, Double deathYear, String gender,
 			String alcohol, String dob, String education, String smoke, Integer income, String ethnicity,
-			LocalDate deathDay, Integer amount, Integer years, String stillSmokin, String amountDrunk, Integer height,
+			String deathDay, Integer amount, Integer years, String stillSmokin, String amountDrunk, Integer height,
 			Integer weight, long age) {
 		super();
 		this.id = id;
