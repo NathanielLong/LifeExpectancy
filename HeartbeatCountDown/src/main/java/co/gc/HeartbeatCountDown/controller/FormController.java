@@ -210,21 +210,13 @@ public class FormController {
 		userInfo.setEducation(education);
 
 		session.setAttribute("user", userInfo);
+		uRepo.save(userInfo);
 		long hBeats;
 		LogicController lc = new LogicController();
 		hBeats = lc.findBeatDrop(userInfo);
 		return new ModelAndView("results", "hBeat", hBeats);
 
 	}
-
-//	@PostMapping("/confirmation")
-//	public ModelAndView confirmation(String ethnicity) {
-//		userInfo = (User) (session.getAttribute("user"));
-//		userInfo.setEthnicity(ethnicity);
-//		userInfo.setEducation("none");
-//		uRepo.save(userInfo);
-//		return new ModelAndView("confirmation");
-//	}
 
 	@RequestMapping("/scrooge")
 	public ModelAndView scrooge() {
@@ -235,6 +227,24 @@ public class FormController {
 		return mv;
 	}
 
+	@RequestMapping("/newresults")
+	public ModelAndView newHeartBeats(User user) {
+		ModelAndView mv = new ModelAndView("scrooge");
+		System.out.println("This is the user: " + user);
+		System.out.println(userInfo);
+		long hBeats;
+		long nHBeats;
+		LogicController lc = new LogicController();
+		hBeats = lc.findBeatDrop(userInfo);
+		System.out.println("old beats: " + hBeats);
+		nHBeats = lc.findBeatDrop(user);
+		System.out.println("new beats: " + nHBeats);
+		mv.addObject("newHBeat", nHBeats);
+		mv.addObject("currentHBeat", hBeats);
+		return mv;
+		
+	}
+	
 	public Double getDeathYear() {
 		userInfo = (User) (session.getAttribute("user"));
 		String gender = userInfo.getGender();

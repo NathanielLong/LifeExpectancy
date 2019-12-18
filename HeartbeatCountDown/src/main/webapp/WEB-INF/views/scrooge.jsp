@@ -97,8 +97,9 @@
 			</select>
 		</div>
 
-		<input type="submit" Value="Enter." class="btn btn-primary"></input>
-
+		<input type="submit" Value="Commit to this path" formaction="/scroogeresults" class="btn btn-primary"></input>
+		<input type="submit" Value="See the results of your choices" formaction="/newresults" class="btn btn-primary"></input>
+	
 		<!-- The rest of these will be hidden -->
 						<div style="visibility: hidden" class="form-group">
 			<select class="custom-select" name="ethnicity">
