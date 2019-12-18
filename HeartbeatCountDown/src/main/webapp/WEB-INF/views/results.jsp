@@ -30,10 +30,9 @@
 					<a href="/death-buddies">Find death buddies!</a>
 				</p>
 				<p>You have ${hBeat/39420000} years remaining.</p>
-				<p>I predict you make it to ${deathDay }
+				<p>I predict you make it to ${deathDay }</p>
 				<p>
-					You have <span id="countdowntimer">${hBeat } </span> heartbeats
-					remaining
+					You have <span id="countdowntimer">${hBeat } </span> heartbeats remaining
 				</p>
 
 			<div class="heartbeat">

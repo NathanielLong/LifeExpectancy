@@ -189,7 +189,7 @@ public class FormController {
 		LogicController lc = new LogicController();
 		hBeats = lc.findBeatDrop(userInfo);
 		mv.addObject("hBeat", hBeats);
-		mv.addObject("deathDay", hBeats);
+		mv.addObject("deathDay", dateOfDeath(hBeats));
 		return mv;
 
 	}
@@ -285,10 +285,11 @@ public class FormController {
 	public String dateOfDeath(long hBeats) {
 
 	int deathDays = (int) (hBeats / StatisticsModels.StatisticsModels.heartbeatsPerYear * 365);
-	LocalDate dDay = LocalDate.now()
-			.plusDays(deathDays);userInfo.setDeathDay(String.valueOf(dDay));System.out.println(userInfo.getDeathDay());
+	LocalDate dDay = LocalDate.now().plusDays(deathDays);
+	userInfo.setDeathDay(String.valueOf(dDay));
 	String deathSentence = dDay.getMonth() + " " + dDay.getDayOfMonth() + ", " + dDay.getYear()
 			+ ".";
+	System.out.println(deathSentence + "test");
 	return deathSentence;
 }
 
