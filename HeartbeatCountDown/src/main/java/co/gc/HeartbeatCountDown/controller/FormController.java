@@ -250,7 +250,14 @@ public class FormController {
 				+ country + ";SEX:" + gender + ";&format=json";
 		deathYear+=60;
 		}
+		try {
 		deathYear += rt.getForObject(url, PeopleResults.class).getPeopleArray().get(0).getDeathAge();
+		}
+		catch(ArrayIndexOutOfBoundsException e)
+		{
+			country = "USA";
+			deathYear += rt.getForObject(url, PeopleResults.class).getPeopleArray().get(0).getDeathAge();
+		}
 		return deathYear;
 	}
 
