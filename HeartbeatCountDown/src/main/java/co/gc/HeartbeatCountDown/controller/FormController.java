@@ -145,7 +145,9 @@ public class FormController {
 		if (age < 25) {
 			return new ModelAndView("income", "ethnicity", ethnicity);
 		} else {
-			return new ModelAndView("education", "ethnicity", ethnicity);
+			userInfo.setEducation("none");
+			String education = userInfo.getEducation();
+			return income(ethnicity, education);
 		}
 
 	}
@@ -161,11 +163,11 @@ public class FormController {
 	@PostMapping("/income")
 	public ModelAndView income(String ethnicity, String education) {
 		System.out.println("ethnicity" + ethnicity);
+		System.out.println(education);
 
-		if (education != null)
+		if (education != "none") {
 			userInfo.setEducation(education);
-		else
-			userInfo.setEducation("none");
+		}
 		userInfo.setEthnicity(ethnicity);
 		System.out.println(userInfo.getEthnicity());
 		uRepo.save(userInfo);
@@ -242,9 +244,9 @@ public class FormController {
 		mv.addObject("newHBeat", nHBeats);
 		mv.addObject("currentHBeat", hBeats);
 		return mv;
-		
+
 	}
-	
+
 	public Double getDeathYear() {
 		userInfo = (User) (session.getAttribute("user"));
 		String gender = userInfo.getGender();
@@ -253,26 +255,24 @@ public class FormController {
 		Double deathYear = 0.0;
 		System.out.println(userInfo.getGender() + " " + userInfo.getCountry());
 		try {
-		if(userInfo.getAge()<60)
-		url = "http://apps.who.int/gho/athena/api/GHO/WHOSIS_000001?profile=simple&filter=Year:2015;COUNTRY:"
-				+ country + ";SEX:" + gender + ";&format=json";
-		else
-		{url = "http://apps.who.int/gho/athena/api/GHO/WHOSIS_000015?profile=simple&filter=Year:2015;COUNTRY:"
-				+ country + ";SEX:" + gender + ";&format=json";
-		deathYear+=60;
-		}
-		deathYear += rt.getForObject(url, PeopleResults.class).getPeopleArray().get(0).getDeathAge();
-		}
-		catch(IndexOutOfBoundsException e)
-		{
+			if (userInfo.getAge() < 60)
+				url = "http://apps.who.int/gho/athena/api/GHO/WHOSIS_000001?profile=simple&filter=Year:2015;COUNTRY:"
+						+ country + ";SEX:" + gender + ";&format=json";
+			else {
+				url = "http://apps.who.int/gho/athena/api/GHO/WHOSIS_000015?profile=simple&filter=Year:2015;COUNTRY:"
+						+ country + ";SEX:" + gender + ";&format=json";
+				deathYear += 60;
+			}
+			deathYear += rt.getForObject(url, PeopleResults.class).getPeopleArray().get(0).getDeathAge();
+		} catch (IndexOutOfBoundsException e) {
 			country = "USA";
-			if(userInfo.getAge()<60)
-			url = "http://apps.who.int/gho/athena/api/GHO/WHOSIS_000001?profile=simple&filter=Year:2015;COUNTRY:"
-					+ country + ";SEX:" + gender + ";&format=json";
-			else
-			{url = "http://apps.who.int/gho/athena/api/GHO/WHOSIS_000015?profile=simple&filter=Year:2015;COUNTRY:"
-					+ country + ";SEX:" + gender + ";&format=json";
-			deathYear+=60;
+			if (userInfo.getAge() < 60)
+				url = "http://apps.who.int/gho/athena/api/GHO/WHOSIS_000001?profile=simple&filter=Year:2015;COUNTRY:"
+						+ country + ";SEX:" + gender + ";&format=json";
+			else {
+				url = "http://apps.who.int/gho/athena/api/GHO/WHOSIS_000015?profile=simple&filter=Year:2015;COUNTRY:"
+						+ country + ";SEX:" + gender + ";&format=json";
+				deathYear += 60;
 			}
 			deathYear += rt.getForObject(url, PeopleResults.class).getPeopleArray().get(0).getDeathAge();
 		}
@@ -287,17 +287,15 @@ public class FormController {
 		String deathSentence = dDay.getMonth() + " " + dDay.getDayOfMonth() + ", " + dDay.getYear() + ".";
 		return deathSentence;
 	}
-	
+
 	@PostMapping("/login-result")
-	public ModelAndView login(String userName, String passWord)
-	{
-		
-		if(uRepo.findByUserName(userName) == null)
-return new ModelAndView("index","wrong","Sorry, your username was not found, please create an account!");
+	public ModelAndView login(String userName, String passWord) {
+
+		if (uRepo.findByUserName(userName) == null)
+			return new ModelAndView("index", "wrong", "Sorry, your username was not found, please create an account!");
 
 		userInfo = uRepo.findByUserName(userName);
-		if(userInfo.getPassword().equals(passWord))
-		{
+		if (userInfo.getPassword().equals(passWord)) {
 			ModelAndView mv = new ModelAndView("results");
 			long hBeats;
 			LogicController lc = new LogicController();
@@ -305,17 +303,14 @@ return new ModelAndView("index","wrong","Sorry, your username was not found, ple
 			mv.addObject("hBeat", hBeats);
 			mv.addObject("deathDay", dateOfDeath(hBeats));
 			return mv;
-		}
-		else
-			return new ModelAndView("index","wrong","Sorry, your credentials did not match, please try again!");
-		
+		} else
+			return new ModelAndView("index", "wrong", "Sorry, your credentials did not match, please try again!");
+
 	}
-	
+
 	@RequestMapping("death-buddies")
-	public ModelAndView dBuddy()
-	{
-		
-		
+	public ModelAndView dBuddy() {
+
 		return new ModelAndView("death-buddies");
 	}
 
