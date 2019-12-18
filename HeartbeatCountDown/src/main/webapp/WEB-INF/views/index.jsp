@@ -26,95 +26,107 @@
 	<div class="bg-contact3"
 		style="background-image: url('images/iStock_45504088_MEDIUM.jpg');">
 		<div class="container">
-<div class = "row">
-<!-- <div class = "column"></div> -->
- <div class = "col-lg-6">
-		<div class="container-contact3">
-			<div class="wrap-contact3">
-				<form class="contact3-form validate-form" action="/login-result" method = "post">
-					<span class="contact3-form-title"> Existing User</span>
-					<div class="wrap-input3 validate-input"
-						data-validate="Name is required">
-						<input class="input3" type="text" name="userName"
-							placeholder="Username: " required></input><span class="focus-input3"></span>
-					</div>
-					<div class="wrap-input3 validate-input" data-validate="Password is required">
-						<input class="input3" type="password" name="passWord"
-							placeholder="Password: " required></input><span class="focus-input3"></span>
-					
-					</div>
-					
-					<span> ${wrong }</span>
+			<div class="row">
+				<!-- <div class = "column"></div> -->
+				<div class="col-lg-6">
+					<div class="container-contact3">
+						<div class="wrap-contact3">
+							<form class="contact3-form validate-form" action="/login-result"
+								method="post">
+								<span class="contact3-form-title"> Existing User</span>
+								<div class="wrap-input3 validate-input"
+									data-validate="Name is required">
+									<input class="input3" type="text" name="userName"
+										placeholder="Username: " required></input><span
+										class="focus-input3"></span>
+								</div>
+								<div class="wrap-input3 validate-input"
+									data-validate="Password is required">
+									<input class="input3" type="password" name="passWord"
+										placeholder="Password: " required></input><span
+										class="focus-input3"></span>
 
-					<div class="container-contact3-form-btn">
-						<button class="contact3-form-btn" type = "submit">Submit</button>
-					</div>
-				</form>
+								</div>
 
-				<!-- 		<a href="/hiscores" class="btn btn-primary">See the High Scores</a> -->
-			</div>
-	</div>
-	</div>
-		<div class="col-lg-6">
-		<div class="container-contact3">
-			<div class="wrap-contact3">
-				<form class="contact3-form validate-form" action="/date" method = "post">
-					<span class="contact3-form-title"> New User </span>
+								<span> ${wrong }</span>
 
-					<div class="wrap-input3 validate-input"
-						data-validate="Name is required">
-						<input class="input3" type="text" name="name"
-							placeholder="Name: " required></input><span class="focus-input3"></span>
-					</div>
-					<div class="wrap-input3 validate-input"
-						data-validate="userName is required">
-						<input class="input3" type="text" name="userName"
-							placeholder="Username: " required></input><span class="focus-input3"></span>
-					</div>
-					<div class="wrap-input3 validate-input"
-						data-validate="Name is required">
-						<input id = "password" class="input3" type="password" name="passWord"
-							placeholder="Password: " onkeyup="confirmPassword()" required></input><span class="focus-input3"></span>
-					
-					</div>
-					<div class="wrap-input3 validate-input" data-validate="Password is required">
-						<input id = "confirm_password" class="input3" type="password"
-							placeholder="Confirm Password: " onkeyup="confirmPassword()" required></input><span class="focus-input3"></span>
-					</div>
-						<span id = "message"></span>
+								<div class="container-contact3-form-btn">
+									<button class="contact3-form-btn" type="submit">Submit</button>
+								</div>
+							</form>
 
-					<div class="container-contact3-form-btn">
-						<button id = "submit" class="contact3-form-btn">Submit</button>
+							<!-- 		<a href="/hiscores" class="btn btn-primary">See the High Scores</a> -->
+						</div>
 					</div>
-				</form>
+				</div>
+				<div class="col-lg-6">
+					<div class="container-contact3">
+						<div class="wrap-contact3">
+							<form class="contact3-form validate-form" action="/date"
+								method="post">
+								<span class="contact3-form-title"> New User </span>
 
-				<!-- 		<a href="/hiscores" class="btn btn-primary">See the High Scores</a> -->
-			</div>
-	</div>
-		
-		
-	</div>
-<!-- 		<div class="column">
+								<div class="wrap-input3 validate-input"
+									data-validate="Name is required">
+									<input class="input3" type="text" name="name"
+										placeholder="Name: " required></input><span
+										class="focus-input3"></span>
+								</div>
+								<div class="wrap-input3 validate-input"
+									data-validate="userName is required">
+									<input class="input3" type="text" name="userName"
+										placeholder="Username: " required></input><span
+										class="focus-input3"></span>
+								</div>
+								<div class="wrap-input3 validate-input"
+									data-validate="Name is required">
+									<input id="password" class="input3" type="password"
+										name="passWord" placeholder="Password: "
+										onkeyup="confirmPassword()" required></input><span
+										class="focus-input3"></span>
+
+								</div>
+								<div class="wrap-input3 validate-input"
+									data-validate="Password is required">
+									<input id="confirm_password" class="input3" type="password"
+										placeholder="Confirm Password: " onkeyup="confirmPassword()"
+										required></input><span class="focus-input3"></span>
+								</div>
+								<span id="message"></span>
+
+								<div class="container-contact3-form-btn">
+									<button id="submit" class="contact3-form-btn">Submit</button>
+								</div>
+							</form>
+
+							<!-- 		<a href="/hiscores" class="btn btn-primary">See the High Scores</a> -->
+						</div>
+					</div>
+
+
+				</div>
+				<!-- 		<div class="column">
 	</div> -->
-	</div>
-	
-	
-	
-	</div>
+			</div>
+
+
+
+		</div>
 	</div>
 	<script>
-function confirmPassword() {
-	  if (document.getElementById("password").value === document.getElementById("confirm_password").value) {
-	    document.getElementById("message").style.color = "black";
-	    document.getElementById("message").innerHTML = "Passwords are matching";
-	    document.getElementById("submit").disabled = false;
-	  } else {
-	    document.getElementById("message").style.color = "red";
-	    document.getElementById("message").innerHTML = "Passwords are not matching! You will not be able to submit unless the passwords match";
-	    document.getElementById("submit").disabled = true;
-	  }
-}
-</script>
+		function confirmPassword() {
+			if (document.getElementById("password").value === document
+					.getElementById("confirm_password").value) {
+				document.getElementById("message").style.color = "black";
+				document.getElementById("message").innerHTML = "Passwords are matching";
+				document.getElementById("submit").disabled = false;
+			} else {
+				document.getElementById("message").style.color = "red";
+				document.getElementById("message").innerHTML = "Passwords are not matching!";
+				document.getElementById("submit").disabled = true;
+			}
+		}
+	</script>
 
 </body>
 </html>

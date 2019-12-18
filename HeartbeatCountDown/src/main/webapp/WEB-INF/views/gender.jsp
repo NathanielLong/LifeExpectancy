@@ -46,7 +46,6 @@
 						<button class="contact3-form-btn">Submit</button>
 					</div>
 				</form>
-				</form>
 			</div>
 		</div>
 	</div>
