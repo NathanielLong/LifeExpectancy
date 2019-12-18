@@ -16,6 +16,14 @@
   <tr>
 <c:forEach var = "b" items = "${buds }">
     <td>${b.getUserName() }</td>
+    
+    <br>
+    Enter your email if you want it to be shared exclusively with your death buddies: 
+    <form>
+    <input type = "email" name = "email"></input>
+    <input type = "submit" value = "Submit!" class = "btn btn-secondary"></input>
+    </form>
+    
 </c:forEach>
   </tr>
 </table>
