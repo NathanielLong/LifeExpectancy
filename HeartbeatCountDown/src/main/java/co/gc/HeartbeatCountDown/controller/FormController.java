@@ -238,14 +238,15 @@ public class FormController {
 		ArrayList<Country> countryList = (ArrayList<Country>) cRepo.findAll();
 		System.out.println("This is the user: " + user);
 		System.out.println(userInfo);
-		long hBeats;
-		long nHBeats;
+		Long hBeats;
+		Long nHBeats;
 		LogicController lc = new LogicController();
 		hBeats = lc.findBeatDrop(userInfo);
 		System.out.println("old beats: " + hBeats);
 		nHBeats = lc.findBeatDrop(user);
 		System.out.println("new beats: " + nHBeats);
 		mv.addObject("beatsPerYear", hBeats/StatisticsModels.StatisticsModels.heartbeatsPerYear);
+		System.out.println(hBeats/StatisticsModels.StatisticsModels.heartbeatsPerYear);
 		mv.addObject("newHBeat", nHBeats);
 		mv.addObject("currentHBeat", hBeats);
 		mv.addObject("choices", true);
