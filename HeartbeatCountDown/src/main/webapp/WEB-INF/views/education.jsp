@@ -40,7 +40,6 @@
 								<option value="bachelors">Bachelor's degree</option>
 								<option value="bachelors">Master's degree</option>
 								<option value="bachelors">Doctorate</option>
-							</select>
 						</div>
 						<div class="container-contact3-form-btn">
 							<button class="contact3-form-btn">Submit</button>
