@@ -20,31 +20,37 @@
 		<div class="container-contact3">
 			<div class="wrap-contact3">
 				<span class="contact3-form-title"> Beat Dropper</span>
+				<p>You have ${hBeat/39420000} years remaining.</p>
+				<p>I predict you make it to ${deathDay }</p>
+				<p>
+					You have <span id="countdowntimer">${hBeat } </span> heartbeats
+					remaining
+				</p>
+
 				<div>
 					<a
 						href="mailto:?subject=I'm dying! Save the Date!&body=You are cordially invited to my funeral. It will probably be a couple days after I die, which, at my current rate, is on ${deathDay } Venue is to be determined. Please RSVP as soon as possible. Want to see if your own funeral might conflict? Visit Beat Dropper! http://www.dropthebeat.com">Send
 						Email</a>
 				</div>
 				<p>
-					Want to see who is dying the same day as you? <br>
-					<a href="/death-buddies">Find death buddies!</a>
+					Want to see who is dying the same day as you? <br> <a
+						href="/death-buddies">Find death buddies!</a>
 				</p>
-				<p>You have ${hBeat/39420000} years remaining.</p>
-				<p>I predict you make it to ${deathDay }</p>
-				<p>
-					You have <span id="countdowntimer">${hBeat } </span> heartbeats remaining
-				</p>
+				<div class="heartbeat">
+					<span><img align="left" width="200" src="images/heart.png"></span>
+				</div>
 
-			<div class="heartbeat">
-				<span><img align="left" width="200" src="images/heart.png"></span>
-			</div>
-
-				<a class="btn btn-primary" href="/scrooge">I Can Change!</a>
+				<br> <a class="btn btn-primary" href="/scrooge">I Can
+					Change!</a> <a class="btn btn-primary" href="/">Home</a> <a
+					class="btn btn-primary" href="/hiscores">High Scores!</a>
 			</div>
 		</div>
 	</div>
 	<script type="text/javascript">
-		var timeleft = ${hBeat };
+		var timeleft = $
+		{
+			hBeat
+		};
 		var downloadTimer = setInterval(function() {
 			timeleft--;
 			document.getElementById("countdowntimer").textContent = timeleft;
