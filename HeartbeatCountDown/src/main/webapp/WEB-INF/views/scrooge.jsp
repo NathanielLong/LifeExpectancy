@@ -14,7 +14,14 @@
 </head>
 <body>
 
+
 	<form action="/scroogeresults" method="post">
+		<c:if test="${choices  == true}">
+			<p>This was your current heart-beats left: </p>${currentHBeat }
+			<p>This is your new heart-beats left with these choices: </p>${newHBeat}
+			<p>This is the difference in those heart-beats: </p>("${newHBeat + currentHBeat}")
+
+		</c:if>
 		Will you continue to smoke? Yes <input type="radio"
 			onclick="javascript:yesnoChecksmoke();" name="smoke" id="yesCheck"
 			value="ismoke"> No <input type="radio"
@@ -30,10 +37,10 @@
 					<option value="10">1/2 a pack per day</option>
 					<option value="20">Pack a day and above</option>
 				</select> <input style="visibility: hidden" type="radio"
-					onclick="javascript:yesnoCheck();" name="stillsmokin" id="yesCheck"
+					onclick="javascript:yesnoCheck();" name="stillSmokin" id="yesCheck"
 					value="istillsmoke"><input style="visibility: hidden"
-					type="radio" onclick="javascript:yesnoCheck();" name="stillsmokin"
-					id="noCheck" value="${userInfo.stillSmokin }" checked> <input
+					type="radio" onclick="javascript:yesnoCheck();" name="stillSmokin"
+					id="noCheck" value="${userDeets.stillSmokin }" checked> <input
 					type='number' id='years' name='years' value="0"
 					style="visibility: hidden">
 			</div>
@@ -59,7 +66,7 @@
 				How often will you drink? <select class="custom-select"
 					name="amountDrunk">
 					<option value="none" hidden=" ">
-						<option value="low">A drink before bed (1-2 drinks per
+					<option value="low">A drink before bed (1-2 drinks per
 						day)</option>
 					<option value="medium">Every now and again (2-3.5 drinks
 						per day)</option>
@@ -70,13 +77,15 @@
 		</div>
 
 		If you plan on losing weight please enter the weight you are aiming
-		for: <br> <input type="number" name="weight" value="${userDeets.weight }"> <br> <input
-			type="number" name="height" value="${userDeets.height }" style="visibility: hidden"> <br>
+		for: <br> <input type="number" name="weight"
+			value="${userDeets.weight }"> <br> <input type="number"
+			name="height" value="${userDeets.height }" style="visibility: hidden">
+		<br>
 
 		<div class="form-group">
 			Are you planning on getting a raise? If so, please enter your new
-			possible income: (if not applicable, please leave field as is) 
-			<select class="custom-select" name="income">
+			possible income: (if not applicable, please leave field as is) <select
+				class="custom-select" name="income">
 				<option value="25000">25,000 or lower</option>
 				<option value="47500">25,001 - 47,500</option>
 				<option value="77500">47,501 - 77, 500</option>
@@ -97,11 +106,13 @@
 			</select>
 		</div>
 
-		<input type="submit" Value="Commit to this path" formaction="/scroogeresults" class="btn btn-primary"></input>
-		<input type="submit" Value="See the results of your choices" formaction="/newresults" class="btn btn-primary"></input>
-	
+		<input type="submit" Value="Commit to this path"
+			formaction="/scroogeresults" class="btn btn-primary"></input> <input
+			type="submit" Value="See the results of your choices"
+			formaction="/newresults" class="btn btn-primary" name="choices">
+
 		<!-- The rest of these will be hidden -->
-						<div style="visibility: hidden" class="form-group">
+		<div style="visibility: hidden" class="form-group">
 			<select class="custom-select" name="ethnicity">
 				<option value="Asian-American">Asian</option>
 				<option value="Hispanic">Hispanic</option>
@@ -113,29 +124,33 @@
 
 		<div>
 			<input style="visibility: hidden" type="date" name="dob"
-								value="${userDeets.dob }">
+				value="${userDeets.dob }">
 		</div>
 
 		<div style="visibility: hidden" class="form-check">
 			<label class="form-check-label"> <input type="radio"
-								class="form-check-input" name="gender" id="optionsRadios1"
-								value="MLE" checked="">
+				class="form-check-input" name="gender" id="optionsRadios1"
+				value="MLE" checked="">
 			</label>
 		</div>
 		<div style="visibility: hidden" class="form-check">
 			<label class="form-check-label"> <input type="radio"
-								class="form-check-input" name="gender" id="optionsRadios2"
-								value="FMLE">
+				class="form-check-input" name="gender" id="optionsRadios2"
+				value="FMLE">
 			</label>
 		</div>
 
 		<div>
 			<input style="visibility: hidden" type="text" name="userName"
-								value="${userDeets.userName }">
+				value="${userDeets.userName }">
 		</div>
 
-	
-					</form>
+		<input style="visibility: hidden" type="text" name="name"
+			value="${userDeets.name }"> <input style="visibility: hidden"
+			type="text" name="password" value="${userDeets.password }"> <input
+			style="visibility: hidden" type="number" name="deathYear"
+			value="${userDeets.deathYear }">
+	</form>
 
 	<script type="text/javascript">
 		function yesnoChecksmoke() {
@@ -156,8 +171,7 @@
 
 		}
 	</script>
-
-
-
 </body>
+
+
 </html>

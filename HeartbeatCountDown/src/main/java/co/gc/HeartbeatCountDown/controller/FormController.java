@@ -143,11 +143,11 @@ public class FormController {
 
 		long age = userInfo.getAge();
 		if (age < 25) {
-			return new ModelAndView("income", "ethnicity", ethnicity);
-		} else {
 			userInfo.setEducation("none");
 			String education = userInfo.getEducation();
 			return income(ethnicity, education);
+		} else {
+			return new ModelAndView("education");
 		}
 
 	}
@@ -165,7 +165,7 @@ public class FormController {
 		System.out.println("ethnicity" + ethnicity);
 		System.out.println(education);
 
-		if (education != "none") {
+		if (education != null) {
 			userInfo.setEducation(education);
 		}
 		userInfo.setEthnicity(ethnicity);
@@ -188,7 +188,7 @@ public class FormController {
 		LogicController lc = new LogicController();
 		hBeats = lc.findBeatDrop(userInfo);
 		mv.addObject("hBeat", hBeats);
-		mv.addObject("deathDay", dateOfDeath(hBeats));
+		mv.addObject("deathDay",hBeats);
 		return mv;
 
 	}
@@ -210,6 +210,7 @@ public class FormController {
 		userInfo.setWeight(weight);
 		userInfo.setYears(years);
 		userInfo.setEducation(education);
+		userInfo.setStillSmokin(stillSmokin);
 
 		session.setAttribute("user", userInfo);
 		uRepo.save(userInfo);
@@ -243,6 +244,7 @@ public class FormController {
 		System.out.println("new beats: " + nHBeats);
 		mv.addObject("newHBeat", nHBeats);
 		mv.addObject("currentHBeat", hBeats);
+		mv.addObject("choices", true);
 		return mv;
 
 	}
@@ -278,40 +280,44 @@ public class FormController {
 		}
 		return deathYear;
 	}
-
-	public String dateOfDeath(long hBeats) {
-
-		int deathDays = (int) (hBeats / StatisticsModels.StatisticsModels.heartbeatsPerYear * 365);
-		LocalDate dDay = LocalDate.now().plusDays(deathDays);
-		userInfo.setDeathDay(dDay);
-		String deathSentence = dDay.getMonth() + " " + dDay.getDayOfMonth() + ", " + dDay.getYear() + ".";
-		return deathSentence;
-	}
-
-	@PostMapping("/login-result")
-	public ModelAndView login(String userName, String passWord) {
-
-		if (uRepo.findByUserName(userName) == null)
-			return new ModelAndView("index", "wrong", "Sorry, your username was not found, please create an account!");
-
-		userInfo = uRepo.findByUserName(userName);
-		if (userInfo.getPassword().equals(passWord)) {
-			ModelAndView mv = new ModelAndView("results");
-			long hBeats;
-			LogicController lc = new LogicController();
-			hBeats = lc.findBeatDrop(userInfo);
-			mv.addObject("hBeat", hBeats);
-			mv.addObject("deathDay", dateOfDeath(hBeats));
-			return mv;
-		} else
-			return new ModelAndView("index", "wrong", "Sorry, your credentials did not match, please try again!");
-
-	}
-
-	@RequestMapping("death-buddies")
-	public ModelAndView dBuddy() {
-
-		return new ModelAndView("death-buddies");
-	}
-
 }
+
+//	public String dateOfDeath(long hBeats) {
+//
+//		int deathDays = (int) (hBeats / StatisticsModels.StatisticsModels.heartbeatsPerYear * 365);
+//		LocalDate dDay = LocalDate.now().plusDays(deathDays);
+//		userInfo.setDeathDay(dDay);
+//		String deathSentence = dDay.getMonth() + " " + dDay.getDayOfMonth() + ", " + dDay.getYear() + ".";
+//		return deathSentence;
+//	}
+
+//	@PostMapping("/login-result")
+//	public ModelAndView login(String userName, String passWord) {
+//
+//		if (uRepo.findByUserName(userName) == null)
+//			return new ModelAndView("index", "wrong", "Sorry, your username was not found, please create an account!");
+//
+//		userInfo = uRepo.findByUserName(userName);
+//		if (userInfo.getPassword().equals(passWord)) {
+//			ModelAndView mv = new ModelAndView("results");
+//			long hBeats;
+//			LogicController lc = new LogicController();
+//			hBeats = lc.findBeatDrop(userInfo);
+//			mv.addObject("hBeat", hBeats);
+//			mv.addObject("deathDay", dateOfDeath(hBeats));
+//			return mv;
+//		} else
+//			return new ModelAndView("index", "wrong", "Sorry, your credentials did not match, please try again!");
+//
+//	}
+
+//	@RequestMapping("death-buddies")
+//	public ModelAndView dBuddy()
+//	{
+//		
+//		System.out.println(userInfo.getDeathDay());
+//		
+//		return new ModelAndView("death-buddies");
+//	}
+//
+//}

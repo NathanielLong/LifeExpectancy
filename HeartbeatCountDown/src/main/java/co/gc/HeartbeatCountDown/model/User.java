@@ -32,6 +32,19 @@ public class User implements Serializable {
 	private String smoke;
 	private Integer income;
 	private String ethnicity;
+	private LocalDate deathDay;
+
+
+	public LocalDate getDeathDay() {
+		return deathDay;
+	}
+
+
+	public void setDeathDay(LocalDate deathDay) {
+		this.deathDay = deathDay;
+	}
+
+
 	public String getName() {
 		return name;
 	}
@@ -403,6 +416,33 @@ public class User implements Serializable {
 		this.age = yearsOld;
 	}
 
+	public User(int id, String name, String password, String userName, String country, Double deathYear, String gender,
+			String alcohol, String dob, String education, String smoke, Integer income, String ethnicity,
+			LocalDate deathDay, Integer amount, Integer years, String stillSmokin, String amountDrunk, Integer height,
+			Integer weight, long age) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.password = password;
+		this.userName = userName;
+		this.country = country;
+		this.deathYear = deathYear;
+		this.gender = gender;
+		this.alcohol = alcohol;
+		this.dob = dob;
+		this.education = education;
+		this.smoke = smoke;
+		this.income = income;
+		this.ethnicity = ethnicity;
+		this.deathDay = deathDay;
+		this.amount = amount;
+		this.years = years;
+		this.stillSmokin = stillSmokin;
+		this.amountDrunk = amountDrunk;
+		this.height = height;
+		this.weight = weight;
+		this.age = age;
+	}
 
 	@Override
 	public String toString() {
