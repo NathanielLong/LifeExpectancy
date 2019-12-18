@@ -16,6 +16,7 @@
 <div>
 <a href="mailto:?subject=I'm dying! Save the Date!&body=You are cordially invited to my funeral. It will probably be a couple days after I die, which, at my current rate, is on ${deathDay } Venue is to be determined. Please RSVP as soon as possible. Want to see if your own funeral might conflict? Visit Beat Dropper! http://www.dropthebeat.com">Send Email</a>
 </div>
+<p>Want to see who is dying the same day as you? <a href = "/death-buddies">Find death buddies!</a></p>
 <p> You have ${hBeat/39420000} years remaining.</p>
 <p> I predict you make it to ${deathDay }
 <p> You have <span id="countdowntimer">${hBeat } </span> heartbeats remaining</p>
