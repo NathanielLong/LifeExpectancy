@@ -283,6 +283,7 @@ public class FormController {
 
 		int deathDays = (int) (hBeats / StatisticsModels.StatisticsModels.heartbeatsPerYear * 365);
 		LocalDate dDay = LocalDate.now().plusDays(deathDays);
+		userInfo.setDeathDay(dDay);
 		String deathSentence = dDay.getMonth() + " " + dDay.getDayOfMonth() + ", " + dDay.getYear() + ".";
 		return deathSentence;
 	}
@@ -313,6 +314,7 @@ return new ModelAndView("index","wrong","Sorry, your username was not found, ple
 	@RequestMapping("death-buddies")
 	public ModelAndView dBuddy()
 	{
+		
 		
 		return new ModelAndView("death-buddies");
 	}
