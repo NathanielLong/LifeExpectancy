@@ -242,6 +242,7 @@ public class FormController {
 		String url = "";
 		Double deathYear = 0.0;
 		System.out.println(userInfo.getGender() + " " + userInfo.getCountry());
+		try {
 		if(userInfo.getAge()<60)
 		url = "http://apps.who.int/gho/athena/api/GHO/WHOSIS_000001?profile=simple&filter=Year:2015;COUNTRY:"
 				+ country + ";SEX:" + gender + ";&format=json";
@@ -250,12 +251,19 @@ public class FormController {
 				+ country + ";SEX:" + gender + ";&format=json";
 		deathYear+=60;
 		}
-		try {
 		deathYear += rt.getForObject(url, PeopleResults.class).getPeopleArray().get(0).getDeathAge();
 		}
 		catch(IndexOutOfBoundsException e)
 		{
 			country = "USA";
+			if(userInfo.getAge()<60)
+			url = "http://apps.who.int/gho/athena/api/GHO/WHOSIS_000001?profile=simple&filter=Year:2015;COUNTRY:"
+					+ country + ";SEX:" + gender + ";&format=json";
+			else
+			{url = "http://apps.who.int/gho/athena/api/GHO/WHOSIS_000015?profile=simple&filter=Year:2015;COUNTRY:"
+					+ country + ";SEX:" + gender + ";&format=json";
+			deathYear+=60;
+			}
 			deathYear += rt.getForObject(url, PeopleResults.class).getPeopleArray().get(0).getDeathAge();
 		}
 		return deathYear;
