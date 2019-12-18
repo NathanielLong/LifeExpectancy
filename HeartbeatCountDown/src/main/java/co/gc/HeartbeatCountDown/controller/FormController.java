@@ -219,7 +219,7 @@ public class FormController {
 	}
 
 	@RequestMapping("/scrooge")
-	public ModelAndView scrooge() {
+	public ModelAndView scrooge(User user) {
 		ArrayList<Country> countryList = (ArrayList<Country>) cRepo.findAll();
 		ModelAndView mv = new ModelAndView("scrooge");
 		mv.addObject("countries", countryList);
