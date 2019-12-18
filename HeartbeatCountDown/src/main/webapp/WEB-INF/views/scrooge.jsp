@@ -57,7 +57,7 @@
 								style="visibility: hidden" type="radio"
 								onclick="javascript:yesnoCheck();" name="stillSmokin"
 								id="noCheck" value="${userDeets.stillSmokin }" checked>
-							<input type='number' id='years' name='years' value="0"
+							<input type='number' id='years' name='years' value="${beatsPerYear}"
 								style="visibility: hidden">
 						</div>
 					</div>
@@ -116,6 +116,7 @@
 					<div class="form-group">
 						Please select your what level of education you will strive for: <br>
 						<select class="custom-select" name="education">
+							<option value = "none">No further education</option>
 							<option value="highSchool">High school diploma</option>
 							<option value="bachelors">Bachelor's degree</option>
 							<option value="bachelors">Master's degree</option>

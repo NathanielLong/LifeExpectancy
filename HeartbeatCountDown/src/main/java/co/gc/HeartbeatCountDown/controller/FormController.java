@@ -244,6 +244,7 @@ public class FormController {
 		System.out.println("old beats: " + hBeats);
 		nHBeats = lc.findBeatDrop(user);
 		System.out.println("new beats: " + nHBeats);
+		mv.addObject("beatsPerYear", hBeats/StatisticsModels.StatisticsModels.heartbeatsPerYear);
 		mv.addObject("newHBeat", nHBeats);
 		mv.addObject("currentHBeat", hBeats);
 		mv.addObject("choices", true);
