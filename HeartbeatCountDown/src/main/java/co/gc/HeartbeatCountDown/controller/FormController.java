@@ -188,6 +188,8 @@ public class FormController {
 		long hBeats;
 		LogicController lc = new LogicController();
 		hBeats = lc.findBeatDrop(userInfo);
+		if(hBeats < 1000)
+			hBeats = 1000;
 		mv.addObject("hBeat", hBeats);
 		mv.addObject("deathDay", dateOfDeath(hBeats));
 		return mv;
