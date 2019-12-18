@@ -315,6 +315,7 @@ return new ModelAndView("index","wrong","Sorry, your username was not found, ple
 	public ModelAndView dBuddy()
 	{
 		
+		System.out.println(userInfo.getDeathDay());
 		
 		return new ModelAndView("death-buddies");
 	}
