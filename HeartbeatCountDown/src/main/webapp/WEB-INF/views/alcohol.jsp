@@ -38,8 +38,8 @@
 							name="alcohol" value="nodrink" id="noCheck"> <br>
 						<div id="ifYes" style="visibility: hidden">
 							<div class="form-group">
-								How much do you drink? <select class="custom-select"
-									name="amountDrunk">
+								How much do you drink? <br>
+								<select class="custom-select" name="amountDrunk">
 									<option value="none" hidden=" " id="zero"></option>
 									<option value="low" id="first">A drink before bed (1-2
 										drinks per day)</option>
