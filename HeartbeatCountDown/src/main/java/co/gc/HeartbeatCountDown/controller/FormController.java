@@ -284,20 +284,13 @@ public class FormController {
 
 	public String dateOfDeath(long hBeats) {
 
-		int deathDays = (int) (hBeats / StatisticsModels.StatisticsModels.heartbeatsPerYear * 365);
-		LocalDate dDay = LocalDate.now().plusDays(deathDays);
-		userInfo.setDeathDay(dDay);
-		String deathSentence = dDay.getMonth() + " " + dDay.getDayOfMonth() + ", " + dDay.getYear() + ".";
-		return deathSentence;
-	}
-
-//	int deathDays = (int) (hBeats / StatisticsModels.StatisticsModels.heartbeatsPerYear * 365);
-//	LocalDate dDay = LocalDate.now()
-//			.plusDays(deathDays);userInfo.setDeathDay(String.valueOf(dDay));System.out.println(userInfo.getDeathDay());
-//	String deathSentence = dDay.getMonth() + " " + dDay.getDayOfMonth() + ", " + dDay.getYear()
-//			+ ".";
-//	return deathSentence;
-//}
+	int deathDays = (int) (hBeats / StatisticsModels.StatisticsModels.heartbeatsPerYear * 365);
+	LocalDate dDay = LocalDate.now()
+			.plusDays(deathDays);userInfo.setDeathDay(String.valueOf(dDay));System.out.println(userInfo.getDeathDay());
+	String deathSentence = dDay.getMonth() + " " + dDay.getDayOfMonth() + ", " + dDay.getYear()
+			+ ".";
+	return deathSentence;
+}
 
 	@PostMapping("/login-result")
 	public ModelAndView login(String userName, String passWord) {
