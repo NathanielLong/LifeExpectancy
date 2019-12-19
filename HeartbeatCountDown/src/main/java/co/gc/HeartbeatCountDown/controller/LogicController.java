@@ -70,12 +70,15 @@ public class LogicController {
 	
 	@RequestMapping("/hiscores")
 	public ModelAndView hiScoreTable() {
+		ModelAndView mv = new ModelAndView("hiscores");
 		List<UserWithHeartBeats> userList = new ArrayList<>();
+		List<Double> rate = new ArrayList<>();
 		for(User u : ur.findAll())
 		{
 			System.out.println(u.getCountry());
 			userList.add(new UserWithHeartBeats(u, findBeatDrop(u)));
-			
+			rate.add((double)(u.getBpm()/60));
+			System.out.println(rate);
 		}
 		System.out.println(userList.size());
 		System.out.println("hi");
@@ -84,8 +87,11 @@ public class LogicController {
 		for(UserWithHeartBeats u : userList)
 			System.out.println(u.getUser().getUserName());
 		
-		
-		return new ModelAndView("hiscores", "scores", userList);
+		System.out.println(rate);
+		mv.addObject("beatRate", rate);
+		mv.addObject("yearsLeft", StatisticsModels.heartbeatsPerYear);
+		mv.addObject("scores", userList);
+		return mv;
 	}
 }
 	

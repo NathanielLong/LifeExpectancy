@@ -185,7 +185,8 @@ public class FormController {
 		hBeats = lc.findBeatDrop(userInfo);
 		if(hBeats < 1000)
 			hBeats = 1000;
-		mv.addObject("beatRate", userInfo.getBpm()/60);
+		Double rate = (userInfo.getBpm()/60.0);
+		mv.addObject("beatRate", rate);
 		mv.addObject("yearsLeft", hBeats/StatisticsModels.heartbeatsPerYear);
 		mv.addObject("hBeat", hBeats);
 		mv.addObject("deathDay", dateOfDeath(hBeats));
@@ -299,7 +300,9 @@ public class FormController {
 			long hBeats;
 			LogicController lc = new LogicController();
 			hBeats = lc.findBeatDrop(userInfo);
-			mv.addObject("beatRate", userInfo.getBpm()/60);
+			Double rate = (userInfo.getBpm()/60.0);
+			System.out.println(rate);
+			mv.addObject("beatRate", rate);
 			mv.addObject("yearsLeft", hBeats/StatisticsModels.heartbeatsPerYear);
 			mv.addObject("hBeat", hBeats);
 			mv.addObject("deathDay", dateOfDeath(hBeats));
