@@ -188,7 +188,7 @@ public class StatisticsModels {
 		long beatsReduced = 0;
 
 		switch (ethnicity) {
-		case "Asian-American":
+		case "Asian":
 			beatsReduced = (long) (heartbeatsPerYear * -8.4);
 			break;
 		case "Hispanic":
@@ -200,7 +200,7 @@ public class StatisticsModels {
 		case "Native American":
 			beatsReduced = (long) (heartbeatsPerYear * 1.8);
 			break;
-		case "African-American":
+		case "African":
 			beatsReduced = (long) (heartbeatsPerYear * 3.3);
 			break;
 		}

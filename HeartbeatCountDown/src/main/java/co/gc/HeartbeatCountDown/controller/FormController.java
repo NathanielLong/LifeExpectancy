@@ -74,7 +74,7 @@ public class FormController {
 		userInfo.setDob(dob);
 		LogicController lc = new LogicController();
 		LocalDate date = LocalDate.parse(dob);
-		long yearsOld = (lc.findHeartbeatsSpent(date) / StatisticsModels.StatisticsModels.heartbeatsPerYear);
+		Integer yearsOld =Integer.getInteger((Long.toString((lc.findHeartbeatsSpent(date) / StatisticsModels.StatisticsModels.heartbeatsPerYear))));
 		userInfo.setAge(yearsOld);
 		session.setAttribute("user", userInfo);
 		return new ModelAndView("smoke");
@@ -142,7 +142,7 @@ public class FormController {
 		userInfo = (User) (session.getAttribute("user"));
 		userInfo.setEthnicity(ethnicity);
 
-		long age = userInfo.getAge();
+		Integer age = userInfo.getAge();
 		if (age < 25) {
 			userInfo.setEducation("none");
 			String education = userInfo.getEducation();
@@ -151,14 +151,6 @@ public class FormController {
 			return new ModelAndView("education");
 		}
 
-	}
-
-	@PostMapping("/confirm")
-	public ModelAndView confirm(String education) {
-		userInfo = (User) (session.getAttribute("user"));
-		userInfo.setEducation(education);
-		uRepo.save(userInfo);
-		return new ModelAndView("confirmation");
 	}
 
 	@PostMapping("/income")
@@ -185,6 +177,7 @@ public class FormController {
 		userInfo.setIncome(income);
 		System.out.println(userInfo);
 		uRepo.save(userInfo);
+		userInfo.setId(uRepo.findByUserName(userInfo.getUserName()).getId());
 		long hBeats;
 		LogicController lc = new LogicController();
 		hBeats = lc.findBeatDrop(userInfo);
@@ -198,33 +191,23 @@ public class FormController {
 	}
 
 	@PostMapping("/scroogeresults")
-	public ModelAndView goToResultsFromScrooge(String userName, String country, String gender, String alcohol,
-			String dob, String education, String smoke, Integer income, String ethnicity, Integer amount, Integer years,
-			String stillSmokin, String amountDrunk, Integer height, Integer weight) {
-		userInfo = (User) (session.getAttribute("user"));
-		userInfo.setAlcohol(alcohol);
-		userInfo.setAmount(amount);
-		userInfo.setAmountDrunk(amountDrunk);
-		userInfo.setCountry(country);
-		userInfo.setIncome(income);
-		userInfo.setSmoke(smoke);
-		userInfo.setWeight(weight);
-		userInfo.setYears(years);
-		userInfo.setEducation(education);
-		userInfo.setStillSmokin(stillSmokin);
-
+	public ModelAndView goToResultsFromScrooge(User user) {
+		userInfo = user;
 		session.setAttribute("user", userInfo);
+		ModelAndView mv = new ModelAndView("results");
 		uRepo.save(userInfo);
 		System.out.println(userInfo);
 		long hBeats;
 		LogicController lc = new LogicController();
 		hBeats = lc.findBeatDrop(userInfo);
-		return new ModelAndView("results", "hBeat", hBeats);
+		mv.addObject("hBeat", hBeats);
+		mv.addObject("deathDay", dateOfDeath(hBeats));
+		return mv;
 
 	}
 
 	@RequestMapping("/scrooge")
-	public ModelAndView scrooge(User user) {
+	public ModelAndView scrooge() {
 		ArrayList<Country> countryList = (ArrayList<Country>) cRepo.findAll();
 		ModelAndView mv = new ModelAndView("scrooge");
 		mv.addObject("countries", countryList);
@@ -241,6 +224,8 @@ public class FormController {
 		Long hBeats;
 		Long nHBeats;
 		LogicController lc = new LogicController();
+		System.out.println(userInfo.getStillSmokin() + " old");
+		System.out.println(user.getStillSmokin() + " new");
 		hBeats = lc.findBeatDrop(userInfo);
 		System.out.println("old beats: " + hBeats);
 		nHBeats = lc.findBeatDrop(user);
@@ -251,6 +236,7 @@ public class FormController {
 		mv.addObject("currentHBeat", hBeats);
 		mv.addObject("choices", true);
 		mv.addObject("countries", countryList);
+		mv.addObject("userDeets",userInfo);
 		return mv;
 
 	}
@@ -304,6 +290,7 @@ public class FormController {
 
 		if (uRepo.findByUserName(userName).getPassword().equals(passWord)) {
 			userInfo = uRepo.findByUserName(userName);
+			session.setAttribute("user", userInfo);
 			ModelAndView mv = new ModelAndView("results");
 			long hBeats;
 			LogicController lc = new LogicController();

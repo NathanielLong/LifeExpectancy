@@ -57,7 +57,7 @@
 								style="visibility: hidden" type="radio"
 								onclick="javascript:yesnoCheck();" name="smoke"
 								id="noCheck" value="idontsmoke" checked>
-							<input type='number' id='years' name='years' value="${beatsPerYear}"
+							<input type='number' id='years' name='years' value="${userDeets.getYears()}"
 
 								style="visibility: hidden">
 						</div>
@@ -131,47 +131,29 @@
 						formaction="/newresults" class="btn btn-primary" name="choices">
 
 					<!-- The rest of these will be hidden -->
-					<div style="visibility: hidden" class="form-group">
-						<select class="custom-select" name="ethnicity">
-							<option value="Asian-American">Asian</option>
-							<option value="Hispanic">Hispanic</option>
-							<option value="White">White</option>
-							<option value="Native-American">Native-American</option>
-							<option value="African-American">Black</option>
-						</select>
-					</div>
-
-					<div>
-						<input style="visibility: hidden" type="date" name="dob"
+						<input style="visibility: hidden" type="number" name="id"
+							value="${userDeets.id }">
+						<input style="visibility: hidden" type="number" name="age"
+							value="${userDeets.age }">	
+						<input style="visibility: hidden" type="text" name="deathDay"
+							value="${userDeets.deathDay }">
+					<input style="visibility: hidden" type="number" name="deathYear"
+						value="${userDeets.deathYear }">
+						<input style="visibility: hidden" type="text" name="dob"
 							value="${userDeets.dob }">
-					</div>
-
-					<div style="visibility: hidden" class="form-check">
-						<label class="form-check-label"> <input type="radio"
-							class="form-check-input" name="gender" id="optionsRadios1"
-							value="MLE" checked="">
-						</label>
-					</div>
-					<div style="visibility: hidden" class="form-check">
-						<label class="form-check-label"> <input type="radio"
-							class="form-check-input" name="gender" id="optionsRadios2"
-							value="FMLE">
-						</label>
-					</div>
-
-					<div>
+						<input style="visibility: hidden" type="text" name="ethnicity"
+							value="${userDeets.ethnicity }">
+						<input style="visibility: hidden" type="text" name="gender"
+							value="${userDeets.gender }">
+						<input style="visibility: hidden" type="text" name="height"
+							value="${userDeets.height }">
+					<input style="visibility: hidden" type="text" name="name"
+						value="${userDeets.name }">
+					<input style="visibility: hidden" type="text" name="password"
+						value="${userDeets.password }">
 						<input style="visibility: hidden" type="text" name="userName"
 							value="${userDeets.userName }">
-					</div>
-
-					<input style="visibility: hidden" type="text" name="name"
-						value="${userDeets.name }"> <input
-						style="visibility: hidden" type="text" name="password"
-						value="${userDeets.password }"> <input
-						style="visibility: hidden" type="number" name="deathYear"
-						value="${userDeets.deathYear }">
 				</form>
->>>>>>> 14b99486d9fd3dff156ef2ef23348104f6a67e81
 			</div>
 		</div>
 	</div>

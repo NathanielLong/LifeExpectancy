@@ -33,7 +33,7 @@
 						<div class="form-group">
 							Which ethnicity do you identify with the most? <br>
 							<select class="custom-select" name="ethnicity">
-								<option value="Asian-American">Asian</option>
+								<option value="Asian">Asian</option>
 								<option value="Hispanic">Hispanic</option>
 								<option value="White">White</option>
 								<option value="Native-American">Native-American</option>

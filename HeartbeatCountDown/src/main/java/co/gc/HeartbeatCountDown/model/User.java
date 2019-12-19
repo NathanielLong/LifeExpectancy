@@ -71,7 +71,7 @@ public class User implements Serializable {
 	private String amountDrunk;
 	private Integer height;
 	private Integer weight;
-	private long age;
+	private Integer age;
 
 	public User() {
 		super();
@@ -82,7 +82,7 @@ public class User implements Serializable {
 	public User(Integer id, String name, String password, String userName, String country, Double deathYear, String gender,
 			String alcohol, String dob, String education, String smoke, Integer income, String ethnicity,
 			Integer amount, Integer years, String stillSmokin, String amountDrunk, Integer height, Integer weight,
-			long age) {
+			Integer age) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -109,7 +109,7 @@ public class User implements Serializable {
 	public User(String name, String password, String userName, String country, Double deathYear, String gender,
 			String alcohol, String dob, String education, String smoke, Integer income, String ethnicity,
 			Integer amount, Integer years, String stillSmokin, String amountDrunk, Integer height, Integer weight,
-			long age) {
+			Integer age) {
 		super();
 		this.name = name;
 		this.password = password;
@@ -407,18 +407,18 @@ public class User implements Serializable {
 		this.weight = weight;
 	}
 
-	public long getAge() {
+	public Integer getAge() {
 		return age;
 	}
 
-	public void setAge(long yearsOld) {
+	public void setAge(Integer yearsOld) {
 		this.age = yearsOld;
 	}
 
 	public User(Integer id, String name, String password, String userName, String country, Double deathYear, String gender,
 			String alcohol, String dob, String education, String smoke, Integer income, String ethnicity,
 			String deathDay, Integer amount, Integer years, String stillSmokin, String amountDrunk, Integer height,
-			Integer weight, long age) {
+			Integer weight, Integer age) {
 		super();
 		this.id = id;
 		this.name = name;
