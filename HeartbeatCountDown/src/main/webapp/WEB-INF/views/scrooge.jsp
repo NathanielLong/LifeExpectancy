@@ -204,9 +204,6 @@
 							>127,001 or higher</option>
 						</select>
 					</div>
-
-					<input value="${ethnicity }" name="ethnicity" type="hidden">
-
 					<div class="form-group">
 						Please select education change you would like to see: <br>
 						<select class="custom-select" name="education">

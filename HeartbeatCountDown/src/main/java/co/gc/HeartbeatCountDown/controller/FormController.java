@@ -216,8 +216,6 @@ public class FormController {
 		Long hBeats;
 		Long nHBeats;
 		LogicController lc = new LogicController();
-		System.out.println(userInfo.getSmoke() + " old");
-		System.out.println(user.getSmoke() + " new");
 		hBeats = lc.findBeatDrop(userInfo);
 		System.out.println("old beats: " + hBeats);
 		nHBeats = lc.findBeatDrop(user);
