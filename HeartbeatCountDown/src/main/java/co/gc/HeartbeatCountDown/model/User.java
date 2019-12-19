@@ -38,6 +38,7 @@ public class User implements Serializable {
 	private Integer height;
 	private Integer weight;
 	private Integer age;
+	private String email;
 
 	public User() {
 		super();
@@ -45,7 +46,7 @@ public class User implements Serializable {
 	
 	
 	
-	public User(Integer id, String name, String password, String userName, String country, Double deathYear,
+	public User(Integer id, String name, String email, String password, String userName, String country, Double deathYear,
 			String gender, String alcohol, String dob, String education, String smoke, Integer income, String ethnicity,
 			String deathDay, Integer numOfCigarettes, Integer yearsSmoked, String amountDrunk, Integer height,
 			Integer weight, Integer age) {
@@ -53,6 +54,7 @@ public class User implements Serializable {
 		this.id = id;
 		this.name = name;
 		this.password = password;
+		this.email = email;
 		this.userName = userName;
 		this.country = country;
 		this.deathYear = deathYear;
@@ -73,13 +75,14 @@ public class User implements Serializable {
 	}
 
 	public User(String name, String password, String userName, String country, Double deathYear, String gender,
-			String alcohol, String dob, String education, String smoke, Integer income, String ethnicity,
+			String alcohol, String email, String dob, String education, String smoke, Integer income, String ethnicity,
 			String deathDay, Integer numOfCigarettes, Integer yearsSmoked, String amountDrunk, Integer height,
 			Integer weight, Integer age) {
 		super();
 		this.name = name;
 		this.password = password;
 		this.userName = userName;
+		this.email = email;
 		this.country = country;
 		this.deathYear = deathYear;
 		this.gender = gender;
@@ -96,6 +99,19 @@ public class User implements Serializable {
 		this.height = height;
 		this.weight = weight;
 		this.age = age;
+	}
+
+
+	
+
+	public String getEmail() {
+		return email;
+	}
+
+
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 
@@ -283,7 +299,7 @@ public class User implements Serializable {
 				+ country + ", deathYear=" + deathYear + ", gender=" + gender + ", alcohol=" + alcohol + ", dob=" + dob
 				+ ", education=" + education + ", smoke=" + smoke + ", income=" + income + ", ethnicity=" + ethnicity
 				+ ", deathDay=" + deathDay + ", numOfCigarettes=" + numOfCigarettes + ", yearsSmoked=" + yearsSmoked
-				+ ", amountDrunk=" + amountDrunk + ", height=" + height + ", weight=" + weight + ", age=" + age + "]";
+				+ ", amountDrunk=" + amountDrunk + ", height=" + height + ", email=" + email + ", weight=" + weight + ", age=" + age + "]";
 	}
 
 

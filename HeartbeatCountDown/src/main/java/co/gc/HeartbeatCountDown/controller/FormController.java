@@ -295,14 +295,53 @@ public class FormController {
 
 	@RequestMapping("death-buddies")
 	public ModelAndView dBuddy() {
+		userInfo=(User) session.getAttribute("user");
+		uRepo.save(userInfo);
+		ModelAndView mv = new ModelAndView("death-buddies");
+		int emailCount = 0;
+		String emailString = "";
 		List<User> buddyList = new ArrayList<>();
 		System.out.println(userInfo.getDeathDay() + "test");
 		for (User u : uRepo.findAll()) {
 			System.out.println(u.getDeathDay());
 			if (u.getDeathDay().equals(userInfo.getDeathDay()))
+			{
 				buddyList.add(u);
+				if(u.getEmail()!=null)
+					emailCount++;
+				emailString+=u.getEmail() + "@@@";
+			}
 		}
-
-		return new ModelAndView("death-buddies", "buds", buddyList);
+		String[]eArray = emailString.split("@@@");
+		emailString = "";
+		if(emailCount>0)
+		{
+			for(int i = 0; i<emailCount-1; i++)
+			emailString += eArray[i] + ",";
+			emailString += eArray[emailCount-1];
+		}
+		String budCount = "";
+		if(buddyList.size()==1)
+			budCount = "Well, looks like you're going to die alone. You should add your email to your account.<br>"
+					+ "That way, when a death buddy comes along, you can plan a fun last day!";
+		mv.addObject("deathDay", userInfo.getDeathDay());
+		mv.addObject("lonelyBud", budCount);
+		mv.addObject("emailList", emailString);
+		mv.addObject("budInfo",userInfo);
+		mv.addObject("buds", buddyList);
+		System.out.println(buddyList.get(0).getUserName());
+		
+		return mv;
+	}
+	
+	@PostMapping("add-email")
+	public ModelAndView addEmail(String email)
+	{
+	userInfo = (User) session.getAttribute("user");
+	userInfo.setEmail(email);
+	uRepo.save(userInfo);
+	session.setAttribute("user",userInfo);
+	return dBuddy();
+	
 	}
 }

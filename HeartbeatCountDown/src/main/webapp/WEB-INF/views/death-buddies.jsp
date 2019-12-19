@@ -28,24 +28,32 @@
 		<div class="container-contact3">
 			<div class="wrap-contact3">
 				<span class="contact3-form-title"> Death Buddies!</span>
-				<table
-					title="List of buddies expiring on ${buds.get(0).getDeathDay() }">
+				<h4>${lonelyBud }</h4>
+					<h3>List of buddies expiring on ${deathDay }</h3>
+				<table class = "table">
 					<tr>
 						<th>User Name</th>
 					</tr>
-					<tr>
 						<c:forEach var="b" items="${buds }">
+					<tr>
 							<td>${b.getUserName() }</td>
+					</tr>
+						</c:forEach>
 
 							<br>
+<c:if test="${budInfo.email == null }">
     Enter your email if you want it to be shared exclusively with your death buddies: 
-    <form>
+    <form action = "add-email" method = "post">
 								<input type="email" name="email"></input> <input type="submit"
 									value="Submit!" class="btn btn-secondary"></input>
 							</form>
+</c:if>
 
-						</c:forEach>
-					</tr>
+
+<c:if test="${budInfo.email != null }">
+	<a href="mailto:${emailList }?subject=Attn Death Buddies dying on ${deathDay }&body=Great news, we're all dying at the same time. Let's plan something fun! Return to Beat Dropper! http://beatdropper.us-east-2.elasticbeanstalk.com">Write an email to your death buddies!</a>
+</c:if>
+
 				</table>
 			</div>
 		</div>

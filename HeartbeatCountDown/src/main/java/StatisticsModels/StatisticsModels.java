@@ -194,7 +194,7 @@ public class StatisticsModels {
 		case "Hispanic":
 			beatsReduced = (long) (heartbeatsPerYear * -4.6);
 			break;
-		case "white":
+		case "White":
 			beatsReduced = (long) (heartbeatsPerYear * -0.2);
 			break;
 		case "Native American":

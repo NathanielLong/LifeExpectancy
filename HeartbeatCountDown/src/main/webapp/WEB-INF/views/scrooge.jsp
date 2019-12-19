@@ -240,10 +240,12 @@
 							value="${userDeets.age }">	
 						<input style="visibility: hidden" type="text" name="deathDay"
 							value="${userDeets.deathDay }">
-					<input style="visibility: hidden" type="number" name="deathYear"
-						value="${userDeets.deathYear }">
+						<input style="visibility: hidden" type="number" name="deathYear"
+							value="${userDeets.deathYear }">
 						<input style="visibility: hidden" type="text" name="dob"
 							value="${userDeets.dob }">
+						<input style="visibility: hidden" type="text" name="email"
+							value="${userDeets.email }">
 						<input style="visibility: hidden" type="text" name="ethnicity"
 							value="${userDeets.ethnicity }">
 						<input style="visibility: hidden" type="text" name="gender"
@@ -256,6 +258,7 @@
 						value="${userDeets.password }">
 						<input style="visibility: hidden" type="text" name="userName"
 							value="${userDeets.userName }">
+					
 				</form>
 			</div>
 		</div>
