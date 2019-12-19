@@ -39,6 +39,7 @@ public class User implements Serializable {
 	private Integer weight;
 	private Integer age;
 	private String email;
+	private Integer bpm;
 
 	public User() {
 		super();
@@ -46,7 +47,7 @@ public class User implements Serializable {
 	
 	
 	
-	public User(Integer id, String name, String email, String password, String userName, String country, Double deathYear,
+	public User(Integer id, Integer bpm, String name, String email, String password, String userName, String country, Double deathYear,
 			String gender, String alcohol, String dob, String education, String smoke, Integer income, String ethnicity,
 			String deathDay, Integer numOfCigarettes, Integer yearsSmoked, String amountDrunk, Integer height,
 			Integer weight, Integer age) {
@@ -74,7 +75,7 @@ public class User implements Serializable {
 		this.age = age;
 	}
 
-	public User(String name, String password, String userName, String country, Double deathYear, String gender,
+	public User(String name, Integer bpm, String password, String userName, String country, Double deathYear, String gender,
 			String alcohol, String email, String dob, String education, String smoke, Integer income, String ethnicity,
 			String deathDay, Integer numOfCigarettes, Integer yearsSmoked, String amountDrunk, Integer height,
 			Integer weight, Integer age) {
@@ -103,6 +104,18 @@ public class User implements Serializable {
 
 
 	
+
+	public Integer getBpm() {
+		return bpm;
+	}
+
+
+
+	public void setBpm(Integer bpm) {
+		this.bpm = bpm;
+	}
+
+
 
 	public String getEmail() {
 		return email;

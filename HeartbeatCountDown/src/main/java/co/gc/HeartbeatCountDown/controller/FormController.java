@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
 
+import StatisticsModels.StatisticsModels;
 import co.gc.HeartbeatCountDown.CountryRepo.CountryRepo;
 import co.gc.HeartbeatCountDown.countriesmodel.Country;
 import co.gc.HeartbeatCountDown.model.PeopleResults;
@@ -74,7 +75,7 @@ public class FormController {
 		userInfo.setDob(dob);
 		LogicController lc = new LogicController();
 		LocalDate date = LocalDate.parse(dob);
-		Integer yearsOld =Integer.parseInt((Long.toString((lc.findHeartbeatsSpent(date) / StatisticsModels.StatisticsModels.heartbeatsPerYear))));
+		Integer yearsOld =Integer.parseInt((Long.toString((lc.findHeartbeatsSpent(date) / StatisticsModels.heartbeatsPerYear))));
 		System.out.println("CAN I GET AN AGE " + yearsOld);
 		userInfo.setAge(yearsOld);
 		session.setAttribute("user", userInfo);
@@ -125,11 +126,22 @@ public class FormController {
 		return new ModelAndView("bmi");
 	}
 
-	@PostMapping("/ethnicity")
-	public ModelAndView ethnicity(Integer height, Integer weight) {
+	@PostMapping("/bpm")
+	public ModelAndView bpm(Integer height, Integer weight) {
 		userInfo = (User) (session.getAttribute("user"));
 		userInfo.setWeight(weight);
 		userInfo.setHeight(height);
+		session.setAttribute("user", userInfo);
+		return new ModelAndView("bpm");
+	}
+	
+	
+	@PostMapping("/ethnicity")
+	public ModelAndView ethnicity(Integer bpm) {
+		userInfo = (User) (session.getAttribute("user"));
+		StatisticsModels sm = new StatisticsModels();
+		sm.setBpm(bpm);
+		userInfo.setBpm(bpm);
 		session.setAttribute("user", userInfo);
 		return new ModelAndView("ethnicity");
 
@@ -173,6 +185,8 @@ public class FormController {
 		hBeats = lc.findBeatDrop(userInfo);
 		if(hBeats < 1000)
 			hBeats = 1000;
+		mv.addObject("beatRate", userInfo.getBpm()/60);
+		mv.addObject("yearsLeft", hBeats/StatisticsModels.heartbeatsPerYear);
 		mv.addObject("hBeat", hBeats);
 		mv.addObject("deathDay", dateOfDeath(hBeats));
 		uRepo.save(userInfo);
@@ -220,8 +234,8 @@ public class FormController {
 		System.out.println("old beats: " + hBeats);
 		nHBeats = lc.findBeatDrop(user);
 		System.out.println("new beats: " + nHBeats);
-		mv.addObject("beatsPerYear", hBeats/StatisticsModels.StatisticsModels.heartbeatsPerYear);
-		System.out.println(hBeats/StatisticsModels.StatisticsModels.heartbeatsPerYear);
+		mv.addObject("beatsPerYear", hBeats/StatisticsModels.heartbeatsPerYear);
+		System.out.println(hBeats/StatisticsModels.heartbeatsPerYear);
 		mv.addObject("newHBeat", nHBeats);
 		mv.addObject("currentHBeat", hBeats);
 		mv.addObject("choices", true);
@@ -264,7 +278,7 @@ public class FormController {
 	}
 
 	public String dateOfDeath(long hBeats) {
-		int deathDays = (int) (hBeats / StatisticsModels.StatisticsModels.heartbeatsPerYear * 365);
+		int deathDays = (int) (hBeats / StatisticsModels.heartbeatsPerYear * 365);
 		LocalDate dDay = LocalDate.now().plusDays(deathDays);
 		userInfo.setDeathDay(String.valueOf(dDay));
 		String deathSentence = dDay.getMonth() + " " + dDay.getDayOfMonth() + ", " + dDay.getYear() + ".";
