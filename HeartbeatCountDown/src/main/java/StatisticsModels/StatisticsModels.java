@@ -1,8 +1,18 @@
 package StatisticsModels;
 
 public class StatisticsModels {
+	
+	
+	private static Integer bpm =75;
+	public static int heartbeatsPerYear = 365*24*60*bpm;
 
-	public static int heartbeatsPerYear = 39420000;
+	public static Integer getBpm() {
+		return bpm;
+	}
+
+	public void setBpm(Integer bpm) {
+		StatisticsModels.bpm = bpm;
+	}
 
 	public static int smokingBeatsReduced(int cigarettesPerDay, double yearsSmoked) {
 		// This calculates how many beats are reduced based on cigarettes smoked per day

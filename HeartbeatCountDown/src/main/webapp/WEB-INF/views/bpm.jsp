@@ -18,27 +18,24 @@
 	href="vendor/select2/select2.min.css">
 <link rel="stylesheet" type="text/css" href="styles.css">
 <link rel="stylesheet" type="text/css" href="styles.css">
-<title>BodyMassIndex</title>
+<title>DateOfBirth</title>
 </head>
 <body>
+
 
 	<div class="bg-contact3"
 		style="background-image: url('images/iStock_45504088_MEDIUM.jpg');">
 		<div class="container-contact3">
 			<div class="wrap-contact3">
-				<div class="contact3-form-radio m-r-42">
-					<form class="contact3-form validate-form" action="/bpm"
-						method="post">
-						<span class="contact3-form-title"> Beat Dropper</span> Please
-						enter your weight in pounds: <br> <input type="number"
-							name="weight" required><br> Please enter your height in
-						inches: <br> <input type="number" name="height" required> <br>
-						<div class="container-contact3-form-btn">
-							<button class="contact3-form-btn">Submit</button>
-						</div>
+				<form class="contact3-form validate-form" action="/ethnicity"
+					method=post>
+					<span class="contact3-form-title"> Beat Dropper</span> Enter your current heartrate
+					 (75 is standard): <br> <input type="number" name="bpm" value = "75" required>
 
-					</form>
-				</div>
+					<div class="container-contact3-form-btn">
+						<button class="contact3-form-btn">Submit</button>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>

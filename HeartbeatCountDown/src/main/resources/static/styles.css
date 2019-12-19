@@ -32,7 +32,6 @@ div.heartbeat
   /* background-color: red; */
   width: 50px;
   height: 50px;
-  animation: heartbeat .8s infinite;
   text-align: center;
   /* padding: 1000px,1000px,0px,0px; */
 }

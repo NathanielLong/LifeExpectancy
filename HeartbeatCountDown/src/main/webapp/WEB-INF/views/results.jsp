@@ -28,7 +28,7 @@
 		<div class="container-contact3">
 			<div class="wrap-contact3">
 				<span class="contact3-form-title"> Beat Dropper</span>
-				<p>You have ${hBeat/39420000} years remaining.</p>
+				<p>You have ${yearsLeft} years remaining.</p>
 				<p>I predict you make it to ${deathDay }</p>
 				<p>
 					You have <span id="countdowntimer">${hBeat } </span> heartbeats
@@ -44,7 +44,8 @@
 					Want to see who is dying the same day as you? <br> <a
 						href="/death-buddies">Find death buddies!</a>
 				</p>
-				<div class="heartbeat">
+				<div class="heartbeat" style = "animation: heartbeat ${1/beatRate}s infinite">
+
 					<span><img align="left" width="200" src="images/heart.png"></span>
 				</div>
 
@@ -55,16 +56,13 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-		var timeleft = $
-		{
-			hBeat
-		};
+		var timeleft = ${hBeat};
 		var downloadTimer = setInterval(function() {
 			timeleft--;
 			document.getElementById("countdowntimer").textContent = timeleft;
 			if (timeleft <= 0)
 				clearInterval(downloadTimer);
-		}, (1000 / 1.25));
+		}, (1000 / ${beatRate}));
 	</script>
 
 

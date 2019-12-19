@@ -166,6 +166,10 @@
 						value="${userDeets.weight }"> <br> <input
 						type="number" name="height" value="${userDeets.height }"
 						style="visibility: hidden"> <br>
+					Have a different heartrate? Enter the new one: <br>
+						<input type="number" name="bpm"
+						value="${userDeets.bpm }"> <br>
+						<br>
 
 					<div class="form-group">
 						Are you planning on getting a change in income? If so, please enter your new
