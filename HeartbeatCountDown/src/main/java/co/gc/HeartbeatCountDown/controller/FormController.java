@@ -299,6 +299,8 @@ public class FormController {
 			long hBeats;
 			LogicController lc = new LogicController();
 			hBeats = lc.findBeatDrop(userInfo);
+			mv.addObject("beatRate", userInfo.getBpm()/60);
+			mv.addObject("yearsLeft", hBeats/StatisticsModels.heartbeatsPerYear);
 			mv.addObject("hBeat", hBeats);
 			mv.addObject("deathDay", dateOfDeath(hBeats));
 			return mv;
