@@ -38,62 +38,58 @@
 		</c:if>
 
 					Will you continue to smoke? Yes <input type="radio"
-						onclick="javascript:yesnoChecksmoke();" name="smokeStatus" id="yesCheck"
-						value="smokeTrue"
+						onclick="javascript:yesnoChecksmoke();" name="smokeStatus"
+						id="yesCheck" value="smokeTrue"
 						<c:set var = "cigSmoke" value = "0"/>
-							<c:if test="${cigSmoke != userDeets.numOfCigarettes }">
+						<c:if test="${cigSmoke != userDeets.numOfCigarettes }">
 							checked
-							</c:if>
-						> 
-						No <input type="radio" onclick="javascript:yesnoChecksmoke();" name="smokeStatus" id="noCheck"
-						value="smokeFalse"
+							</c:if>>
+					No <input type="radio" onclick="javascript:yesnoChecksmoke();"
+						name="smokeStatus" id="noCheck" value="smokeFalse"
 						<c:if test="${cigSmoke == userDeets.numOfCigarettes }">
 							checked
-							</c:if>
-						> <br>
+							</c:if>>
+					<br>
 					<div id="ifYes" style="visibility: hidden">
 						<div class="form-group">
 							How often will you smoke? <select class="custom-select"
 								name="numOfCigarettes">
 								<option value="0" hidden=" "
-								<c:set var = "valuecig0" value = "0"/>
-							<c:if test="${valuecig0 == userDeets.numOfCigarettes }">
+									<c:set var = "valuecig0" value = "0"/>
+									<c:if test="${valuecig0 == userDeets.numOfCigarettes }">
 							selected
-							</c:if>
-								>
-								<option value="1"
-								<c:set var = "valuecig1" value = "1"/>
-							<c:if test="${valuecig1 == userDeets.numOfCigarettes }">
+							</c:if>>
+								<option value="1" <c:set var = "valuecig1" value = "1"/>
+									<c:if test="${valuecig1 == userDeets.numOfCigarettes }">
 							selected
-							</c:if>>A cigarette per day</option>
-								<option value="5"
-								<c:set var = "valuecig5" value = "5"/>
-							<c:if test="${valuecig5 == userDeets.numOfCigarettes }">
+							</c:if>>A
+									cigarette per day</option>
+								<option value="5" <c:set var = "valuecig5" value = "5"/>
+									<c:if test="${valuecig5 == userDeets.numOfCigarettes }">
 							selected
-							</c:if>
-								>1/4 a pack per day</option>
-								<option value="10"
-								<c:set var = "valuecig10" value = "10"/>
-							<c:if test="${valuecig10 == userDeets.numOfCigarettes }">
+							</c:if>>1/4
+									a pack per day</option>
+								<option value="10" <c:set var = "valuecig10" value = "10"/>
+									<c:if test="${valuecig10 == userDeets.numOfCigarettes }">
 							selected
-							</c:if>
-								>1/2 a pack per day</option>
-								<option value="20"
-								<c:set var = "valuecig20" value = "20"/>
-							<c:if test="${valuecig20 == userDeets.numOfCigarettes }">
+							</c:if>>1/2
+									a pack per day</option>
+								<option value="20" <c:set var = "valuecig20" value = "20"/>
+									<c:if test="${valuecig20 == userDeets.numOfCigarettes }">
 							selected
-							</c:if>
-								>Pack a day and above</option>
+							</c:if>>Pack
+									a day and above</option>
 							</select> <input style="visibility: hidden" type="radio"
-								onclick="javascript:yesnoCheck();" name="smoke"
-								id="yesCheck" value="SmokeTrue"><input
-								style="visibility: hidden" type="radio"
-								onclick="javascript:yesnoCheck();" name="smoke"
-								id="noCheck" value="smokeFalse" checked>
-							<input type='number' id='years' name='yearsSmoked' value="${userDeets.yearsSmoked}"
-
-								style="visibility: hidden">
+								onclick="javascript:yesnoCheck();" name="smoke" id="yesCheck"
+								value="SmokeTrue"><input style="visibility: hidden"
+								type="radio" onclick="javascript:yesnoCheck();" name="smoke"
+								id="noCheck" value="smokeFalse" checked> <input
+								type='number' id='years' name='yearsSmoked'
+								value="${userDeets.yearsSmoked}" style="visibility: hidden">
 						</div>
+						<a
+							href=https://www.helpguide.org/articles/addictions/how-to-quit-smoking.htm"">
+							Click here to learn more about how you can quit smoking</a> <br>
 					</div>
 
 					<div class="form-group">
@@ -103,61 +99,53 @@
 
 							<c:forEach var="c" items="${ countries }">
 								<option value="${c.getLabel()}"
-							<c:if test="${c.getLabel() == userDeets.country }">
+									<c:if test="${c.getLabel() == userDeets.country }">
 							selected
-							</c:if>
-								>${c.getDisplay()}</option>
+							</c:if>>${c.getDisplay()}</option>
 							</c:forEach>
 						</select>
 					</div>
 
 					Will you drink alcohol? Yes <input type="radio"
 						onclick="javascript:yesnoCheck();" name="alcohol" value="idrink"
-						id="yesCheckalc"
-						<c:set var = "checkDrink" value = "none"/>
-							<c:if test="${checkDrink != userDeets.amountDrunk }">
+						id="yesCheckalc" <c:set var = "checkDrink" value = "none"/>
+						<c:if test="${checkDrink != userDeets.amountDrunk }">
 							checked
-							</c:if>
-						> No <input type="radio"
-						onclick="javascript:yesnoCheck();" name="alcohol" value="nodrink"
-						id="noCheckalc"
-							<c:if test="${checkDrink == userDeets.amountDrunk }">
+							</c:if>>
+					No <input type="radio" onclick="javascript:yesnoCheck();"
+						name="alcohol" value="nodrink" id="noCheckalc"
+						<c:if test="${checkDrink == userDeets.amountDrunk }">
 							checked
-							</c:if>
-						> <br>
+							</c:if>>
+					<br>
 					<div id="ifYesalc" style="visibility: hidden">
 						<div class="form-group">
 							How often will you drink? <select class="custom-select"
 								name="amountDrunk">
 								<option value="none" hidden=" "
-								<c:set var = "valuedrink0" value = "none"/>
-							<c:if test="${valuedrink0 == userDeets.amountDrunk }">
+									<c:set var = "valuedrink0" value = "none"/>
+									<c:if test="${valuedrink0 == userDeets.amountDrunk }">
 							selected
-							</c:if>
-								>
-								
-								<option value="low"
-								<c:set var = "valuelow" value = "low"/>
-							<c:if test="${valuelow == userDeets.amountDrunk }">
+							</c:if>>
+								<option value="low" <c:set var = "valuelow" value = "low"/>
+									<c:if test="${valuelow == userDeets.amountDrunk }">
 							selected
-							</c:if>
-							>A drink before bed (1-2 drinks per
-									day)</option>
+							</c:if>>A
+									drink before bed (1-2 drinks per day)</option>
 								<option value="medium"
-								<c:set var = "valuemed" value = "medium"/>
-							<c:if test="${valuemed == userDeets.amountDrunk }">
+									<c:set var = "valuemed" value = "medium"/>
+									<c:if test="${valuemed == userDeets.amountDrunk }">
 							selected
-							</c:if>
-								>Every now and again (2-3.5
-									drinks per day)</option>
-								<option value="high"
-								<c:set var = "valuehigh" value = "high"/>
-							<c:if test="${valuehigh == userDeets.amountDrunk }">
+							</c:if>>Every
+									now and again (2-3.5 drinks per day)</option>
+								<option value="high" <c:set var = "valuehigh" value = "high"/>
+									<c:if test="${valuehigh == userDeets.amountDrunk }">
 							selected
-							</c:if>
-								>Bars are my second home (3.5+
-									drinks per day)</option>
-							</select>
+							</c:if>>Bars
+									are my second home (3.5+ drinks per day)</option>
+							</select> <br> <a
+								href=https://www.helpguide.org/articles/addictions/overcoming-alcohol-addiction.htm"">
+								Click here to learn more about how you can quit drinking</a>
 						</div>
 					</div>
 
@@ -165,71 +153,72 @@
 					for: <br> <input type="number" name="weight"
 						value="${userDeets.weight }"> <br> <input
 						type="number" name="height" value="${userDeets.height }"
-						style="visibility: hidden"> <br>
-					Have a different heartrate? Enter the new one: <br>
-						<input type="number" name="bpm"
-						value="${userDeets.bpm }"> <br>
-						<br>
+						style="visibility: hidden"> <br> <a
+						href=https://www.helpguide.org/articles/addictions/overcoming-alcohol-addiction.htm"">
+						Click here to learn more about how you can lose weight</a> <br>
+					Have a different heartrate? Enter the new one: <br> <input
+						type="number" name="bpm" value="${userDeets.bpm }"> <br>
+					<br>
+
 
 					<div class="form-group">
-						Are you planning on getting a change in income? If so, please enter your new
-						possible income: (if not applicable, please leave field as is)<br>
-						<select class="custom-select" name="income">
-							
-							<option value="25000"
-							<c:set var = "value25" value = "25000"/> 
-							<c:if test="${value25 == userDeets.income }">
+						Are you planning on getting a change in income? If so, please
+						enter your new possible income: (if not applicable, please leave
+						field as is)<br> <select class="custom-select" name="income">
+
+							<option value="25000" <c:set var = "value25" value = "25000"/>
+								<c:if test="${value25 == userDeets.income }">
 							selected
-							</c:if>
-							>25,000 or lower</option>
-							<option value="47500"
-							<c:set var = "value47" value = "47500"/>
-							<c:if test="${value47 == userDeets.income }">
+							</c:if>>25,000
+								or lower</option>
+							<option value="47500" <c:set var = "value47" value = "47500"/>
+								<c:if test="${value47 == userDeets.income }">
 							selected
-							</c:if>
-							>25,001 - 47,500</option>
-							<option value="77500"
-							<c:set var = "value77" value = "77500"/>
-							<c:if test="${value77 == userDeets.income }">
+							</c:if>>25,001
+								- 47,500</option>
+							<option value="77500" <c:set var = "value77" value = "77500"/>
+								<c:if test="${value77 == userDeets.income }">
 							selected
-							</c:if>
-							>47,501 - 77, 500</option>
-							<option value="127000"
-							<c:set var = "value127" value = "127000"/>
-							<c:if test="${value127 == userDeets.income }">
+							</c:if>>47,501
+								- 77, 500</option>
+							<option value="127000" <c:set var = "value127" value = "127000"/>
+								<c:if test="${value127 == userDeets.income }">
 							selected
-							</c:if>
-							>77,501 - 127,000</option>
+							</c:if>>77,501
+								- 127,000</option>
 							<option value="10000000"
-							<c:set var = "value10000000" value = "10000000"/>
-							<c:if test="${value10000000 == userDeets.income }">
+								<c:set var = "value10000000" value = "10000000"/>
+								<c:if test="${value10000000 == userDeets.income }">
 							selected
-							</c:if>
-							>127,001 or higher</option>
-						</select>
+							</c:if>>127,001
+								or higher</option>
+						</select> <br> <a
+							href="https://www.investopedia.com/personal-finance/top-highest-paying-jobs/">
+							Click here to learn more about other job opportunities</a>
 					</div>
 					<div class="form-group">
-						Please select education change you would like to see: <br>
-						<select class="custom-select" name="education">
-							<option value = "none"
-							<c:set var = "valuenone" value = "none"/>
-							<c:if test="${valuenone == userDeets.education }">
+						Please select education change you would like to see: <br> <select
+							class="custom-select" name="education">
+							<option value="none" <c:set var = "valuenone" value = "none"/>
+								<c:if test="${valuenone == userDeets.education }">
 							selected
-							</c:if>
-							>No further education</option>
+							</c:if>>No
+								further education</option>
 							<option value="highSchool"
-							<c:set var = "valuehs" value = "highSchool"/>
-							<c:if test="${valuehs == userDeets.education }">
+								<c:set var = "valuehs" value = "highSchool"/>
+								<c:if test="${valuehs == userDeets.education }">
 							selected
-							</c:if>
-							>High school diploma</option>
+							</c:if>>High
+								school diploma</option>
 							<option value="bachelors"
-							<c:set var = "valuebach" value = "bachelors"/>
-							<c:if test="${valuebach == userDeets.education }">
+								<c:set var = "valuebach" value = "bachelors"/>
+								<c:if test="${valuebach == userDeets.education }">
 							selected
-							</c:if>
-							>Bachelor's degree or higher</option>
-						</select>
+							</c:if>>Bachelor's
+								degree or higher</option>
+						</select> <br> <a
+							href=https://www.moneyunder30.com/should-you-go-back-to-school-as-an-adult"">
+							Click here to learn more about how further education can help you</a>
 					</div>
 
 					<input type="submit" Value="Commit to this path"
@@ -238,31 +227,31 @@
 						formaction="/newresults" class="btn btn-primary" name="choices">
 
 					<!-- The rest of these will be hidden -->
-						<input style="visibility: hidden" type="number" name="id"
-							value="${userDeets.id }">
-						<input style="visibility: hidden" type="number" name="age"
-							value="${userDeets.age }">	
-						<input style="visibility: hidden" type="text" name="deathDay"
-							value="${userDeets.deathDay }">
-						<input style="visibility: hidden" type="number" name="deathYear"
-							value="${userDeets.deathYear }">
-						<input style="visibility: hidden" type="text" name="dob"
-							value="${userDeets.dob }">
-						<input style="visibility: hidden" type="text" name="email"
-							value="${userDeets.email }">
-						<input style="visibility: hidden" type="text" name="ethnicity"
-							value="${userDeets.ethnicity }">
-						<input style="visibility: hidden" type="text" name="gender"
-							value="${userDeets.gender }">
-						<input style="visibility: hidden" type="text" name="height"
-							value="${userDeets.height }">
-					<input style="visibility: hidden" type="text" name="name"
-						value="${userDeets.name }">
-					<input style="visibility: hidden" type="text" name="password"
-						value="${userDeets.password }">
-						<input style="visibility: hidden" type="text" name="userName"
-							value="${userDeets.userName }">
-					
+					<input style="visibility: hidden" type="number" name="id"
+						value="${userDeets.id }"> <input
+						style="visibility: hidden" type="number" name="age"
+						value="${userDeets.age }"> <input
+						style="visibility: hidden" type="text" name="deathDay"
+						value="${userDeets.deathDay }"> <input
+						style="visibility: hidden" type="number" name="deathYear"
+						value="${userDeets.deathYear }"> <input
+						style="visibility: hidden" type="text" name="dob"
+						value="${userDeets.dob }"> <input
+						style="visibility: hidden" type="text" name="email"
+						value="${userDeets.email }"> <input
+						style="visibility: hidden" type="text" name="ethnicity"
+						value="${userDeets.ethnicity }"> <input
+						style="visibility: hidden" type="text" name="gender"
+						value="${userDeets.gender }"> <input
+						style="visibility: hidden" type="text" name="height"
+						value="${userDeets.height }"> <input
+						style="visibility: hidden" type="text" name="name"
+						value="${userDeets.name }"> <input
+						style="visibility: hidden" type="text" name="password"
+						value="${userDeets.password }"> <input
+						style="visibility: hidden" type="text" name="userName"
+						value="${userDeets.userName }">
+
 				</form>
 			</div>
 		</div>
