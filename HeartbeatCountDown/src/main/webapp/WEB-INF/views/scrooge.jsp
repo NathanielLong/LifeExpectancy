@@ -38,26 +38,59 @@
 		</c:if>
 
 					Will you continue to smoke? Yes <input type="radio"
-						onclick="javascript:yesnoChecksmoke();" name="stillSmokin" id="yesCheck"
-						value="istillsmoke"> No <input type="radio"
-						onclick="javascript:yesnoChecksmoke();" name="stillSmokin" id="noCheck"
-						value="idontsmokeanymore"> <br>
+						onclick="javascript:yesnoChecksmoke();" name="smokeStatus" id="yesCheck"
+						value="smokeTrue"
+						<c:set var = "cigSmoke" value = "0"/>
+							<c:if test="${cigSmoke != userDeets.numOfCigarettes }">
+							checked
+							</c:if>
+						> 
+						No <input type="radio" onclick="javascript:yesnoChecksmoke();" name="smokeStatus" id="noCheck"
+						value="smokeFalse"
+						<c:if test="${cigSmoke == userDeets.numOfCigarettes }">
+							checked
+							</c:if>
+						> <br>
 					<div id="ifYes" style="visibility: hidden">
 						<div class="form-group">
 							How often will you smoke? <select class="custom-select"
-								name="amount">
-								<option value="0" hidden=" ">
-								<option value="1">A cigarette per day</option>
-								<option value="5">1/4 a pack per day</option>
-								<option value="10">1/2 a pack per day</option>
-								<option value="20">Pack a day and above</option>
+								name="numOfCigarettes">
+								<option value="0" hidden=" "
+								<c:set var = "valuecig0" value = "0"/>
+							<c:if test="${valuecig0 == userDeets.numOfCigarettes }">
+							selected
+							</c:if>
+								>
+								<option value="1"
+								<c:set var = "valuecig1" value = "1"/>
+							<c:if test="${valuecig1 == userDeets.numOfCigarettes }">
+							selected
+							</c:if>>A cigarette per day</option>
+								<option value="5"
+								<c:set var = "valuecig5" value = "5"/>
+							<c:if test="${valuecig5 == userDeets.numOfCigarettes }">
+							selected
+							</c:if>
+								>1/4 a pack per day</option>
+								<option value="10"
+								<c:set var = "valuecig10" value = "10"/>
+							<c:if test="${valuecig10 == userDeets.numOfCigarettes }">
+							selected
+							</c:if>
+								>1/2 a pack per day</option>
+								<option value="20"
+								<c:set var = "valuecig20" value = "20"/>
+							<c:if test="${valuecig20 == userDeets.numOfCigarettes }">
+							selected
+							</c:if>
+								>Pack a day and above</option>
 							</select> <input style="visibility: hidden" type="radio"
 								onclick="javascript:yesnoCheck();" name="smoke"
-								id="yesCheck" value="ismoke"><input
+								id="yesCheck" value="SmokeTrue"><input
 								style="visibility: hidden" type="radio"
 								onclick="javascript:yesnoCheck();" name="smoke"
-								id="noCheck" value="idontsmoke" checked>
-							<input type='number' id='years' name='years' value="${userDeets.getYears()}"
+								id="noCheck" value="smokeFalse" checked>
+							<input type='number' id='years' name='yearsSmoked' value="${userDeets.yearsSmoked}"
 
 								style="visibility: hidden">
 						</div>
@@ -69,26 +102,60 @@
 							name="country">
 
 							<c:forEach var="c" items="${ countries }">
-								<option value="${c.getLabel()}">${c.getDisplay()}</option>
+								<option value="${c.getLabel()}"
+							<c:if test="${c.getLabel() == userDeets.country }">
+							selected
+							</c:if>
+								>${c.getDisplay()}</option>
 							</c:forEach>
 						</select>
 					</div>
 
-					Will you continue to drink alcohol? Yes <input type="radio"
+					Will you drink alcohol? Yes <input type="radio"
 						onclick="javascript:yesnoCheck();" name="alcohol" value="idrink"
-						id="yesCheckalc"> No <input type="radio"
+						id="yesCheckalc"
+						<c:set var = "checkDrink" value = "none"/>
+							<c:if test="${checkDrink != userDeets.amountDrunk }">
+							checked
+							</c:if>
+						> No <input type="radio"
 						onclick="javascript:yesnoCheck();" name="alcohol" value="nodrink"
-						id="noCheckalc"> <br>
+						id="noCheckalc"
+							<c:if test="${checkDrink == userDeets.amountDrunk }">
+							checked
+							</c:if>
+						> <br>
 					<div id="ifYesalc" style="visibility: hidden">
 						<div class="form-group">
 							How often will you drink? <select class="custom-select"
 								name="amountDrunk">
-								<option value="none" hidden=" ">
-								<option value="low">A drink before bed (1-2 drinks per
+								<option value="none" hidden=" "
+								<c:set var = "valuedrink0" value = "none"/>
+							<c:if test="${valuedrink0 == userDeets.amountDrunk }">
+							selected
+							</c:if>
+								>
+								
+								<option value="low"
+								<c:set var = "valuelow" value = "low"/>
+							<c:if test="${valuelow == userDeets.amountDrunk }">
+							selected
+							</c:if>
+							>A drink before bed (1-2 drinks per
 									day)</option>
-								<option value="medium">Every now and again (2-3.5
+								<option value="medium"
+								<c:set var = "valuemed" value = "medium"/>
+							<c:if test="${valuemed == userDeets.amountDrunk }">
+							selected
+							</c:if>
+								>Every now and again (2-3.5
 									drinks per day)</option>
-								<option value="high">Bars are my second home (3.5+
+								<option value="high"
+								<c:set var = "valuehigh" value = "high"/>
+							<c:if test="${valuehigh == userDeets.amountDrunk }">
+							selected
+							</c:if>
+								>Bars are my second home (3.5+
 									drinks per day)</option>
 							</select>
 						</div>
@@ -101,27 +168,66 @@
 						style="visibility: hidden"> <br>
 
 					<div class="form-group">
-						Are you planning on getting a raise? If so, please enter your new
+						Are you planning on getting a change in income? If so, please enter your new
 						possible income: (if not applicable, please leave field as is)<br>
 						<select class="custom-select" name="income">
-							<option value="25000">25,000 or lower</option>
-							<option value="47500">25,001 - 47,500</option>
-							<option value="77500">47,501 - 77, 500</option>
-							<option value="127000">77,501 - 127,000</option>
-							<option value="10000000">127,001 or higher</option>
+							
+							<option value="25000"
+							<c:set var = "value25" value = "25000"/> 
+							<c:if test="${value25 == userDeets.income }">
+							selected
+							</c:if>
+							>25,000 or lower</option>
+							<option value="47500"
+							<c:set var = "value47" value = "47500"/>
+							<c:if test="${value47 == userDeets.income }">
+							selected
+							</c:if>
+							>25,001 - 47,500</option>
+							<option value="77500"
+							<c:set var = "value77" value = "77500"/>
+							<c:if test="${value77 == userDeets.income }">
+							selected
+							</c:if>
+							>47,501 - 77, 500</option>
+							<option value="127000"
+							<c:set var = "value127" value = "127000"/>
+							<c:if test="${value127 == userDeets.income }">
+							selected
+							</c:if>
+							>77,501 - 127,000</option>
+							<option value="10000000"
+							<c:set var = "value10000000" value = "10000000"/>
+							<c:if test="${value10000000 == userDeets.income }">
+							selected
+							</c:if>
+							>127,001 or higher</option>
 						</select>
 					</div>
 
 					<input value="${ethnicity }" name="ethnicity" type="hidden">
 
 					<div class="form-group">
-						Please select your what level of education you will strive for: <br>
+						Please select education change you would like to see: <br>
 						<select class="custom-select" name="education">
-							<option value = "none">No further education</option>
-							<option value="highSchool">High school diploma</option>
-							<option value="bachelors">Bachelor's degree</option>
-							<option value="bachelors">Master's degree</option>
-							<option value="bachelors">Doctorate</option>
+							<option value = "none"
+							<c:set var = "valuenone" value = "none"/>
+							<c:if test="${valuenone == userDeets.education }">
+							selected
+							</c:if>
+							>No further education</option>
+							<option value="highSchool"
+							<c:set var = "valuehs" value = "highSchool"/>
+							<c:if test="${valuehs == userDeets.education }">
+							selected
+							</c:if>
+							>High school diploma</option>
+							<option value="bachelors"
+							<c:set var = "valuebach" value = "bachelors"/>
+							<c:if test="${valuebach == userDeets.education }">
+							selected
+							</c:if>
+							>Bachelor's degree or higher</option>
 						</select>
 					</div>
 

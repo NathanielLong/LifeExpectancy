@@ -74,22 +74,22 @@ public class FormController {
 		userInfo.setDob(dob);
 		LogicController lc = new LogicController();
 		LocalDate date = LocalDate.parse(dob);
-		Integer yearsOld =Integer.getInteger((Long.toString((lc.findHeartbeatsSpent(date) / StatisticsModels.StatisticsModels.heartbeatsPerYear))));
+		Integer yearsOld =Integer.parseInt((Long.toString((lc.findHeartbeatsSpent(date) / StatisticsModels.StatisticsModels.heartbeatsPerYear))));
+		System.out.println("CAN I GET AN AGE " + yearsOld);
 		userInfo.setAge(yearsOld);
 		session.setAttribute("user", userInfo);
 		return new ModelAndView("smoke");
 	}
 
 	@PostMapping("/gender")
-	public ModelAndView gender(String smoke, Integer amount, Integer years, Integer number, String stillsmokin) {
+	public ModelAndView gender(String smoke, Integer numOfCigarettes, Integer yearsSmoked) {
 		userInfo = (User) (session.getAttribute("user"));
 //		StatisticsModels.StatisticsModels.smokingBeatsReduced(amount, years);
 		userInfo.setSmoke(smoke);
-		userInfo.setAmount(amount);
-		userInfo.setYears(years);
-		userInfo.setStillSmokin(stillsmokin);
+		userInfo.setNumOfCigarettes(numOfCigarettes);
+		userInfo.setYearsSmoked(yearsSmoked);
 		session.setAttribute("user", userInfo);
-		System.out.println(smoke + " " + amount + " " + years + " " + userInfo.getStillSmokin());
+		System.out.println(smoke + " " + numOfCigarettes + " " + yearsSmoked + " " + userInfo.getSmoke());
 		return new ModelAndView("gender");
 	}
 
@@ -99,10 +99,9 @@ public class FormController {
 		userInfo = (User) (session.getAttribute("user"));
 		userInfo.setGender(gender);
 		session.setAttribute("user", userInfo);
-		ArrayList<Country> boogaloo = (ArrayList<Country>) cRepo.findAll();
-//		boogaloo.get(0).getDisplay();
+		ArrayList<Country> countryList = (ArrayList<Country>) cRepo.findAll();
 
-		return new ModelAndView("country", "countries", boogaloo);
+		return new ModelAndView("country", "countries", countryList);
 	}
 
 	@PostMapping("/alcohol")
@@ -110,6 +109,7 @@ public class FormController {
 
 		userInfo = (User) (session.getAttribute("user"));
 		userInfo.setCountry(country);
+		System.out.println("Late night test" + userInfo.getCountry() + " " + userInfo.getGender() + " " + userInfo.getAge());
 		userInfo.setDeathYear(getDeathYear());
 		System.out.println(userInfo.getDeathYear());
 		session.setAttribute("user", userInfo);
@@ -128,8 +128,6 @@ public class FormController {
 	@PostMapping("/ethnicity")
 	public ModelAndView ethnicity(Integer height, Integer weight) {
 		userInfo = (User) (session.getAttribute("user"));
-//		userInfo.setIncome(income);
-		// long age = user.getAge();
 		userInfo.setWeight(weight);
 		userInfo.setHeight(height);
 		session.setAttribute("user", userInfo);
@@ -140,13 +138,13 @@ public class FormController {
 	@PostMapping("/education")
 	public ModelAndView education(String ethnicity) {
 		userInfo = (User) (session.getAttribute("user"));
+		System.out.println("the real ethnicity");
 		userInfo.setEthnicity(ethnicity);
-
+		session.setAttribute("user", userInfo);
 		Integer age = userInfo.getAge();
 		if (age < 25) {
-			userInfo.setEducation("none");
-			String education = userInfo.getEducation();
-			return income(ethnicity, education);
+			String education = "none";
+			return income(education);
 		} else {
 			return new ModelAndView("education");
 		}
@@ -154,16 +152,8 @@ public class FormController {
 	}
 
 	@PostMapping("/income")
-	public ModelAndView income(String ethnicity, String education) {
-		System.out.println("ethnicity" + ethnicity);
-		System.out.println(education);
-
-		if (education != null) {
+	public ModelAndView income(String education) {
 			userInfo.setEducation(education);
-		}
-		userInfo.setEthnicity(ethnicity);
-		System.out.println(userInfo.getEthnicity());
-//		uRepo.save(userInfo);
 		return new ModelAndView("income");
 	}
 
@@ -217,15 +207,17 @@ public class FormController {
 
 	@RequestMapping("/newresults")
 	public ModelAndView newHeartBeats(User user) {
+		
 		ModelAndView mv = new ModelAndView("scrooge");
 		ArrayList<Country> countryList = (ArrayList<Country>) cRepo.findAll();
+		System.out.println(user.getEthnicity());
 		System.out.println("This is the user: " + user);
 		System.out.println(userInfo);
 		Long hBeats;
 		Long nHBeats;
 		LogicController lc = new LogicController();
-		System.out.println(userInfo.getStillSmokin() + " old");
-		System.out.println(user.getStillSmokin() + " new");
+		System.out.println(userInfo.getSmoke() + " old");
+		System.out.println(user.getSmoke() + " new");
 		hBeats = lc.findBeatDrop(userInfo);
 		System.out.println("old beats: " + hBeats);
 		nHBeats = lc.findBeatDrop(user);

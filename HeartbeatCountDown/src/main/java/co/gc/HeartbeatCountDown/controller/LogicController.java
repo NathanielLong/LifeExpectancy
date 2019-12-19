@@ -31,20 +31,25 @@ public class LogicController {
 	public long findBeatDrop(User user){
 		System.out.println(user);
 		long heartBeatsLeft = (long) (user.getDeathYear()*StatisticsModels.heartbeatsPerYear);
-		heartBeatsLeft -= StatisticsModels.smokingBeatsReduced(user.getAmount(), user.getYears());
+		heartBeatsLeft -= StatisticsModels.smokingBeatsReduced(user.getNumOfCigarettes(), user.getYearsSmoked());
+		System.out.println("Smoking" + heartBeatsLeft);
 		heartBeatsLeft -= StatisticsModels.alcoholBeatsReduced(user.getAlcohol());
+		System.out.println("alcohol" + heartBeatsLeft);
 		heartBeatsLeft -= StatisticsModels.incomeBeatsLost(user.getIncome(), user.getGender());
+		System.out.println("income" + heartBeatsLeft);
 		heartBeatsLeft -= StatisticsModels.ethnicityBeatsLost(user.getEthnicity());
-		System.out.println(heartBeatsLeft);
+		System.out.println("ethnicity" + heartBeatsLeft);
 		heartBeatsLeft -= StatisticsModels.bmiBeatsReduced(user.getHeight(), user.getWeight(), user.getGender());
-//		System.out.println(heartBeatsLeft);
+		System.out.println("bmi" + heartBeatsLeft);
 		heartBeatsLeft -= findHeartbeatsSpent(LocalDate.parse(user.getDob()));
-		System.out.println(heartBeatsLeft);
+		System.out.println("subtract age" + heartBeatsLeft);
 		heartBeatsLeft -= StatisticsModels.educationBeatsReduced(user.getEducation(), user.getGender());
-		if(user.getStillSmokin().equals("istillsmoke"))
+		System.out.println("Education" + heartBeatsLeft);
+		if(user.getSmoke().equals("smokeTrue"))
 				{
 			Double keepSmoking = (double) (heartBeatsLeft/StatisticsModels.heartbeatsPerYear);
-			heartBeatsLeft -= StatisticsModels.smokingBeatsReduced(user.getAmount(), keepSmoking);
+			heartBeatsLeft -= StatisticsModels.smokingBeatsReduced(user.getNumOfCigarettes(), keepSmoking);
+				System.out.println("keep smoking" + heartBeatsLeft);
 				}
 		
 		return heartBeatsLeft;
