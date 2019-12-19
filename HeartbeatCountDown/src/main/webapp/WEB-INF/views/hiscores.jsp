@@ -31,7 +31,8 @@
 						<th onclick="sortTable(0)">Username</th>
 						<th onclick="sortTable(1)">Country</th>
 						<th onclick="sortTableNum(2)">Years Left</th>
-						<th onclick="sortTableNum(3)">Heartbeats</th>
+						<th onclick="sortTableNum(3)">Age</th>
+						<th onclick="sortTableNum(4)">Heartbeats</th>
 
 					</tr>
 					<c:forEach var="u" items="${scores }">
@@ -39,6 +40,7 @@
 							<td>${u.getUser().getUserName() }</td>
 							<td>${u.getUser().getCountry() }</td>
 							<td>${u.getHeartBeats()/39420000 }</td>
+							<td>${u.getUser().getAge() }</td>
 							<td> <span id="countdowntimer">${u.getHeartBeats() } </span>
 							<td>
 						</tr>
