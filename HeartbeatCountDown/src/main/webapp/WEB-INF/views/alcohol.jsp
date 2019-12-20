@@ -30,11 +30,12 @@
 					<form class="contact3-form validate-form" action="/bmi"
 						method="post">
 						<span class="contact3-form-title"> Beat Dropper</span> Do you
-						drink alcohol? <label>Yes 
+						drink alcohol?<br> <label>Yes 
 						<input type="radio"
 							onclick="javascript:yesnoCheck(); possibleFirst();"
 							name="alcohol" value="idrink" id="yesCheck" required>
 						</label>
+						<br>
 						<label>No
 						<input type="radio"
 							onclick="javascript:yesnoCheck(); possibleFirst();"
