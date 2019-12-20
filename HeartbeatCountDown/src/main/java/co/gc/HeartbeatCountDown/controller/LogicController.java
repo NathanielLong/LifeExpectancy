@@ -30,6 +30,8 @@ public class LogicController {
 	
 	public long findBeatDrop(User user){
 		System.out.println(user);
+		StatisticsModels sm = new StatisticsModels();
+		sm.setBpm(user.getBpm());
 		long heartBeatsLeft = (long) (user.getDeathYear()*StatisticsModels.heartbeatsPerYear);
 		heartBeatsLeft -= StatisticsModels.smokingBeatsReduced(user.getNumOfCigarettes(), user.getYearsSmoked());
 		System.out.println("Smoking" + heartBeatsLeft);

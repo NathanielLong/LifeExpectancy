@@ -35,12 +35,12 @@
 						<th onclick="sortTableNum(4)">Heartbeats</th>
 
 					</tr>
-					<c:forEach var="u" items="${scores }">
+					<c:forEach var="u" items="${scores }" varStatus = "status">
 						<tr>
 							<td>${u.getUser().getUserName() }</td>
 							<td>${u.getUser().getCountry() }</td>
 							<td>${u.getUser().getAge() }</td>
-							<td>${u.getHeartBeats()/39420000 }</td>
+							<td>${u.getHeartBeats()/(u.getUser().getBpm()*24*60*365) }</td>
 							<td id="countdowntimer">${u.getHeartBeats() }
 							<td>
 						</tr>
