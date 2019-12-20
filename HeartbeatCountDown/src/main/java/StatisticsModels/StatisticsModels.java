@@ -12,6 +12,7 @@ public class StatisticsModels {
 
 	public void setBpm(Integer bpm) {
 		StatisticsModels.bpm = bpm;
+		heartbeatsPerYear = 365*24*60*bpm;
 	}
 
 	public static int smokingBeatsReduced(int cigarettesPerDay, double yearsSmoked) {
@@ -106,7 +107,7 @@ public class StatisticsModels {
 
 		long beatsReduced = 0;
 
-		double bmi = 703 * (weight / (height * height));
+		double bmi = 703 * ((double)weight / (double)(height * height));
 
 		if (bmi < 18.5) {
 			switch (gender) {

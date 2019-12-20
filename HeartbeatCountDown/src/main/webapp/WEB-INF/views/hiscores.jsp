@@ -30,8 +30,8 @@
 					<tr>
 						<th onclick="sortTable(0)">Username</th>
 						<th onclick="sortTable(1)">Country</th>
-						<th onclick="sortTableNum(2)">Years Left</th>
-						<th onclick="sortTableNum(3)">Age</th>
+						<th onclick="sortTableNum(2)">Age</th>
+						<th onclick="sortTableNum(3)">Years Left</th>
 						<th onclick="sortTableNum(4)">Heartbeats</th>
 
 					</tr>
@@ -39,9 +39,9 @@
 						<tr>
 							<td>${u.getUser().getUserName() }</td>
 							<td>${u.getUser().getCountry() }</td>
-							<td>${u.getHeartBeats()/39420000 }</td>
 							<td>${u.getUser().getAge() }</td>
-							<td> <span id="countdowntimer">${u.getHeartBeats() } </span>
+							<td>${u.getHeartBeats()/39420000 }</td>
+							<td id="countdowntimer">${u.getHeartBeats() }
 							<td>
 						</tr>
 					</c:forEach>
@@ -53,14 +53,6 @@
 
 
 	<script>
-	var timeleft = ${hBeat};
-	var downloadTimer = setInterval(function() {
-		timeleft--;
-		document.getElementById("countdowntimer").textContent = timeleft;
-		if (timeleft <= 0)
-			clearInterval(downloadTimer);
-	}, (1000 / ${beatRate}));
-	
 		function sortTable(n) {
 			var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
 			table = document.getElementById("scoreboard");
