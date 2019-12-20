@@ -41,7 +41,7 @@
 						</c:forEach>
 
 							<br>
-<c:if test="${budInfo.email == null }">
+<c:if test="${(budInfo.email == null) or buddInfo.email == emptyCheck }">
     Enter your email if you want it to be shared exclusively with your death buddies: 
     <form action = "add-email" method = "post">
 								<input type="email" name="email"></input> <input type="submit"

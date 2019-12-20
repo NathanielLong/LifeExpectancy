@@ -247,8 +247,6 @@
 						value="${userDeets.deathYear }"> <input
 						style="visibility: hidden" type="text" name="dob"
 						value="${userDeets.dob }"> <input
-						style="visibility: hidden" type="text" name="email"
-						value="${userDeets.email }"> <input
 						style="visibility: hidden" type="text" name="ethnicity"
 						value="${userDeets.ethnicity }"> <input
 						style="visibility: hidden" type="text" name="gender"
@@ -262,6 +260,11 @@
 						style="visibility: hidden" type="text" name="userName"
 						value="${userDeets.userName }">
 
+<c:if test="${userDeets.email != null }">
+						<input
+						style="visibility: hidden" type="text" name="email"
+						value="${userDeets.email }"> 
+</c:if>
 				</form>
 			</div>
 		</div>

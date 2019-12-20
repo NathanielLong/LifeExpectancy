@@ -47,6 +47,36 @@ public class User implements Serializable {
 	
 	
 	
+	public User(Integer id, String name, String password, String userName, String country, Double deathYear,
+			String gender, String alcohol, String dob, String education, String smoke, Integer income, String ethnicity,
+			String deathDay, Integer numOfCigarettes, Integer yearsSmoked, String amountDrunk, Integer height,
+			Integer weight, Integer age, Integer bpm) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.password = password;
+		this.userName = userName;
+		this.country = country;
+		this.deathYear = deathYear;
+		this.gender = gender;
+		this.alcohol = alcohol;
+		this.dob = dob;
+		this.education = education;
+		this.smoke = smoke;
+		this.income = income;
+		this.ethnicity = ethnicity;
+		this.deathDay = deathDay;
+		this.numOfCigarettes = numOfCigarettes;
+		this.yearsSmoked = yearsSmoked;
+		this.amountDrunk = amountDrunk;
+		this.height = height;
+		this.weight = weight;
+		this.age = age;
+		this.bpm = bpm;
+	}
+
+
+
 	public User(Integer id, Integer bpm, String name, String email, String password, String userName, String country, Double deathYear,
 			String gender, String alcohol, String dob, String education, String smoke, Integer income, String ethnicity,
 			String deathDay, Integer numOfCigarettes, Integer yearsSmoked, String amountDrunk, Integer height,

@@ -351,6 +351,7 @@ public class FormController {
 					+ "That way, when a death buddy comes along, you can plan a fun last day!";
 		mv.addObject("deathDay", userInfo.getDeathDay());
 		mv.addObject("lonelyBud", budCount);
+		mv.addObject("emptyCheck", "");
 		mv.addObject("emailList", emailString);
 		mv.addObject("budInfo",userInfo);
 		mv.addObject("buds", buddyList);
