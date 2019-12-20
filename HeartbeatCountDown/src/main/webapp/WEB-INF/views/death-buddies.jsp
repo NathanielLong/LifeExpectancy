@@ -55,6 +55,7 @@
 </c:if>
 
 				</table>
+				<br><a class="btn btn-primary" href="/">Home</a>
 			</div>
 		</div>
 	</div>

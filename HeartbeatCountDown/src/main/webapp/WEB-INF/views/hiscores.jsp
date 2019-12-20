@@ -46,6 +46,7 @@
 						</tr>
 					</c:forEach>
 				</table>
+				<br><a class="btn btn-primary" href="/">Home</a><br>
 			</div>
 		</div>
 	</div>
