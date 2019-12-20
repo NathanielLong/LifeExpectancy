@@ -205,6 +205,9 @@ public class FormController {
 		long hBeats;
 		LogicController lc = new LogicController();
 		hBeats = lc.findBeatDrop(userInfo);
+		Double rate = (userInfo.getBpm()/60.0);
+		mv.addObject("beatRate", rate);
+		mv.addObject("yearsLeft", hBeats/StatisticsModels.heartbeatsPerYear);
 		mv.addObject("hBeat", hBeats);
 		mv.addObject("deathDay", dateOfDeath(hBeats));
 		return mv;
@@ -279,7 +282,9 @@ public class FormController {
 	}
 
 	public String dateOfDeath(long hBeats) {
-		int deathDays = (int) (hBeats / StatisticsModels.heartbeatsPerYear * 365);
+		System.out.println(userInfo.getBpm() +" friyay");
+		int deathDays = (int) ((hBeats / (userInfo.getBpm()*60*24)));
+		
 		LocalDate dDay = LocalDate.now().plusDays(deathDays);
 		userInfo.setDeathDay(String.valueOf(dDay));
 		String deathSentence = dDay.getMonth() + " " + dDay.getDayOfMonth() + ", " + dDay.getYear() + ".";
@@ -326,15 +331,16 @@ public class FormController {
 			if (u.getDeathDay().equals(userInfo.getDeathDay()))
 			{
 				buddyList.add(u);
-				if(u.getEmail()!=null)
+				if(u.getEmail()!=null && !u.getEmail().equals(""))
 					emailCount++;
 				emailString+=u.getEmail() + "@@@";
 			}
 		}
 		String[]eArray = emailString.split("@@@");
-		emailString = "";
+		
 		if(emailCount>0)
 		{
+			emailString = "";
 			for(int i = 0; i<emailCount-1; i++)
 			emailString += eArray[i] + ",";
 			emailString += eArray[emailCount-1];
