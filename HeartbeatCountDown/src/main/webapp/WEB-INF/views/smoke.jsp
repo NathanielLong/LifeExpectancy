@@ -30,11 +30,18 @@
 					<form action="/gender" method="post">
 						<span class="contact3-form-title"> Beat Dropper</span>
 						<h5>Do you smoke?</h5>
-						<br> Yes <input type="radio"
+						<br>
+						<label>
+						 Yes <input type="radio"
 							onclick="javascript:yesnoCheck(); possibleSecond();"
-							name="smokeCheck" id="yesCheck" value="ysmoke"> No <input
+							name="smokeCheck" id="yesCheck" value="ysmoke"> 
+						</label>
+						<label>
+							No <input
 							type="radio" onclick="javascript:yesnoCheck(); possibleSecond();"
-							name="smokeCheck" id="noCheck" value="nsmoke" required> <br>
+							name="smokeCheck" id="noCheck" value="nsmoke" required>
+						</label>
+							 <br>
 						<div id="ifYes" style="visibility: hidden">
 							<div class="form-group">
 								How often do you smoke? <select class="custom-select"

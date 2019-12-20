@@ -37,18 +37,23 @@
 
 		</c:if>
 
-					Will you continue to smoke? Yes <input type="radio"
+					Will you continue to smoke?
+					<label>
+					 Yes <input type="radio"
 						onclick="javascript:yesnoChecksmoke();" name="smokeStatus"
 						id="yesCheck" value="smokeTrue"
 						<c:set var = "cigSmoke" value = "0"/>
 						<c:if test="${cigSmoke != userDeets.numOfCigarettes }">
 							checked
 							</c:if>>
+					</label>
+					<label>
 					No <input type="radio" onclick="javascript:yesnoChecksmoke();"
 						name="smokeStatus" id="noCheck" value="smokeFalse"
 						<c:if test="${cigSmoke == userDeets.numOfCigarettes }">
 							checked
 							</c:if>>
+					</label>
 					<br>
 					<div id="ifYes" style="visibility: hidden">
 						<div class="form-group">
@@ -106,17 +111,22 @@
 						</select>
 					</div>
 
-					Will you drink alcohol? Yes <input type="radio"
+					Will you drink alcohol? 
+					<label>
+					Yes <input type="radio"
 						onclick="javascript:yesnoCheck();" name="alcohol" value="idrink"
 						id="yesCheckalc" <c:set var = "checkDrink" value = "none"/>
 						<c:if test="${checkDrink != userDeets.amountDrunk }">
 							checked
 							</c:if>>
+					</label>
+					<label>
 					No <input type="radio" onclick="javascript:yesnoCheck();"
 						name="alcohol" value="nodrink" id="noCheckalc"
 						<c:if test="${checkDrink == userDeets.amountDrunk }">
 							checked
 							</c:if>>
+					</label>
 					<br>
 					<div id="ifYesalc" style="visibility: hidden">
 						<div class="form-group">
