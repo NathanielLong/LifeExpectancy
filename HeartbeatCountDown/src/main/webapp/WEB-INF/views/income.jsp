@@ -32,7 +32,7 @@
 						method="post">
 						<span class="contact3-form-title"> Beat Dropper</span>
 						<div class="form-group">
-							What is your current income range? <br> <select
+							What is your current household income range? <br> <select
 								class="custom-select" name="income">
 								<option value="25000">25,000 or lower</option>
 								<option value="47500">25,001 - 47,500</option>
